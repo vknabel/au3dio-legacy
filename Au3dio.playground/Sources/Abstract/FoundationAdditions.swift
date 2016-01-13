@@ -1,4 +1,6 @@
 
+import Foundation
+
 extension SequenceType {
     public func castReduce<T>() -> [T] {
         return reduce([], combine: { (var slf, val) -> [T] in
@@ -28,5 +30,18 @@ extension Dictionary {
             result[newKey] = newValue
         }
         return result
+    }
+}
+
+public extension String {
+    public var nsstring: NSString {
+        return self as NSString
+    }
+    public init?(path: String = "", relativeTo: NSSearchPathDirectory, domain: NSSearchPathDomainMask = .AllDomainsMask, expandTilde: Bool = true) {
+        if let s = NSSearchPathForDirectoriesInDomains(relativeTo, domain, expandTilde).first?.nsstring.stringByAppendingPathComponent(path) {
+            self = s
+        } else {
+            return nil
+        }
     }
 }

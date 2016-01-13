@@ -5,9 +5,13 @@ public final class Au3dioModule: ModuleType, Then {
     private var phaseMachine: StateMachine<Phase>
     /// Stores all module interactors
     public private(set) var moduleInteractors: [Au3dioInteractorType] = []
+    public let configuration: Au3dioConfiguration
+    public var componentMap: ComponentMap = ComponentMap()
 
     /// Create an instance of Au3dioModule by the given Au3dioInteractorTypes.
-    public init(interactorTypes: [Au3dioInteractorType.Type]) {
+    public init(configuration: Au3dioConfiguration, interactorTypes: [Au3dioInteractorType.Type]) {
+        self.configuration = configuration
+        
         phaseMachine = StateMachine(initial: .Preparation(.Initial)) { trans in
             trans.allow(from: .Preparation(.Initial), to: .Preparation(.PrepareHooks))
             trans.allow(from: .Preparation(.PrepareHooks), to: .Preparation(.RegisterHooks))
@@ -17,8 +21,8 @@ public final class Au3dioModule: ModuleType, Then {
         moduleInteractors.appendContentsOf(interactorTypes.map { $0.init(module: self) })
     }
     /// Create an instance of Au3dioModule by the given list of Au3dioInteractorTypes.
-    public convenience init(listOfInteractionTypes interactorTypes: Au3dioInteractorType.Type...) {
-        self.init(interactorTypes: interactorTypes)
+    public convenience init(configuration: Au3dioConfiguration, listOfInteractionTypes interactorTypes: Au3dioInteractorType.Type...) {
+        self.init(configuration: configuration, interactorTypes: interactorTypes)
     }
 
     /// Performs the given operation on phase transitions to a given phase.

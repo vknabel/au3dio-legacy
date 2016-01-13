@@ -1,16 +1,14 @@
 
-public typealias JsonDataType = AnyObject
-
 public protocol AnyComposition: PersistentModeExportable {
-    init(data: JsonDataType)
+    init(data: JSON)
 
-    var compositions: [String: AnyComponent] { get set }
+    var components: [String: AnyComponent] { get set }
 }
 public protocol AnyComponent: PersistentModeExportable {
-    init(composition: AnyComposition, data: JsonDataType)
+    init(composition: AnyComposition, data: JSON)
 }
 
-public enum PersistenceMode: Int {
+public enum PersistenceMode: Int, Hashable {
     /// The default storage, that is readonly.
     /// Typically results of an .Descriptive export are used data source.
     case Readonly = 0
@@ -28,5 +26,5 @@ public enum PersistenceMode: Int {
 }
 
 public protocol PersistentModeExportable {
-    func export() -> JsonDataType
+    func export() -> JSON
 }
