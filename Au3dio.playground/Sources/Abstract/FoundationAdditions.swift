@@ -44,4 +44,17 @@ public extension String {
             return nil
         }
     }
+
+    public mutating func appendPath(relativePath: String) {
+        self = nsstring.stringByAppendingPathComponent(relativePath)
+    }
+    public func appendingPath(relativePath: String) -> String {
+        return nsstring.stringByAppendingPathComponent(relativePath)
+    }
+    public mutating func appendFileExtension(fileExtension: String) {
+        self = nsstring.stringByAppendingPathExtension(fileExtension) ?? "\(self).\(fileExtension)"
+    }
+    public func appendingFileExtension(fileExtension: String) -> String {
+        return nsstring.stringByAppendingPathExtension(fileExtension) ?? "\(self).\(fileExtension)"
+    }
 }

@@ -4,12 +4,13 @@ public final class Au3dioModule: ModuleType, Then {
     /// State Machine for possible phases of the Au3dioModule.
     private var phaseMachine: StateMachine<Phase>
     /// Stores all module interactors
-    public private(set) var moduleInteractors: [Au3dioInteractorType] = []
+    public lazy var dataManager: Au3dioDataManager = Au3dioDataManager(module: self)
+    public private(set) lazy var moduleParts: [Au3dioModulePart] = [self.dataManager]
     public let configuration: Au3dioConfiguration
     public var componentMap: ComponentMap = ComponentMap()
 
     /// Create an instance of Au3dioModule by the given Au3dioInteractorTypes.
-    public init(configuration: Au3dioConfiguration, interactorTypes: [Au3dioInteractorType.Type]) {
+    public init(configuration: Au3dioConfiguration, pluginTypes: [Au3dioModulePart.Type]) {
         self.configuration = configuration
         
         phaseMachine = StateMachine(initial: .Preparation(.Initial)) { trans in
@@ -18,11 +19,11 @@ public final class Au3dioModule: ModuleType, Then {
             trans.allow(from: .Preparation(.RegisterHooks), to: .Runtime(.Idle))
             trans.allowAssociatively([.Runtime(.Idle), .Runtime(.Running)])
         }
-        moduleInteractors.appendContentsOf(interactorTypes.map { $0.init(module: self) })
+        moduleParts.appendContentsOf(pluginTypes.map { $0.init(module: self) })
     }
-    /// Create an instance of Au3dioModule by the given list of Au3dioInteractorTypes.
-    public convenience init(configuration: Au3dioConfiguration, listOfInteractionTypes interactorTypes: Au3dioInteractorType.Type...) {
-        self.init(configuration: configuration, interactorTypes: interactorTypes)
+    /// Create an instance of Au3dioModule by the given list of Au3dioPluginTypes.
+    public convenience init(configuration: Au3dioConfiguration, listOfPluginTypes pluginTypes: Au3dioModulePart.Type...) {
+        self.init(configuration: configuration, pluginTypes: pluginTypes)
     }
 
     /// Performs the given operation on phase transitions to a given phase.
