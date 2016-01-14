@@ -1,17 +1,22 @@
 
 public typealias JSONType = JSON
 public protocol CompositionType: ModePersistable {
-    init()
+    init(idPath: IdPath)
+    var idPath: IdPath { get }
     var components: [String: ComponentType] { get set }
 }
 public protocol ComponentType: ModePersistable {
-    init(composition: CompositionType, rawData: JSONType)
+    init(composition: CompositionType, key: String)
+    mutating func readData(rawData: JSONType, mode: PersistenceMode)
 }
 
 public struct Composition: CompositionType {
+    public let idPath: IdPath
     public var components: [String: ComponentType] = [:]
 
-    public init() { }
+    public init(idPath: IdPath) {
+        self.idPath = idPath
+    }
 
     public func export() -> JSONType {
         return JSONType(components.mapDict({ ($0.0, $0.1.export()) }))
@@ -19,11 +24,12 @@ public struct Composition: CompositionType {
 }
 
 public extension CompositionType {
-    public mutating func readComponents(rawData: JSON, map: ComponentMap.MapType) throws {
+    public mutating func readComponents(rawData: JSONType, map: ComponentMap.MapType, mode: PersistenceMode) throws {
         assert(rawData.type == .Dictionary, "ComponentType.readComponents requires rawData.type to be .Dictionary,  \(rawData.type)")
         for (k, sub) in rawData {
             guard let type = map[k] else { throw Au3dioDataManager.FetchError.UnknownComponent(k) }
-            self.components[k] = type.init(composition: self, rawData: sub)
+            self.components[k] = type.init(composition: self, key: k)
+            self.components[k]?.readData(sub, mode: mode)
         }
     }
 }
@@ -46,5 +52,9 @@ public enum PersistenceMode: Int, Hashable {
 }
 
 public protocol ModePersistable {
-    func export() -> JSON
+    func export() -> JSONType
+}
+
+public protocol ExtendedModePersistable {
+    func save(ensureCached: (IdPath, Int) -> Void) throws
 }

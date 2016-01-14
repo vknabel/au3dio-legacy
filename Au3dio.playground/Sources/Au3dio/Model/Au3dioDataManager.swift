@@ -24,8 +24,8 @@ public final class Au3dioDataManager: Au3dioModulePart {
     }
     public func fetchIdPath(idPath: IdPath, mode: PersistenceMode) throws -> RootComposition {
         let raw = try fetchRawOnce(idPath, mode: mode)
-        var root = Composition()
-        try root.readComponents(raw, map: module.componentMap.componentTypes)
+        var root = Composition(idPath: idPath)
+        try root.readComponents(raw, map: module.componentMap.componentTypes, mode: mode)
         return root
     }
 

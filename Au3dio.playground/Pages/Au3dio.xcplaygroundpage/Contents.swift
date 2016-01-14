@@ -7,7 +7,7 @@
 */
 
 import Foundation
-
+/*
 final class ScenarioNamePlugin: Au3dioModulePart {
     var module: Au3dioModule
     init(module: Au3dioModule) {
@@ -17,9 +17,11 @@ final class ScenarioNamePlugin: Au3dioModulePart {
     }
 }
 struct ScenarioNameComponent: ComponentType {
-    var name: String
+    var name: String = ""
 
-    init(composition: CompositionType, rawData: JSON) {
+    init(composition: CompositionType, key: String) { }
+
+    mutating func readData(rawData: JSONType, mode: PersistenceMode) {
         name = rawData.string ?? ""
     }
 
@@ -37,9 +39,11 @@ final class GreetingPlugin: Au3dioModulePart {
     }
 
     struct Component: ComponentType {
-        var greeting: String
+        var greeting: String = ""
 
-        init(composition: CompositionType, rawData: JSON) {
+        init(composition: CompositionType, key: String) { }
+
+        mutating func readData(rawData: JSONType, mode: PersistenceMode) {
             greeting = rawData.string ?? ""
         }
 
@@ -47,7 +51,33 @@ final class GreetingPlugin: Au3dioModulePart {
             return JSON(greeting)
         }
     }
+}*/
+final class ScenarioListPlugin: Au3dioModulePart {
+    var module: Au3dioModule
+    init(module: Au3dioModule) {
+        self.module = module
+
+        module.componentMap.componentTypes["scenarios"] = Component.self
+    }
+
+    struct ExternalComponent: ComponentType, ExtendedModePersistable {
+        var idPath: IdPath
+        private let _list: [String] = []
+
+        init(composition: CompositionType, key: String) {
+            idPath = IdPath(idPath: composition.idPath, suffix: key)
+        }
+        mutating func readData(rawData: JSONType, mode: PersistenceMode) {
+            assertEqual(rawData.type, .Array)
+            _list = []
+            for (_, v) in rawData {
+                assertEqual(rawData.type, .String)
+                _list.append(v.stringValue)
+            }
+        }
+    }
 }
+
 let paths: [PersistenceMode: String] = [
     PersistenceMode.Readonly: "Readonly",
     .Descriptive: "Descriptive",
@@ -57,8 +87,9 @@ let paths: [PersistenceMode: String] = [
 let config = Au3dioConfiguration(persistenceModePaths: paths)
 let au3dio = Au3dioModule(configuration: config, listOfPluginTypes:
     GameDataInteractor.self,
-    ScenarioNamePlugin.self,
-    GreetingPlugin.self
+    //ScenarioNamePlugin.self,
+    //GreetingPlugin.self,
+    ScenarioListPlugin.self
 )
 
 do {

@@ -1,6 +1,13 @@
 
 import Foundation
 
+func assertEqual<T: Equatable>(@autoclosure lhs: () -> T, @autoclosure _ rhs: () -> T, file: StaticString = __FILE__, line: UInt = __LINE__) {
+    #if debug
+    let (l, r) = (lhs(), rhs())
+    assert(lhs == rhs, "\(file):\(line) Expected value to be \(lhs), given \(rhs)")
+    #endif
+}
+
 extension SequenceType {
     public func castReduce<T>() -> [T] {
         return reduce([], combine: { (var slf, val) -> [T] in
