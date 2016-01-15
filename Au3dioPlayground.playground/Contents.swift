@@ -6,52 +6,56 @@
 - Implement hook for every implementation of Composition: (String) -> Component.Type
 */
 
-import Foundation
-/*
-final class ScenarioNamePlugin: Au3dioModulePart {
-    var module: Au3dioModule
-    init(module: Au3dioModule) {
-        self.module = module
+import Then
+import Au3dio
+import SwiftyJSON
 
-        module.componentMap.componentTypes["name"] = ScenarioNameComponent.self
-    }
+
+final class ScenarioNamePlugin: Au3dio.Au3dioModulePart {
+var module: Au3dioModule
+init(module: Au3dioModule) {
+self.module = module
+
+module.componentMap.componentTypes["name"] = ScenarioNameComponent.self
+}
 }
 struct ScenarioNameComponent: ComponentType {
-    var name: String = ""
+var name: String = ""
 
-    init(composition: CompositionType, key: String) { }
+init(composition: CompositionType, key: String) { }
 
-    mutating func readData(rawData: JSONType, mode: PersistenceMode) {
-        name = rawData.string ?? ""
-    }
+mutating func readData(rawData: JSONType, mode: PersistenceMode) {
+name = rawData.string ?? ""
+}
 
-    func export() -> JSON {
-        return JSON(name)
-    }
+func export() -> JSON {
+return JSON(name)
+}
 }
 
 final class GreetingPlugin: Au3dioModulePart {
-    var module: Au3dioModule
-    init(module: Au3dioModule) {
-        self.module = module
+var module: Au3dioModule
+init(module: Au3dioModule) {
+self.module = module
 
-        module.componentMap.componentTypes["greeting"] = Component.self
-    }
+module.componentMap.componentTypes["greeting"] = Component.self
+}
 
-    struct Component: ComponentType {
-        var greeting: String = ""
+struct Component: ComponentType {
+var greeting: String = ""
 
-        init(composition: CompositionType, key: String) { }
+init(composition: CompositionType, key: String) { }
 
-        mutating func readData(rawData: JSONType, mode: PersistenceMode) {
-            greeting = rawData.string ?? ""
-        }
+mutating func readData(rawData: JSONType, mode: PersistenceMode) {
+greeting = rawData.string ?? ""
+}
 
-        func export() -> JSON {
-            return JSON(greeting)
-        }
-    }
-}*/
+func export() -> JSON {
+return JSON(greeting)
+}
+}
+}
+
 final class ScenarioListPlugin: Au3dioModulePart {
     var module: Au3dioModule
     init(module: Au3dioModule) {
@@ -60,9 +64,9 @@ final class ScenarioListPlugin: Au3dioModulePart {
         module.componentMap.componentTypes["scenarios"] = Component.self
     }
 
-    struct ExternalComponent: ComponentType, ExtendedModePersistable {
+    struct Component: ComponentType, ExtendedModePersistable {
         var idPath: IdPath
-        private let _list: [String] = []
+        private var _list: [String] = []
 
         init(composition: CompositionType, key: String) {
             idPath = IdPath(idPath: composition.idPath, suffix: key)
@@ -74,6 +78,10 @@ final class ScenarioListPlugin: Au3dioModulePart {
                 assertEqual(rawData.type, .String)
                 _list.append(v.stringValue)
             }
+        }
+        func save(ensureCached: (IdPath, Int) -> Void) throws { }
+        func export() -> JSONType {
+            return JSONType(NSNull())
         }
     }
 }
@@ -87,8 +95,8 @@ let paths: [PersistenceMode: String] = [
 let config = Au3dioConfiguration(persistenceModePaths: paths)
 let au3dio = Au3dioModule(configuration: config, listOfPluginTypes:
     GameDataInteractor.self,
-    //ScenarioNamePlugin.self,
-    //GreetingPlugin.self,
+    ScenarioNamePlugin.self,
+    GreetingPlugin.self,
     ScenarioListPlugin.self
 )
 

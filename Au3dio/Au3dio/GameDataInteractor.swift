@@ -1,4 +1,6 @@
 
+import Then
+
 public final class GameDataInteractor: Au3dioInteractorType, InteractorType, Then {
 
     public var module: Au3dioModule

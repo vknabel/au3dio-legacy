@@ -1,6 +1,6 @@
 
 import Foundation
-//import SwiftyJSON
+import SwiftyJSON
 
 public final class Au3dioDataManager: Au3dioModulePart {
     public var module: Au3dioModule
@@ -15,7 +15,8 @@ public final class Au3dioDataManager: Au3dioModulePart {
             guard let prefixPath = module.configuration.persistenceModePaths[mode]
                 else { throw FetchError.UndefinedMode }
             let path = idPath.absolutePath(prefixPath)
-            return JSON(data: NSData(contentsOfFile: path)!)
+            guard let data = NSData(contentsOfFile: path) else { throw FetchError.FileNotFound }
+            return JSON(data: data)
         } catch let error as FetchError {
             throw error
         } catch let error as NSError {
@@ -41,6 +42,7 @@ public extension Au3dioDataManager {
 
     public enum FetchError: ErrorType {
         case UndefinedMode
+        case FileNotFound
         case UnknownComponent(String)
         case NotImplemented
         case InvalidTargetObject

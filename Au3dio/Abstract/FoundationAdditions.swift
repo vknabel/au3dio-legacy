@@ -1,7 +1,7 @@
 
 import Foundation
 
-func assertEqual<T: Equatable>(@autoclosure lhs: () -> T, @autoclosure _ rhs: () -> T, file: StaticString = __FILE__, line: UInt = __LINE__) {
+public func assertEqual<T: Equatable>(@autoclosure lhs: () -> T, @autoclosure _ rhs: () -> T, file: StaticString = __FILE__, line: UInt = __LINE__) {
     #if debug
     let (l, r) = (lhs(), rhs())
     assert(lhs == rhs, "\(file):\(line) Expected value to be \(lhs), given \(rhs)")

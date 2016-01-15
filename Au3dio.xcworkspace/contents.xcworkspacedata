@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:Carthage/Checkouts/SwiftyJSON/SwiftyJSON.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "container:Au3dioPlayground.playground">
+   </FileRef>
+   <FileRef
+      location = "group:Carthage/Checkouts/Then/Then.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Carthage/Checkouts/StateMachine/StateMachine.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Carthage/Checkouts/ArrayMap/ArrayMap.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Carthage/Checkouts/ConclurerHook/ConclurerHook/ConclurerHook.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "container:Au3dio.xcodeproj">
+   </FileRef>
+</Workspace>

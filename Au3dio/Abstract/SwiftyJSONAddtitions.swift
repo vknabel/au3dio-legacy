@@ -1,5 +1,6 @@
 
 import Foundation
+import SwiftyJSON
 
 public extension JSON {
 

@@ -1,5 +1,5 @@
 
-public struct IdPath {
+public struct IdPath: CustomStringConvertible {
     internal var pathComponents: [String]
 
     public init(id: String) {
@@ -13,6 +13,12 @@ public struct IdPath {
 
     public func absolutePath(path: String) -> String {
         return pathComponents.reduce(path, combine: {
+            $0.appendingPath($1)
+        }).appendingFileExtension("json")
+    }
+
+    public var description: String {
+        return pathComponents.reduce("", combine: {
             $0.appendingPath($1)
         }).appendingFileExtension("json")
     }

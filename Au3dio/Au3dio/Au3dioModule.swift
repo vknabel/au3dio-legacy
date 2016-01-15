@@ -1,4 +1,7 @@
 
+import Then
+import StateMachine
+
 /// The Interactor to be used in order to communicate with the framework.
 public final class Au3dioModule: ModuleType, Then {
     /// State Machine for possible phases of the Au3dioModule.

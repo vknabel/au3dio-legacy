@@ -1,0 +1,5 @@
+github "valentinknabel/ArrayMap"
+github "valentinknabel/StateMachine"
+github "Conclurer/ConclurerHook"
+github "SwiftyJSON/SwiftyJSON"
+github "devxoul/Then"

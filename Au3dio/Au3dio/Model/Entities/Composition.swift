@@ -1,4 +1,6 @@
 
+import SwiftyJSON
+
 public typealias JSONType = JSON
 public protocol CompositionType: ModePersistable {
     init(idPath: IdPath)
@@ -55,6 +57,6 @@ public protocol ModePersistable {
     func export() -> JSONType
 }
 
-public protocol ExtendedModePersistable {
+public protocol ExtendedModePersistable: ModePersistable {
     func save(ensureCached: (IdPath, Int) -> Void) throws
 }
