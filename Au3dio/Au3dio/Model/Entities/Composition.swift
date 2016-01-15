@@ -9,7 +9,7 @@ public protocol CompositionType: ModePersistable {
 }
 public protocol ComponentType: ModePersistable {
     init(composition: CompositionType, key: String)
-    mutating func readData(rawData: JSONType, mode: PersistenceMode)
+    mutating func readData(rawData: JSONType, map: ComponentMap.MapType, mode: PersistenceMode, module: Au3dioModule) throws
 }
 
 public struct Composition: CompositionType {
@@ -20,19 +20,40 @@ public struct Composition: CompositionType {
         self.idPath = idPath
     }
 
-    public func export() -> JSONType {
-        return JSONType(components.mapDict({ ($0.0, $0.1.export()) }))
+    public func export(mode: PersistenceMode) -> JSONType {
+        return JSONType(components.mapDict({ ($0.0, $0.1.export(mode)) }))
+    }
+}
+public struct InlineComposition: CompositionType {
+    public let idPath: IdPath
+    public var components: [String: ComponentType] = [:]
+
+    public init(idPath: IdPath) {
+        self.idPath = idPath
+    }
+
+    public func export(mode: PersistenceMode) -> JSONType {
+        return JSONType(components.mapDict({ ($0.0, $0.1.export(mode)) }))
     }
 }
 
 public extension CompositionType {
-    public mutating func readComponents(rawData: JSONType, map: ComponentMap.MapType, mode: PersistenceMode) throws {
+    public mutating func readData(rawData: JSONType, map: ComponentMap.MapType, mode: PersistenceMode, module: Au3dioModule) throws {
         assert(rawData.type == .Dictionary, "ComponentType.readComponents requires rawData.type to be .Dictionary,  \(rawData.type)")
         for (k, sub) in rawData {
-            guard let type = map[k] else { throw Au3dioDataManager.FetchError.UnknownComponent(k) }
+            guard let type = map[k] else { throw Au3dioDataManager.FetchError.UnknownComponent(__FILE__, __LINE__, rawData, k) }
             self.components[k] = type.init(composition: self, key: k)
-            self.components[k]?.readData(sub, mode: mode)
+            try self.components[k]?.readData(sub, map: map, mode: mode, module: module)
         }
+    }
+
+    public func findComponent<T: ComponentType>(type: T.Type) -> T? {
+        for c in components {
+            if let c = c as? T {
+                return c
+            }
+        }
+        return nil
     }
 }
 
@@ -54,7 +75,7 @@ public enum PersistenceMode: Int, Hashable {
 }
 
 public protocol ModePersistable {
-    func export() -> JSONType
+    func export(mode: PersistenceMode) -> JSONType
 }
 
 public protocol ExtendedModePersistable: ModePersistable {

@@ -4,7 +4,13 @@ import Foundation
 public func assertEqual<T: Equatable>(@autoclosure lhs: () -> T, @autoclosure _ rhs: () -> T, file: StaticString = __FILE__, line: UInt = __LINE__) {
     #if debug
     let (l, r) = (lhs(), rhs())
-    assert(lhs == rhs, "\(file):\(line) Expected value to be \(lhs), given \(rhs)")
+    assert(l == r, "\(file):\(line) Expected value to be \(r), given \(l)")
+    #endif
+}
+public func assertOneOf<T: Equatable>(@autoclosure lhs: () -> T, @autoclosure _ rhss: () -> [T], file: StaticString = __FILE__, line: UInt = __LINE__) {
+    #if debug
+        let (l, rs) = (lhs(), rhss())
+        assert(rs.contains(l), "\(file):\(line) Expected value to be one of \(rs), given \(l)")
     #endif
 }
 

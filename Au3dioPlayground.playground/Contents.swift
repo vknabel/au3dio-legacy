@@ -5,84 +5,109 @@
 - Implement `Au3dioDataManager`
 - Implement hook for every implementation of Composition: (String) -> Component.Type
 */
+import Foundation
 
-import Then
-import Au3dio
-import SwiftyJSON
+/*
+public final class GreetingPlugin: Au3dioModulePlugin {
+    public var module: Au3dioModule
+    public init(module: Au3dioModule) {
+        self.module = module
 
+        module.componentMap.componentTypes["greeting"] = Component.self
+    }
 
-final class ScenarioNamePlugin: Au3dio.Au3dioModulePart {
-var module: Au3dioModule
-init(module: Au3dioModule) {
-self.module = module
+    public struct Component: ComponentType {
+        public var greeting: String = ""
 
-module.componentMap.componentTypes["name"] = ScenarioNameComponent.self
+        public init(composition: CompositionType, key: String) { }
+
+        public mutating func readData(rawData: JSONType, map: ComponentMap.MapType, mode: PersistenceMode) throws {
+            greeting = rawData.string ?? ""
+        }
+
+        public func export() -> JSON {
+            return JSON(greeting)
+        }
+    }
 }
-}
-struct ScenarioNameComponent: ComponentType {
-var name: String = ""
+public final class NamePlugin: Au3dioModulePlugin {
+    public var module: Au3dioModule
+    public init(module: Au3dioModule) {
+        self.module = module
 
-init(composition: CompositionType, key: String) { }
+        module.componentMap.componentTypes["name"] = NameComponent.self
+    }
 
-mutating func readData(rawData: JSONType, mode: PersistenceMode) {
-name = rawData.string ?? ""
-}
+    public struct NameComponent: ComponentType {
+        public var name: String = ""
 
-func export() -> JSON {
-return JSON(name)
-}
-}
+        public init(composition: CompositionType, key: String) { }
 
-final class GreetingPlugin: Au3dioModulePart {
-var module: Au3dioModule
-init(module: Au3dioModule) {
-self.module = module
+        public mutating func readData(rawData: JSONType, map: ComponentMap.MapType, mode: PersistenceMode) throws {
+            guard rawData.type == .String else { throw Au3dioDataManager.FetchError.InvalidFormat }
+            name = rawData.string ?? ""
+        }
 
-module.componentMap.componentTypes["greeting"] = Component.self
-}
-
-struct Component: ComponentType {
-var greeting: String = ""
-
-init(composition: CompositionType, key: String) { }
-
-mutating func readData(rawData: JSONType, mode: PersistenceMode) {
-greeting = rawData.string ?? ""
+        public func export(mode: PersistenceMode) -> JSONType {
+            switch mode {
+            case .Readonly, .SemiPersistent:
+                return JSON(NSNull())
+            case .Descriptive, .FullyPersistent:
+                return JSON(name)
+            }
+        }
+    }
 }
 
-func export() -> JSON {
-return JSON(greeting)
+public protocol ScenarioListComponentType {
+    var scenarios: [CompositionType] { get }
 }
-}
-}
-
-final class ScenarioListPlugin: Au3dioModulePart {
-    var module: Au3dioModule
-    init(module: Au3dioModule) {
+public final class ScenarioListPlugin: Au3dioModulePlugin {
+    public let module: Au3dioModule
+    public init(module: Au3dioModule) {
         self.module = module
 
         module.componentMap.componentTypes["scenarios"] = Component.self
     }
 
-    struct Component: ComponentType, ExtendedModePersistable {
-        var idPath: IdPath
-        private var _list: [String] = []
+    public struct Component: ComponentType, ScenarioListComponentType {
+        private var idPath: IdPath
+        private var readModes: [PersistenceMode] = []
+        public private(set) var scenarios: [CompositionType] = []
 
-        init(composition: CompositionType, key: String) {
-            idPath = IdPath(idPath: composition.idPath, suffix: key)
-        }
-        mutating func readData(rawData: JSONType, mode: PersistenceMode) {
+        public mutating func readData(rawData: JSONType, map: ComponentMap.MapType, mode: PersistenceMode) throws {
             assertEqual(rawData.type, .Array)
-            _list = []
+
+            defer { readModes.append(mode) }
             for (_, v) in rawData {
-                assertEqual(rawData.type, .String)
-                _list.append(v.stringValue)
+                assertEqual(rawData.type, .Dictionary)
+                var scenario = ScenarioComposition(idPath: idPath)
+                try scenario.readComponents(v, map: map, mode: mode)
+                scenarios.append(scenario)
             }
         }
-        func save(ensureCached: (IdPath, Int) -> Void) throws { }
-        func export() -> JSONType {
-            return JSONType(NSNull())
+        public init(composition: CompositionType, key: String) {
+            idPath = composition.idPath
         }
+        public func export(mode: PersistenceMode) -> JSONType {
+            return JSONType(scenarios.map { $0.export(mode) })
+        }
+    }
+
+    public struct ExternalComponent: ComponentType, ExtendedModePersistable {
+    var idPath: IdPath
+    private var _list: [String] = []
+
+    public init(composition: CompositionType, key: String) {
+    idPath = IdPath(idPath: composition.idPath, suffix: key)
+    }
+    mutating public func readData(rawData: JSONType, mode: PersistenceMode) {
+    assertEqual(rawData.type, .String)
+    }
+    public func save(ensureCached: (IdPath, Int) -> Void) throws { }
+    public func export() -> JSONType {
+    return JSONType(NSNull())
+    }
     }
 }
 
@@ -95,7 +120,7 @@ let paths: [PersistenceMode: String] = [
 let config = Au3dioConfiguration(persistenceModePaths: paths)
 let au3dio = Au3dioModule(configuration: config, listOfPluginTypes:
     GameDataInteractor.self,
-    ScenarioNamePlugin.self,
+    NamePlugin.self,
     GreetingPlugin.self,
     ScenarioListPlugin.self
 )
@@ -109,3 +134,4 @@ do {
 } catch {
     print("failed \(error)")
 }
+*/

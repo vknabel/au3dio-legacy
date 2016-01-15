@@ -8,12 +8,12 @@ public final class Au3dioModule: ModuleType, Then {
     private var phaseMachine: StateMachine<Phase>
     /// Stores all module interactors
     public lazy var dataManager: Au3dioDataManager = Au3dioDataManager(module: self)
-    public private(set) lazy var moduleParts: [Au3dioModulePart] = [self.dataManager]
+    public private(set) lazy var modulePlugins: [Au3dioModulePlugin] = [self.dataManager]
     public let configuration: Au3dioConfiguration
     public var componentMap: ComponentMap = ComponentMap()
 
     /// Create an instance of Au3dioModule by the given Au3dioInteractorTypes.
-    public init(configuration: Au3dioConfiguration, pluginTypes: [Au3dioModulePart.Type]) {
+    public init(configuration: Au3dioConfiguration, pluginTypes: [Au3dioModulePlugin.Type]) {
         self.configuration = configuration
         
         phaseMachine = StateMachine(initial: .Preparation(.Initial)) { trans in
@@ -22,10 +22,10 @@ public final class Au3dioModule: ModuleType, Then {
             trans.allow(from: .Preparation(.RegisterHooks), to: .Runtime(.Idle))
             trans.allowAssociatively([.Runtime(.Idle), .Runtime(.Running)])
         }
-        moduleParts.appendContentsOf(pluginTypes.map { $0.init(module: self) })
+        modulePlugins.appendContentsOf(pluginTypes.map { $0.init(module: self) })
     }
     /// Create an instance of Au3dioModule by the given list of Au3dioPluginTypes.
-    public convenience init(configuration: Au3dioConfiguration, listOfPluginTypes pluginTypes: Au3dioModulePart.Type...) {
+    public convenience init(configuration: Au3dioConfiguration, listOfPluginTypes pluginTypes: Au3dioModulePlugin.Type...) {
         self.init(configuration: configuration, pluginTypes: pluginTypes)
     }
 
@@ -63,6 +63,17 @@ public extension Au3dioModule {
             /// Currently there is a game running in this context.
             case Running
         }
+    }
+}
+
+public extension Au3dioModule {
+    public func findPlugin<T: Au3dioModulePlugin>(type: T.Type) -> T? {
+        for c in self.modulePlugins {
+            if let c = c as? T {
+                return c
+            }
+        }
+        return nil
     }
 }
 

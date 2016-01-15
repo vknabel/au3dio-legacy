@@ -2,7 +2,7 @@
 import Foundation
 import SwiftyJSON
 
-public final class Au3dioDataManager: Au3dioModulePart {
+public final class Au3dioDataManager: Au3dioModulePlugin {
     public var module: Au3dioModule
 
     public init(module: Au3dioModule) {
@@ -10,7 +10,7 @@ public final class Au3dioDataManager: Au3dioModulePart {
     }
 
     /// :throws: `FetchError`
-    private func fetchRawOnce(idPath: IdPath, mode: PersistenceMode) throws -> JSON {
+    public func fetchRawIdPath(idPath: IdPath, mode: PersistenceMode) throws -> JSON {
         do {
             guard let prefixPath = module.configuration.persistenceModePaths[mode]
                 else { throw FetchError.UndefinedMode }
@@ -23,10 +23,10 @@ public final class Au3dioDataManager: Au3dioModulePart {
             throw FetchError.FoundationError(error)
         }
     }
-    public func fetchIdPath(idPath: IdPath, mode: PersistenceMode) throws -> RootComposition {
-        let raw = try fetchRawOnce(idPath, mode: mode)
+    public func fetchRootIdPath(idPath: IdPath, mode: PersistenceMode) throws -> RootComposition {
+        let raw = try fetchRawIdPath(idPath, mode: mode)
         var root = Composition(idPath: idPath)
-        try root.readComponents(raw, map: module.componentMap.componentTypes, mode: mode)
+        try root.readData(raw, map: module.componentMap.componentTypes, mode: mode, module: module)
         return root
     }
 
@@ -42,8 +42,9 @@ public extension Au3dioDataManager {
 
     public enum FetchError: ErrorType {
         case UndefinedMode
+        case InvalidFormat(String, Int, Any)
         case FileNotFound
-        case UnknownComponent(String)
+        case UnknownComponent(String, Int, Any, String)
         case NotImplemented
         case InvalidTargetObject
         case NoData

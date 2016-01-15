@@ -2,10 +2,16 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Carthage/Checkouts/SwiftyJSON/SwiftyJSON.xcodeproj">
+      location = "container:Au3dio.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Au3dioPlaygroundApplication/Au3dioPlaygroundApplication.xcodeproj">
    </FileRef>
    <FileRef
       location = "container:Au3dioPlayground.playground">
+   </FileRef>
+   <FileRef
+      location = "group:Carthage/Checkouts/SwiftyJSON/SwiftyJSON.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Carthage/Checkouts/Then/Then.xcodeproj">
@@ -18,8 +24,5 @@
    </FileRef>
    <FileRef
       location = "group:Carthage/Checkouts/ConclurerHook/ConclurerHook/ConclurerHook.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "container:Au3dio.xcodeproj">
    </FileRef>
 </Workspace>
