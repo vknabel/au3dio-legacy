@@ -20,9 +20,10 @@ func play() {
 
     do {
         let rootId = IdPath(id: "Au3dioData")
-        let root = try au3dio.dataManager.fetchRootIdPath(rootId, mode: .Readonly)
+        let root = au3dio.dataManager.rootComposition
         print("succeeded: \(root.components)")
 
+        try au3dio.dataManager.reloadRootComposition()
         let testId = IdPath(idPath: rootId, suffix: "ScenarioList")
     } catch {
         print("failed \(error)")

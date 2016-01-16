@@ -72,6 +72,10 @@ public enum PersistenceMode: Int, Hashable {
     /// The highest layer of persistence. All data will be saved.
     /// .FullyPersistent data usually represents saved games.
     case FullyPersistent
+
+    public static func allPersistenceModes<T: ArrayLiteralConvertible where T.Element == PersistenceMode>() -> T {
+        return [PersistenceMode.Readonly, .Descriptive, .SemiPersistent, .FullyPersistent]
+    }
 }
 
 public protocol ModePersistable {
@@ -79,5 +83,5 @@ public protocol ModePersistable {
 }
 
 public protocol ExtendedModePersistable: ModePersistable {
-    func save(ensureCached: (IdPath, Int) -> Void) throws
+    func save(module: Au3dioModule, modes: Set<PersistenceMode>) throws
 }
