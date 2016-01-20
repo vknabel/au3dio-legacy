@@ -15,10 +15,14 @@ public final class NamePlugin: Au3dioModulePlugin {
         public init(composition: CompositionType, key: String) { }
 
         public mutating func readData(rawData: JSONType, map: ComponentMap.MapType, mode: PersistenceMode, module: Au3dioModule) throws {
-            guard rawData.type == .String else {
+            switch rawData.type {
+            case .String:
+                name = rawData.stringValue
+            case .Null:
+                break
+            default:
                 throw Au3dioDataManager.FetchError.InvalidFormat(__FILE__, __LINE__, rawData)
             }
-            name = rawData.string ?? ""
         }
 
         public func export(mode: PersistenceMode) -> JSONType {

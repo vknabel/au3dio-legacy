@@ -21,7 +21,12 @@ public final class GreetingPlugin: Au3dioModulePlugin {
         }
 
         public func export(mode: PersistenceMode) -> JSON {
-            return JSON(greeting)
+            switch mode {
+            case .Readonly, .SemiPersistent:
+                return JSONType(NSNull())
+            case .Descriptive, .FullyPersistent:
+                return JSONType(greeting)
+            }
         }
     }
 }

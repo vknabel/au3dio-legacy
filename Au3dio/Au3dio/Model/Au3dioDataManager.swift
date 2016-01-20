@@ -6,7 +6,7 @@ public final class Au3dioDataManager: Au3dioModulePlugin {
     public var module: Au3dioModule
     public let rootIdPath = IdPath(id: "Au3dioRoot")
 
-    public private(set) lazy var rootComposition: RootComposition = self.fetchRootCompositionUnthrowingly()
+    public lazy var rootComposition: RootComposition = self.fetchRootCompositionUnthrowingly()
 
     public init(module: Au3dioModule) {
         self.module = module
@@ -35,7 +35,7 @@ public final class Au3dioDataManager: Au3dioModulePlugin {
         do {
             guard let prefixPath = module.configuration.persistenceModePaths[mode]
                 else { throw FetchError.UndefinedMode }
-            let path = idPath.absolutePath(prefixPath)
+            let path = idPath.filePath(prefixPath)
             guard let data = NSData(contentsOfFile: path) else { throw FetchError.FileNotFound(__FILE__, __LINE__, path) }
             return JSON(data: data)
         } catch let error as FetchError {
@@ -56,7 +56,7 @@ public final class Au3dioDataManager: Au3dioModulePlugin {
     public func saveRawData(rawData: JSONType, idPath: IdPath, mode: PersistenceMode) throws {
         guard let path = module.configuration.persistenceModePaths[mode] else { return }
         let data = try rawData.rawData()
-        try data.writeToFile(idPath.absolutePath(idPath.absolutePath(path)), options: NSDataWritingOptions.DataWritingAtomic)
+        try data.writeToFile(idPath.filePath(path), options: NSDataWritingOptions.DataWritingAtomic)
     }
     public func saveRootComposition(modes: Set<PersistenceMode> = PersistenceMode.allPersistenceModes()) throws {
         try savePersistable(rootComposition, idPath: rootIdPath, modes: modes)
@@ -64,12 +64,18 @@ public final class Au3dioDataManager: Au3dioModulePlugin {
     /// TODO: Discuss
     public func savePersistable<T: ModePersistable>(persistable: T, idPath: IdPath, modes: Set<PersistenceMode> = PersistenceMode.allPersistenceModes()) throws {
         for m in PersistenceMode.allPersistenceModes() where modes.contains(m) {
+            createIdPathDirectory(idPath, mode:  m)
             let raw = persistable.export(m)
             try saveRawData(raw, idPath: idPath, mode: m)
         }
         if let composition = persistable as? ExtendedModePersistable {
             try composition.save(module, modes: modes)
         }
+    }
+
+    public func createIdPathDirectory(idPath: IdPath, mode: PersistenceMode) {
+        guard let prefixPath = module.configuration.persistenceModePaths[mode] else { return }
+        _ = try? NSFileManager.defaultManager().createDirectoryAtPath(idPath.directoryPath(prefixPath), withIntermediateDirectories: true, attributes: nil)
     }
 }
 

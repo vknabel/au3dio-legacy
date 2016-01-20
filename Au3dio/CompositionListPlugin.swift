@@ -21,7 +21,7 @@ public final class CompositionListPlugin: Au3dioModulePlugin {
     public struct Component: ComponentType, ScenarioListComponentType {
         private var idPath: IdPath
         private var readModesExternal: [PersistenceMode: Bool] = [:] /// wether a specific mode is external or internal
-        public private(set) var scenarios: [CompositionType] = []
+        public var scenarios: [CompositionType] = []
 
         public init(composition: CompositionType, key: String) {
             idPath = IdPath(idPath: composition.idPath, suffix: key)

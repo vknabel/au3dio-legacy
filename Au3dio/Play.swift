@@ -4,11 +4,11 @@ import SwiftyJSON
 
 func play() {
     let paths: [PersistenceMode: String] = [
-        PersistenceMode.Readonly: "Readonly",
-        .Descriptive: "Descriptive",
-        .SemiPersistent: "Semi",
-        .FullyPersistent: "Fully"
-        ].mapDict { ($0.0, NSBundle.mainBundle().resourcePath!.nsstring.stringByAppendingPathComponent($0.1)) }
+        PersistenceMode.Readonly: NSBundle.mainBundle().resourcePath!.nsstring.stringByAppendingPathComponent("Readonly"),
+        .Descriptive: String(path: "Descriptive", relativeTo: NSSearchPathDirectory.DocumentDirectory)!,
+        .SemiPersistent: String(path: "Semi", relativeTo: NSSearchPathDirectory.LibraryDirectory)!,
+        .FullyPersistent: String(path: "Fully", relativeTo: NSSearchPathDirectory.LibraryDirectory)!
+    ]
     let config = Au3dioConfiguration(persistenceModePaths: paths)
     let au3dio = Au3dioModule(configuration: config, listOfPluginTypes:
         GameDataInteractor.self,
@@ -19,12 +19,20 @@ func play() {
     au3dio.findPlugin(CompositionListPlugin.self)?.addAliases(["scenarios"])
 
     do {
-        let rootId = IdPath(id: "Au3dioData")
-        let root = au3dio.dataManager.rootComposition
+        var root = au3dio.dataManager.rootComposition
         print("succeeded: \(root.components)")
 
+        root.updateComponent(CompositionListPlugin.Component.self) {
+            $0.scenarios[0].updateComponent(NamePlugin.Component.self) { (inout c: NamePlugin.Component) in
+                c.name = "BATMAN"
+            }
+            return
+        }
+        au3dio.dataManager.rootComposition = root
+        try au3dio.dataManager.saveRootComposition()
+        print("updated: \(root.components)")
         try au3dio.dataManager.reloadRootComposition()
-        let testId = IdPath(idPath: rootId, suffix: "ScenarioList")
+        print("reloaded: \(root.components)")
     } catch {
         print("failed \(error)")
     }

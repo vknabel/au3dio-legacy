@@ -55,6 +55,19 @@ public extension CompositionType {
         }
         return nil
     }
+
+    public mutating func setComponent<T: ComponentType>(key: String, component: T) {
+        components[key] = component
+    }
+    public mutating func updateComponent<T: ComponentType>(type: T.Type, update: (inout T) -> ()) {
+        for (k, v) in components {
+            if var c = v as? T {
+                update(&c)
+                components[k] = c
+                return
+            }
+        }
+    }
 }
 
 public enum PersistenceMode: Int, Hashable {

@@ -11,10 +11,15 @@ public struct IdPath: CustomStringConvertible {
         pathComponents.append(suffix)
     }
 
-    public func absolutePath(path: String) -> String {
+    public func filePath(path: String) -> String {
         return pathComponents.reduce(path, combine: {
             $0.appendingPath($1)
         }).appendingFileExtension("json")
+    }
+    public func directoryPath(path: String) -> String {
+        return pathComponents.reduce(path, combine: {
+            $0.appendingPath($1)
+        })
     }
 
     public var description: String {
