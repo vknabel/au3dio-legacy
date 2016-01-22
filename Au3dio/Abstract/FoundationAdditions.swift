@@ -1,6 +1,12 @@
 
 import Foundation
 
+/// :license: MIT
+/// :source: https://github.com/krzysztofzablocki/KZLinkedConsole
+func logMessage(message: String, filename: String = __FILE__, line: Int = __LINE__, function: String = __FUNCTION__) {
+    print("\((filename as NSString).lastPathComponent):\(line) \(function):\r\(message)")
+}
+
 public func assertEqual<T: Equatable>(@autoclosure lhs: () -> T, @autoclosure _ rhs: () -> T, file: StaticString = __FILE__, line: UInt = __LINE__) {
     #if debug
     let (l, r) = (lhs(), rhs())
@@ -41,6 +47,15 @@ extension Dictionary {
         for kv in self {
             let (newKey, newValue) = try transform(kv)
             result[newKey] = newValue
+        }
+        return result
+    }
+    public func flatMapDict<K, V>(@noescape transform: Generator.Element throws -> (K, V)?) rethrows -> [K: V] {
+        var result = [K: V]()
+        for kv in self {
+            if let (newKey, newValue) = try transform(kv) {
+                result[newKey] = newValue
+            }
         }
         return result
     }

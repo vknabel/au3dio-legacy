@@ -45,16 +45,24 @@ public final class CompositionListPlugin: Au3dioModulePlugin {
         }
         private mutating func readDataArray(rawData: JSONType, map: ComponentMap.MapType, mode: PersistenceMode, module: Au3dioModule) throws {
             assertEqual(rawData.type, .Array)
-
+            let sc = scenarios
+            var newScs = [CompositionType]()
+            var i = 0
             for (_, v) in rawData {
                 assertEqual(rawData.type, .Dictionary)
-                var scenario = ScenarioComposition(idPath: idPath)
+                var scenario = sc.count > i ? sc[i] : ScenarioComposition(idPath: idPath)
+
+                defer {
+                    newScs.append(scenario)
+                    i++
+                }
+                guard v.type != .Null else { continue }
                 try scenario.readData(v, map: map, mode: mode, module: module)
-                scenarios.append(scenario)
             }
+            scenarios = newScs
         }
-        public func export(mode: PersistenceMode) -> JSONType {
-            return JSONType(scenarios.map { $0.export(mode) })
+        public func export(mode: PersistenceMode) -> JSONType? {
+            return JSONType(scenarios.map { $0.export(mode) ?? JSONType(NSNull()) })
         }
     }
 }

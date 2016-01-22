@@ -20,8 +20,8 @@ public struct Composition: CompositionType {
         self.idPath = idPath
     }
 
-    public func export(mode: PersistenceMode) -> JSONType {
-        return JSONType(components.mapDict({ ($0.0, $0.1.export(mode)) }))
+    public func export(mode: PersistenceMode) -> JSONType? {
+        return JSONType(components.mapDict({ ($0.0, $0.1.export(mode) ?? JSONType(NSNull())) }))
     }
 }
 public struct InlineComposition: CompositionType {
@@ -32,17 +32,20 @@ public struct InlineComposition: CompositionType {
         self.idPath = idPath
     }
 
-    public func export(mode: PersistenceMode) -> JSONType {
-        return JSONType(components.mapDict({ ($0.0, $0.1.export(mode)) }))
+    public func export(mode: PersistenceMode) -> JSONType? {
+        return JSONType(components.mapDict({ ($0.0, $0.1.export(mode) ?? JSONType(NSNull())) }))
     }
 }
 
 public extension CompositionType {
     public mutating func readData(rawData: JSONType, map: ComponentMap.MapType, mode: PersistenceMode, module: Au3dioModule) throws {
-        assert(rawData.type == .Dictionary, "ComponentType.readComponents requires rawData.type to be .Dictionary,  \(rawData.type)")
+        guard rawData.type == .Dictionary else {
+            assert([.Dictionary, .Null].contains(rawData.type), "ComponentType.readComponents requires rawData.type to be .Dictionary,  \(rawData.type)")
+            return
+        }
         for (k, sub) in rawData {
             guard let type = map[k] else { throw Au3dioDataManager.FetchError.UnknownComponent(__FILE__, __LINE__, rawData, k) }
-            self.components[k] = type.init(composition: self, key: k)
+            self.components[k] = self.components[k] ?? type.init(composition: self, key: k)
             try self.components[k]?.readData(sub, map: map, mode: mode, module: module)
         }
     }
@@ -89,10 +92,13 @@ public enum PersistenceMode: Int, Hashable {
     public static func allPersistenceModes<T: ArrayLiteralConvertible where T.Element == PersistenceMode>() -> T {
         return [PersistenceMode.Readonly, .Descriptive, .SemiPersistent, .FullyPersistent]
     }
+    public static func writeablePersistenceModes<T: ArrayLiteralConvertible where T.Element == PersistenceMode>() -> T {
+        return [.Descriptive, .SemiPersistent, .FullyPersistent]
+    }
 }
 
 public protocol ModePersistable {
-    func export(mode: PersistenceMode) -> JSONType
+    func export(mode: PersistenceMode) -> JSONType?
 }
 
 public protocol ExtendedModePersistable: ModePersistable {

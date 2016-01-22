@@ -30,9 +30,14 @@ func play() {
         }
         au3dio.dataManager.rootComposition = root
         try au3dio.dataManager.saveRootComposition()
-        print("updated: \(root.components)")
+        print("updated: \(au3dio.dataManager.rootComposition)")
         try au3dio.dataManager.reloadRootComposition()
-        print("reloaded: \(root.components)")
+        print("reloaded: \(au3dio.dataManager.rootComposition)")
+
+        try au3dio.dataManager.invalidateModes(modes: [.FullyPersistent, .Descriptive])
+        print("invalidated: \(au3dio.dataManager.rootComposition)")
+        try au3dio.dataManager.reloadRootComposition()
+        print("reloaded: \(au3dio.dataManager.rootComposition)")
     } catch {
         print("failed \(error)")
     }

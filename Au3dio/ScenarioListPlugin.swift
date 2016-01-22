@@ -47,8 +47,8 @@ public final class ScenarioListPlugin: Au3dioModulePlugin {
                 scenarios.append(scenario)
             }
         }
-        public func export(mode: PersistenceMode) -> JSONType {
-            return JSONType(scenarios.map { $0.export(mode) })
+        public func export(mode: PersistenceMode) -> JSONType? {
+            return JSONType(scenarios.flatMap { $0.export(mode) })
         }
     }
 }

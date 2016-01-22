@@ -25,10 +25,10 @@ public final class NamePlugin: Au3dioModulePlugin {
             }
         }
 
-        public func export(mode: PersistenceMode) -> JSONType {
+        public func export(mode: PersistenceMode) -> JSONType? {
             switch mode {
             case .Readonly, .SemiPersistent:
-                return JSON(NSNull())
+                return nil
             case .Descriptive, .FullyPersistent:
                 return JSON(name)
             }
