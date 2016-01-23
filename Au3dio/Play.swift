@@ -20,7 +20,7 @@ func play() {
 
     do {
         var root = au3dio.dataManager.rootComposition
-        print("succeeded: \(root.components)")
+        Log.print("succeeded: \(root.components)")
 
         root.updateComponent(CompositionListPlugin.Component.self) {
             $0.scenarios[0].updateComponent(NamePlugin.Component.self) { (inout c: NamePlugin.Component) in
@@ -30,15 +30,15 @@ func play() {
         }
         au3dio.dataManager.rootComposition = root
         try au3dio.dataManager.saveRootComposition()
-        print("updated: \(au3dio.dataManager.rootComposition)")
+        Log.print("updated: \(au3dio.dataManager.rootComposition)")
         try au3dio.dataManager.reloadRootComposition()
-        print("reloaded: \(au3dio.dataManager.rootComposition)")
+        Log.print("reloaded: \(au3dio.dataManager.rootComposition)")
 
         try au3dio.dataManager.invalidateModes(modes: [.FullyPersistent, .Descriptive])
-        print("invalidated: \(au3dio.dataManager.rootComposition)")
+        Log.print("invalidated: \(au3dio.dataManager.rootComposition)")
         try au3dio.dataManager.reloadRootComposition()
-        print("reloaded: \(au3dio.dataManager.rootComposition)")
+        Log.print("reloaded: \(au3dio.dataManager.rootComposition)")
     } catch {
-        print("failed \(error)")
+        Log.print("failed \(error)")
     }
 }

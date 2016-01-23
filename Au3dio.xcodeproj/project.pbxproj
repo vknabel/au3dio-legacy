@@ -39,6 +39,7 @@
 		BAA42EDB1C48E070002F04C2 /* GreetingPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA42EDA1C48E070002F04C2 /* GreetingPlugin.swift */; };
 		BAA42EDD1C48E078002F04C2 /* NamePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA42EDC1C48E078002F04C2 /* NamePlugin.swift */; };
 		BAA42EDF1C48E085002F04C2 /* ScenarioListPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA42EDE1C48E085002F04C2 /* ScenarioListPlugin.swift */; };
+		BAC01F721C54217600802231 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC01F711C54217600802231 /* Logging.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +78,7 @@
 		BAA42EDA1C48E070002F04C2 /* GreetingPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreetingPlugin.swift; sourceTree = "<group>"; };
 		BAA42EDC1C48E078002F04C2 /* NamePlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NamePlugin.swift; sourceTree = "<group>"; };
 		BAA42EDE1C48E085002F04C2 /* ScenarioListPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScenarioListPlugin.swift; sourceTree = "<group>"; };
+		BAC01F711C54217600802231 /* Logging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				BA1A2A1C1C484D250005B550 /* Architecture.swift */,
+				BAC01F711C54217600802231 /* Logging.swift */,
 				BA1A2A1D1C484D250005B550 /* FoundationAdditions.swift */,
 				BA1A2A1E1C484D250005B550 /* StateMachineAdditions.swift */,
 				BA1A2A1F1C484D250005B550 /* SwiftyJSONAddtitions.swift */,
@@ -317,6 +320,7 @@
 				BA1A2A2A1C484D5A0005B550 /* Au3dioWireframe.swift in Sources */,
 				BA1A2A4C1C484DA90005B550 /* Composition.swift in Sources */,
 				BA1A2A421C484D960005B550 /* Au3dioArchitecture.swift in Sources */,
+				BAC01F721C54217600802231 /* Logging.swift in Sources */,
 				BA1A2A321C484D660005B550 /* LevelGamePresenter.swift in Sources */,
 				BA1A2A431C484D960005B550 /* Au3dioConfiguration.swift in Sources */,
 				BA1A2A211C484D250005B550 /* FoundationAdditions.swift in Sources */,

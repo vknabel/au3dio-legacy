@@ -23,7 +23,7 @@ public final class GreetingPlugin: Au3dioModulePlugin {
             case .Null:
                 break
             default:
-                throw Au3dioDataManager.FetchError.InvalidFormat(__FILE__, __LINE__, rawData)
+                throw Au3dioDataManager.FetchError.InvalidFormat(rawData, Log())
             }
         }
 

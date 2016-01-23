@@ -35,7 +35,7 @@ public final class Au3dioDataManager: Au3dioModulePlugin {
             guard let prefixPath = module.configuration.persistenceModePaths[mode]
                 else { throw FetchError.UndefinedMode }
             let path = idPath.filePath(prefixPath)
-            guard let data = NSData(contentsOfFile: path) else { throw FetchError.FileNotFound(__FILE__, __LINE__, path) }
+            guard let data = NSData(contentsOfFile: path) else { throw FetchError.FileNotFound(path, Log()) }
             return JSON(data: data)
         } catch let error as FetchError {
             throw error
@@ -102,9 +102,9 @@ public final class Au3dioDataManager: Au3dioModulePlugin {
 public extension Au3dioDataManager {
 
     public enum FetchError: ErrorType {
-        case InvalidFormat(String, Int, Any)
-        case UnknownComponent(String, Int, Any, String)
-        case FileNotFound(String, Int, String)
+        case InvalidFormat(Any, Log)
+        case UnknownComponent(String, Any, Log)
+        case FileNotFound(String, Log)
         case UndefinedMode
         case NotImplemented
         case InvalidTargetObject
