@@ -9,11 +9,11 @@ public final class Au3dioModule: ModuleType, Then {
     /// Stores all module interactors
     public lazy var dataManager: DataManager = DataManager(module: self)
     public private(set) lazy var modulePlugins: [Au3dioModulePlugin] = [self.dataManager]
-    public let configuration: Au3dioConfiguration
+    public let configuration: Configuration
     public var componentMap: ComponentMap = ComponentMap()
 
     /// Create an instance of Au3dioModule by the given Au3dioInteractorTypes.
-    public init(configuration: Au3dioConfiguration, pluginTypes: [Au3dioModulePlugin.Type]) {
+    public init(configuration: Configuration, pluginTypes: [Au3dioModulePlugin.Type]) {
         self.configuration = configuration
         
         phaseMachine = StateMachine(initial: .Preparation(.Initial)) { trans in
@@ -25,7 +25,7 @@ public final class Au3dioModule: ModuleType, Then {
         modulePlugins.appendContentsOf(pluginTypes.map { $0.init(module: self) })
     }
     /// Create an instance of Au3dioModule by the given list of Au3dioPluginTypes.
-    public convenience init(configuration: Au3dioConfiguration, listOfPluginTypes pluginTypes: Au3dioModulePlugin.Type...) {
+    public convenience init(configuration: Configuration, listOfPluginTypes pluginTypes: Au3dioModulePlugin.Type...) {
         self.init(configuration: configuration, pluginTypes: pluginTypes)
     }
 

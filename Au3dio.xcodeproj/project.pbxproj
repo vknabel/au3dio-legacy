@@ -22,7 +22,7 @@
 		BA1A2A391C484D790005B550 /* ScenarioListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1A2A371C484D790005B550 /* ScenarioListInteractor.swift */; };
 		BA1A2A3A1C484D790005B550 /* ScenarioListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1A2A381C484D790005B550 /* ScenarioListPresenter.swift */; };
 		BA1A2A421C484D960005B550 /* Au3dioArchitecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1A2A3D1C484D960005B550 /* Au3dioArchitecture.swift */; };
-		BA1A2A431C484D960005B550 /* Au3dioConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1A2A3E1C484D960005B550 /* Au3dioConfiguration.swift */; };
+		BA1A2A431C484D960005B550 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1A2A3E1C484D960005B550 /* Configuration.swift */; };
 		BA1A2A441C484D960005B550 /* Au3dioModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1A2A3F1C484D960005B550 /* Au3dioModule.swift */; };
 		BA1A2A451C484D960005B550 /* ComponentMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1A2A401C484D960005B550 /* ComponentMap.swift */; };
 		BA1A2A461C484D960005B550 /* GameDataInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1A2A411C484D960005B550 /* GameDataInteractor.swift */; };
@@ -60,7 +60,7 @@
 		BA1A2A371C484D790005B550 /* ScenarioListInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScenarioListInteractor.swift; path = "Application Modules/ScenarioList/ScenarioListInteractor.swift"; sourceTree = "<group>"; };
 		BA1A2A381C484D790005B550 /* ScenarioListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScenarioListPresenter.swift; path = "Application Modules/ScenarioList/ScenarioListPresenter.swift"; sourceTree = "<group>"; };
 		BA1A2A3D1C484D960005B550 /* Au3dioArchitecture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Au3dioArchitecture.swift; path = Au3dio/Au3dioArchitecture.swift; sourceTree = "<group>"; };
-		BA1A2A3E1C484D960005B550 /* Au3dioConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Au3dioConfiguration.swift; path = Au3dio/Au3dioConfiguration.swift; sourceTree = "<group>"; };
+		BA1A2A3E1C484D960005B550 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Configuration.swift; path = Au3dio/Configuration.swift; sourceTree = "<group>"; };
 		BA1A2A3F1C484D960005B550 /* Au3dioModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Au3dioModule.swift; path = Au3dio/Au3dioModule.swift; sourceTree = "<group>"; };
 		BA1A2A401C484D960005B550 /* ComponentMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ComponentMap.swift; path = Au3dio/ComponentMap.swift; sourceTree = "<group>"; };
 		BA1A2A411C484D960005B550 /* GameDataInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameDataInteractor.swift; path = Au3dio/GameDataInteractor.swift; sourceTree = "<group>"; };
@@ -204,7 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				BA1A2A3D1C484D960005B550 /* Au3dioArchitecture.swift */,
-				BA1A2A3E1C484D960005B550 /* Au3dioConfiguration.swift */,
+				BA1A2A3E1C484D960005B550 /* Configuration.swift */,
 				BA1A2A3F1C484D960005B550 /* Au3dioModule.swift */,
 				BA1A2A401C484D960005B550 /* ComponentMap.swift */,
 				BA1A2A411C484D960005B550 /* GameDataInteractor.swift */,
@@ -322,7 +322,7 @@
 				BA1A2A4C1C484DA90005B550 /* Composition.swift in Sources */,
 				BA1A2A421C484D960005B550 /* Au3dioArchitecture.swift in Sources */,
 				BA1A2A321C484D660005B550 /* LevelGamePresenter.swift in Sources */,
-				BA1A2A431C484D960005B550 /* Au3dioConfiguration.swift in Sources */,
+				BA1A2A431C484D960005B550 /* Configuration.swift in Sources */,
 				BA1A2A211C484D250005B550 /* FoundationAdditions.swift in Sources */,
 				BA1A2A3A1C484D790005B550 /* ScenarioListPresenter.swift in Sources */,
 				BAA42EDD1C48E078002F04C2 /* NamePlugin.swift in Sources */,

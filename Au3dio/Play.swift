@@ -12,7 +12,7 @@ func play() {
         .SemiPersistent: String(path: "Semi", relativeTo: NSSearchPathDirectory.LibraryDirectory)!,
         .FullyPersistent: String(path: "Fully", relativeTo: NSSearchPathDirectory.LibraryDirectory)!
     ]
-    let config = Au3dioConfiguration(persistenceModePaths: paths)
+    let config = Configuration(persistenceModePaths: paths)
     let au3dio = Au3dioModule(configuration: config, listOfPluginTypes:
         GameDataInteractor.self,
         NamePlugin.self,
