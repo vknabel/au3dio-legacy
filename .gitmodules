@@ -1,0 +1,3 @@
+[submodule "ConclurerLog"]
+	path = ConclurerLog
+	url = git@finken.anydns.info:valentinknabel/ConclurerLog.git

@@ -1,6 +1,7 @@
 
 import Foundation
 import SwiftyJSON
+import ConclurerLog
 
 public final class Au3dioDataManager: Au3dioModulePlugin {
     public var module: Au3dioModule
@@ -16,7 +17,7 @@ public final class Au3dioDataManager: Au3dioModulePlugin {
         do {
             return try self.fetchRootComposition()
         } catch {
-            print("\(__FILE__):\(__LINE__) \(error)")
+            Log.print(error, type: .Error)
             return RootComposition(idPath: Au3dioDataManager.rootIdPath)
         }
     }
@@ -88,7 +89,7 @@ public final class Au3dioDataManager: Au3dioModulePlugin {
                 if manager.isDeletableFileAtPath(path) {
                     try manager.removeItemAtPath(path)
                 } else {
-                    print("cannot delete \(path)")
+                    Log.print("cannot delete \(path)", type: .Error)
                 }
             }
             try deleteIfPossible(idPath.filePath(prefixPath))

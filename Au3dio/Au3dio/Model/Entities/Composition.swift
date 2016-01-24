@@ -1,5 +1,6 @@
 
 import SwiftyJSON
+import ConclurerLog
 
 public typealias JSONType = JSON
 public protocol CompositionType: ModePersistable {

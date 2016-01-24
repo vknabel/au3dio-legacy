@@ -26,6 +26,7 @@
 		BA3A40851C48EC8A00AB0B95 /* ConclurerHook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA3A40841C48EC8A00AB0B95 /* ConclurerHook.framework */; };
 		BA3A40861C48EC8A00AB0B95 /* ConclurerHook.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BA3A40841C48EC8A00AB0B95 /* ConclurerHook.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BA3A408A1C48ECE500AB0B95 /* Readonly in Resources */ = {isa = PBXBuildFile; fileRef = BA3A40891C48ECE500AB0B95 /* Readonly */; };
+		BACA90421C55235100516175 /* ConclurerLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BACA90411C55235100516175 /* ConclurerLog.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -63,6 +64,7 @@
 		BA3A40811C48EC8A00AB0B95 /* ArrayMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = ArrayMap.framework; path = "/Users/vknabel/Library/Developer/Xcode/DerivedData/Au3dio-fzoobmuxboggsfcobbvnvisxustv/Build/Products/Debug-iphoneos/ArrayMap.framework"; sourceTree = "<absolute>"; };
 		BA3A40841C48EC8A00AB0B95 /* ConclurerHook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = ConclurerHook.framework; path = "/Users/vknabel/Library/Developer/Xcode/DerivedData/Au3dio-fzoobmuxboggsfcobbvnvisxustv/Build/Products/Debug-iphoneos/ConclurerHook.framework"; sourceTree = "<absolute>"; };
 		BA3A40891C48ECE500AB0B95 /* Readonly */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Readonly; sourceTree = "<group>"; };
+		BACA90411C55235100516175 /* ConclurerLog.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ConclurerLog.framework; path = "../ConclurerLog/build/Debug-iphoneos/ConclurerLog.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BACA90421C55235100516175 /* ConclurerLog.framework in Frameworks */,
 				BA3A407F1C48EC8A00AB0B95 /* StateMachine.framework in Frameworks */,
 				BA3A40851C48EC8A00AB0B95 /* ConclurerHook.framework in Frameworks */,
 				BA3A407C1C48EC8A00AB0B95 /* Then.framework in Frameworks */,
@@ -117,6 +120,7 @@
 		BA3A40881C48EC9100AB0B95 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
+				BACA90411C55235100516175 /* ConclurerLog.framework */,
 				BA3A40841C48EC8A00AB0B95 /* ConclurerHook.framework */,
 				BA3A40811C48EC8A00AB0B95 /* ArrayMap.framework */,
 				BA3A407E1C48EC8A00AB0B95 /* StateMachine.framework */,
@@ -350,6 +354,7 @@
 				BA3A40721C48EC1E00AB0B95 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

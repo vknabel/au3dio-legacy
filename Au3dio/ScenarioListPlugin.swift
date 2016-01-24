@@ -1,5 +1,6 @@
 
 import SwiftyJSON
+import ConclurerLog
 
 public protocol ScenarioListComponentType {
     var scenarios: [CompositionType] { get }

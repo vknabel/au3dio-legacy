@@ -1,5 +1,6 @@
 
 import SwiftyJSON
+import ConclurerLog
 
 public final class NamePlugin: Au3dioModulePlugin {
     public var module: Au3dioModule

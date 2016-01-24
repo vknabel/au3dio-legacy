@@ -1,8 +1,11 @@
 
 import Au3dio
 import SwiftyJSON
+import ConclurerLog
 
 func play() {
+    Log.xcodeColorsEnabled = true
+
     let paths: [PersistenceMode: String] = [
         PersistenceMode.Readonly: NSBundle.mainBundle().resourcePath!.nsstring.stringByAppendingPathComponent("Readonly"),
         .Descriptive: String(path: "Descriptive", relativeTo: NSSearchPathDirectory.DocumentDirectory)!,
@@ -30,15 +33,15 @@ func play() {
         }
         au3dio.dataManager.rootComposition = root
         try au3dio.dataManager.saveRootComposition()
-        Log.print("updated: \(au3dio.dataManager.rootComposition)")
+        Log.print("updated: \(au3dio.dataManager.rootComposition)", type: .Success)
         try au3dio.dataManager.reloadRootComposition()
-        Log.print("reloaded: \(au3dio.dataManager.rootComposition)")
+        Log.print("reloaded: \(au3dio.dataManager.rootComposition)", type: .Success)
 
         try au3dio.dataManager.invalidateModes(modes: [.FullyPersistent, .Descriptive])
-        Log.print("invalidated: \(au3dio.dataManager.rootComposition)")
+        Log.print("invalidated: \(au3dio.dataManager.rootComposition)", type: .Success)
         try au3dio.dataManager.reloadRootComposition()
-        Log.print("reloaded: \(au3dio.dataManager.rootComposition)")
+        Log.print("reloaded: \(au3dio.dataManager.rootComposition)", type: .Success)
     } catch {
-        Log.print("failed \(error)")
+        Log.print("failed \(error)", type: .Error)
     }
 }

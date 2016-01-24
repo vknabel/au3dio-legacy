@@ -1,5 +1,6 @@
 
 import SwiftyJSON
+import ConclurerLog
 
 
     /// ATTENTION: This plugin is debug-only
