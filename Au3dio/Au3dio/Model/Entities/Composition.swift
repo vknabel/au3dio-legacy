@@ -2,17 +2,29 @@
 import SwiftyJSON
 import ConclurerLog
 
-public typealias JSONType = JSON
+/// The used raw data type used throughout the project.
+public typealias RawDataType = JSON
+
+/// Compositions are persistent entities referenced by an `IdPath`.
 public protocol CompositionType: ModePersistable {
+    /// Creates an empty composition.
     init(idPath: IdPath)
+    /// The `IdPath` to be referenced.
     var idPath: IdPath { get }
+    /// Stores all components by name.
     var components: [String: ComponentType] { get set }
 }
+/// Components will be added to a composition.
 public protocol ComponentType: ModePersistable {
+    /// Initializes a components with a composition. 
+    /// The given composition is only used to initialze the composition.
     init(composition: CompositionType, key: String)
-    mutating func readData(rawData: JSONType, map: ComponentMap.MapType, mode: PersistenceMode, module: Au3dioModule) throws
+    /// Applys changes given as raw data in a given mode.
+    /// :throws: FetchError
+    mutating func readData(rawData: RawDataType, map: ComponentMap.MapType, mode: PersistenceMode, module: Au3dioModule) throws
 }
 
+/// An empty and default implementation of a composition.
 public struct Composition: CompositionType {
     public let idPath: IdPath
     public var components: [String: ComponentType] = [:]
@@ -21,10 +33,11 @@ public struct Composition: CompositionType {
         self.idPath = idPath
     }
 
-    public func export(mode: PersistenceMode) -> JSONType? {
-        return JSONType(components.mapDict({ ($0.0, $0.1.export(mode) ?? JSONType(NSNull())) }))
+    public func export(mode: PersistenceMode) -> RawDataType? {
+        return RawDataType(components.mapDict({ ($0.0, $0.1.export(mode) ?? RawDataType(NSNull())) }))
     }
 }
+/// An empty implementation that is not meant to be stored in external files.
 public struct InlineComposition: CompositionType {
     public let idPath: IdPath
     public var components: [String: ComponentType] = [:]
@@ -33,13 +46,16 @@ public struct InlineComposition: CompositionType {
         self.idPath = idPath
     }
 
-    public func export(mode: PersistenceMode) -> JSONType? {
-        return JSONType(components.mapDict({ ($0.0, $0.1.export(mode) ?? JSONType(NSNull())) }))
+    public func export(mode: PersistenceMode) -> RawDataType? {
+        return RawDataType(components.mapDict({ ($0.0, $0.1.export(mode) ?? RawDataType(NSNull())) }))
     }
 }
 
+/// Adds basic functionality to all compositions.
 public extension CompositionType {
-    public mutating func readData(rawData: JSONType, map: ComponentMap.MapType, mode: PersistenceMode, module: Au3dioModule) throws {
+    /// Creates and updates all components with rawData.
+    /// :throws: FetchError
+    public mutating func readData(rawData: RawDataType, map: ComponentMap.MapType, mode: PersistenceMode, module: Au3dioModule) throws {
         guard rawData.type == .Dictionary else {
             assert([.Dictionary, .Null].contains(rawData.type), "ComponentType.readComponents requires rawData.type to be .Dictionary,  \(rawData.type)")
             return
@@ -50,7 +66,7 @@ public extension CompositionType {
             try self.components[k]?.readData(sub, map: map, mode: mode, module: module)
         }
     }
-
+    /// Returns a component of a given type when found.
     public func findComponent<T: ComponentType>(type: T.Type) -> T? {
         for c in components {
             if let c = c as? T {
@@ -59,10 +75,11 @@ public extension CompositionType {
         }
         return nil
     }
-
+    /// Adds a component for a given key.
     public mutating func setComponent<T: ComponentType>(key: String, component: T) {
         components[key] = component
     }
+    /// Searches for a component by type and updates it when found.
     public mutating func updateComponent<T: ComponentType>(type: T.Type, update: (inout T) -> ()) {
         for (k, v) in components {
             if var c = v as? T {
@@ -72,36 +89,4 @@ public extension CompositionType {
             }
         }
     }
-}
-
-public enum PersistenceMode: Int, Hashable {
-    /// The default storage, that is readonly.
-    /// Typically results of an .Descriptive export are used data source.
-    case Readonly = 0
-    /// Exports in this mode represent initial states.
-    /// Module parts aren't required to support this level.
-    /// Typically levels are build in this mode.
-    /// TODO: Is this required?
-    case Descriptive
-    /// Only some data will be persistent.
-    /// .SemiPersistent storages are typically used for achievements.
-    case SemiPersistent
-    /// The highest layer of persistence. All data will be saved.
-    /// .FullyPersistent data usually represents saved games.
-    case FullyPersistent
-
-    public static func allPersistenceModes<T: ArrayLiteralConvertible where T.Element == PersistenceMode>() -> T {
-        return [PersistenceMode.Readonly, .Descriptive, .SemiPersistent, .FullyPersistent]
-    }
-    public static func writeablePersistenceModes<T: ArrayLiteralConvertible where T.Element == PersistenceMode>() -> T {
-        return [.Descriptive, .SemiPersistent, .FullyPersistent]
-    }
-}
-
-public protocol ModePersistable {
-    func export(mode: PersistenceMode) -> JSONType?
-}
-
-public protocol ExtendedModePersistable: ModePersistable {
-    func save(module: Au3dioModule, modes: Set<PersistenceMode>) throws
 }

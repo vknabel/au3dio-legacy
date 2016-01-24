@@ -66,7 +66,9 @@ public extension Au3dioModule {
     }
 }
 
+/// Adds convenience methods for finding plugins.
 public extension Au3dioModule {
+    /// Searched for a stored plugin of the given type.
     public func findPlugin<T: Au3dioModulePlugin>(type: T.Type) -> T? {
         for c in self.modulePlugins {
             if let c = c as? T {
@@ -77,8 +79,8 @@ public extension Au3dioModule {
     }
 }
 
+/// Implements missing methods for Au3dioModule.Phase's protocols
 public extension Au3dioModule.Phase {
-
     public var hashValue: Int {
         switch self {
         case .Preparation(let substate):

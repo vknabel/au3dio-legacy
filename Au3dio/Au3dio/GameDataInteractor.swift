@@ -1,10 +1,9 @@
 
 import Then
 
+/// This VIPER Interactor represents the use-case of displaying a specific level.
 public final class GameDataInteractor: Au3dioInteractorType, InteractorType, Then {
-
     public var module: Au3dioModule
-
     public init(module: Au3dioModule) {
         self.module = module
 

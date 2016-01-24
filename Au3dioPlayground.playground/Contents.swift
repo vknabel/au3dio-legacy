@@ -21,7 +21,7 @@ public final class GreetingPlugin: Au3dioModulePlugin {
 
         public init(composition: CompositionType, key: String) { }
 
-        public mutating func readData(rawData: JSONType, map: ComponentMap.MapType, mode: PersistenceMode) throws {
+        public mutating func readData(rawData: RawDataType, map: ComponentMap.MapType, mode: PersistenceMode) throws {
             greeting = rawData.string ?? ""
         }
 
@@ -43,12 +43,12 @@ public final class NamePlugin: Au3dioModulePlugin {
 
         public init(composition: CompositionType, key: String) { }
 
-        public mutating func readData(rawData: JSONType, map: ComponentMap.MapType, mode: PersistenceMode) throws {
+        public mutating func readData(rawData: RawDataType, map: ComponentMap.MapType, mode: PersistenceMode) throws {
             guard rawData.type == .String else { throw DataManager.FetchError.InvalidFormat }
             name = rawData.string ?? ""
         }
 
-        public func export(mode: PersistenceMode) -> JSONType {
+        public func export(mode: PersistenceMode) -> RawDataType {
             switch mode {
             case .Readonly, .SemiPersistent:
                 return JSON(NSNull())
@@ -75,7 +75,7 @@ public final class ScenarioListPlugin: Au3dioModulePlugin {
         private var readModes: [PersistenceMode] = []
         public private(set) var scenarios: [CompositionType] = []
 
-        public mutating func readData(rawData: JSONType, map: ComponentMap.MapType, mode: PersistenceMode) throws {
+        public mutating func readData(rawData: RawDataType, map: ComponentMap.MapType, mode: PersistenceMode) throws {
             assertEqual(rawData.type, .Array)
 
             defer { readModes.append(mode) }
@@ -89,8 +89,8 @@ public final class ScenarioListPlugin: Au3dioModulePlugin {
         public init(composition: CompositionType, key: String) {
             idPath = composition.idPath
         }
-        public func export(mode: PersistenceMode) -> JSONType {
-            return JSONType(scenarios.map { $0.export(mode) })
+        public func export(mode: PersistenceMode) -> RawDataType {
+            return RawDataType(scenarios.map { $0.export(mode) })
         }
     }
 
@@ -101,12 +101,12 @@ public final class ScenarioListPlugin: Au3dioModulePlugin {
     public init(composition: CompositionType, key: String) {
     idPath = IdPath(idPath: composition.idPath, suffix: key)
     }
-    mutating public func readData(rawData: JSONType, mode: PersistenceMode) {
+    mutating public func readData(rawData: RawDataType, mode: PersistenceMode) {
     assertEqual(rawData.type, .String)
     }
     public func save(ensureCached: (IdPath, Int) -> Void) throws { }
-    public func export() -> JSONType {
-    return JSONType(NSNull())
+    public func export() -> RawDataType {
+    return RawDataType(NSNull())
     }
     }
 }
@@ -132,6 +132,4 @@ do {
 
     let testId = IdPath(idPath: rootId, suffix: "ScenarioList")
 } catch {
-    print("failed \(error)")
-}
-*/
+    print("failed \(error

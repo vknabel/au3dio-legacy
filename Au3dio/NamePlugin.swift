@@ -15,7 +15,7 @@ public final class NamePlugin: Au3dioModulePlugin {
 
         public init(composition: CompositionType, key: String) { }
 
-        public mutating func readData(rawData: JSONType, map: ComponentMap.MapType, mode: PersistenceMode, module: Au3dioModule) throws {
+        public mutating func readData(rawData: RawDataType, map: ComponentMap.MapType, mode: PersistenceMode, module: Au3dioModule) throws {
             switch rawData.type {
             case .String:
                 name = rawData.stringValue
@@ -26,7 +26,7 @@ public final class NamePlugin: Au3dioModulePlugin {
             }
         }
 
-        public func export(mode: PersistenceMode) -> JSONType? {
+        public func export(mode: PersistenceMode) -> RawDataType? {
             switch mode {
             case .Readonly, .SemiPersistent:
                 return nil

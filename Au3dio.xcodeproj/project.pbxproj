@@ -39,6 +39,7 @@
 		BAA42EDB1C48E070002F04C2 /* GreetingPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA42EDA1C48E070002F04C2 /* GreetingPlugin.swift */; };
 		BAA42EDD1C48E078002F04C2 /* NamePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA42EDC1C48E078002F04C2 /* NamePlugin.swift */; };
 		BAA42EDF1C48E085002F04C2 /* ScenarioListPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA42EDE1C48E085002F04C2 /* ScenarioListPlugin.swift */; };
+		BAA723D31C553CCD00D5D629 /* PersistenceMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA723D21C553CCD00D5D629 /* PersistenceMode.swift */; };
 		BACA90401C55234700516175 /* ConclurerLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BACA903F1C55234700516175 /* ConclurerLog.framework */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +79,7 @@
 		BAA42EDA1C48E070002F04C2 /* GreetingPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreetingPlugin.swift; sourceTree = "<group>"; };
 		BAA42EDC1C48E078002F04C2 /* NamePlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NamePlugin.swift; sourceTree = "<group>"; };
 		BAA42EDE1C48E085002F04C2 /* ScenarioListPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScenarioListPlugin.swift; sourceTree = "<group>"; };
+		BAA723D21C553CCD00D5D629 /* PersistenceMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceMode.swift; sourceTree = "<group>"; };
 		BACA903F1C55234700516175 /* ConclurerLog.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ConclurerLog.framework; path = "ConclurerLog/build/Debug-iphoneos/ConclurerLog.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -220,6 +222,7 @@
 				BA1A2A4A1C484DA90005B550 /* IdPath.swift */,
 				BA1A2A4B1C484DA90005B550 /* Subtypes.swift */,
 				BA1A2A471C484D9F0005B550 /* DataManager.swift */,
+				BAA723D21C553CCD00D5D629 /* PersistenceMode.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 				BA3A408E1C48F79100AB0B95 /* CompositionListPlugin.swift in Sources */,
 				BA1A2A4E1C484DA90005B550 /* Subtypes.swift in Sources */,
 				BA1A2A481C484D9F0005B550 /* DataManager.swift in Sources */,
+				BAA723D31C553CCD00D5D629 /* PersistenceMode.swift in Sources */,
 				BA1A2A361C484D720005B550 /* LevelListPresenter.swift in Sources */,
 				BA1A2A4D1C484DA90005B550 /* IdPath.swift in Sources */,
 				BA1A2A2E1C484D5F0005B550 /* GameResultPresenter.swift in Sources */,

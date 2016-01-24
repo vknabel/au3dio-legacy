@@ -3,7 +3,7 @@ import SwiftyJSON
 import ConclurerLog
 
 
-    /// ATTENTION: This plugin is debug-only
+/// ATTENTION: This plugin is debug-only
 public final class GreetingPlugin: Au3dioModulePlugin {
     public var module: Au3dioModule
     public init(module: Au3dioModule) {
@@ -17,7 +17,7 @@ public final class GreetingPlugin: Au3dioModulePlugin {
 
         public init(composition: CompositionType, key: String) { }
 
-        public mutating func readData(rawData: JSONType, map: ComponentMap.MapType, mode: PersistenceMode, module: Au3dioModule) throws {
+        public mutating func readData(rawData: RawDataType, map: ComponentMap.MapType, mode: PersistenceMode, module: Au3dioModule) throws {
             switch rawData.type {
             case .String:
                 greeting = rawData.stringValue
@@ -33,7 +33,7 @@ public final class GreetingPlugin: Au3dioModulePlugin {
             case .Readonly, .SemiPersistent:
                 return nil
             case .Descriptive, .FullyPersistent:
-                return JSONType(greeting)
+                return RawDataType(greeting)
             }
         }
     }

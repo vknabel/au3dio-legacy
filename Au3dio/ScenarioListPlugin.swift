@@ -21,7 +21,7 @@ public final class ScenarioListPlugin: Au3dioModulePlugin {
         public init(composition: CompositionType, key: String) {
             idPath = IdPath(idPath: composition.idPath, suffix: key)
         }
-        public mutating func readData(rawData: JSONType, map: ComponentMap.MapType, mode: PersistenceMode, module: Au3dioModule) throws {
+        public mutating func readData(rawData: RawDataType, map: ComponentMap.MapType, mode: PersistenceMode, module: Au3dioModule) throws {
             assertOneOf(rawData.type, [.Bool, .Array])
             switch rawData.type {
             case .Bool:
@@ -38,7 +38,7 @@ public final class ScenarioListPlugin: Au3dioModulePlugin {
                 throw DataManager.FetchError.InvalidFormat(rawData, Log())
             }
         }
-        private mutating func readDataArray(rawData: JSONType, map: ComponentMap.MapType, mode: PersistenceMode, module: Au3dioModule) throws {
+        private mutating func readDataArray(rawData: RawDataType, map: ComponentMap.MapType, mode: PersistenceMode, module: Au3dioModule) throws {
             assertEqual(rawData.type, .Array)
 
             for (_, v) in rawData {
@@ -48,8 +48,8 @@ public final class ScenarioListPlugin: Au3dioModulePlugin {
                 scenarios.append(scenario)
             }
         }
-        public func export(mode: PersistenceMode) -> JSONType? {
-            return JSONType(scenarios.flatMap { $0.export(mode) })
+        public func export(mode: PersistenceMode) -> RawDataType? {
+            return RawDataType(scenarios.flatMap { $0.export(mode) })
         }
     }
 }

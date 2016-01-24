@@ -25,7 +25,7 @@ public final class DataManager: Au3dioModulePlugin {
         return try fetchComposition(DataManager.rootIdPath, modes: modes)
     }
 
-    public func reloadRootComposition(modes: Set<PersistenceMode> = PersistenceMode.allPersistenceModes()) throws -> RootComposition {
+    @warn_unused_result public func reloadRootComposition(modes: Set<PersistenceMode> = PersistenceMode.allPersistenceModes()) throws -> RootComposition {
         rootComposition = try self.fetchRootComposition()
         return rootComposition
     }
@@ -53,7 +53,7 @@ public final class DataManager: Au3dioModulePlugin {
         return comp
     }
 
-    public func saveRawData(rawData: JSONType, idPath: IdPath, mode: PersistenceMode) throws {
+    public func saveRawData(rawData: RawDataType, idPath: IdPath, mode: PersistenceMode) throws {
         guard let path = module.configuration.persistenceModePaths[mode]
             where PersistenceMode.writeablePersistenceModes().contains(mode)
             else { return }
