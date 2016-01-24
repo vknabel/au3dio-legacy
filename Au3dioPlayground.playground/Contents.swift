@@ -2,7 +2,7 @@
 
 /*: TODO
 - Add configuration options for `Au3dioModule`: Dictionary<PersistenceMode, String/NSURL>
-- Implement `Au3dioDataManager`
+- Implement `DataManager`
 - Implement hook for every implementation of Composition: (String) -> Component.Type
 */
 import Foundation
@@ -44,7 +44,7 @@ public final class NamePlugin: Au3dioModulePlugin {
         public init(composition: CompositionType, key: String) { }
 
         public mutating func readData(rawData: JSONType, map: ComponentMap.MapType, mode: PersistenceMode) throws {
-            guard rawData.type == .String else { throw Au3dioDataManager.FetchError.InvalidFormat }
+            guard rawData.type == .String else { throw DataManager.FetchError.InvalidFormat }
             name = rawData.string ?? ""
         }
 

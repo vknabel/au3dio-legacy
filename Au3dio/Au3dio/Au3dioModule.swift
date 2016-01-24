@@ -7,7 +7,7 @@ public final class Au3dioModule: ModuleType, Then {
     /// State Machine for possible phases of the Au3dioModule.
     private var phaseMachine: StateMachine<Phase>
     /// Stores all module interactors
-    public lazy var dataManager: Au3dioDataManager = Au3dioDataManager(module: self)
+    public lazy var dataManager: DataManager = DataManager(module: self)
     public private(set) lazy var modulePlugins: [Au3dioModulePlugin] = [self.dataManager]
     public let configuration: Au3dioConfiguration
     public var componentMap: ComponentMap = ComponentMap()

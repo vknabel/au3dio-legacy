@@ -3,7 +3,7 @@ import Foundation
 import SwiftyJSON
 import ConclurerLog
 
-public final class Au3dioDataManager: Au3dioModulePlugin {
+public final class DataManager: Au3dioModulePlugin {
     public var module: Au3dioModule
     public static let rootIdPath = IdPath(id: "Au3dioRoot")
 
@@ -18,11 +18,11 @@ public final class Au3dioDataManager: Au3dioModulePlugin {
             return try self.fetchRootComposition()
         } catch {
             Log.print(error, type: .Error)
-            return RootComposition(idPath: Au3dioDataManager.rootIdPath)
+            return RootComposition(idPath: DataManager.rootIdPath)
         }
     }
     private func fetchRootComposition(modes: Set<PersistenceMode> = PersistenceMode.allPersistenceModes()) throws -> RootComposition {
-        return try fetchComposition(Au3dioDataManager.rootIdPath, modes: modes)
+        return try fetchComposition(DataManager.rootIdPath, modes: modes)
     }
 
     public func reloadRootComposition(modes: Set<PersistenceMode> = PersistenceMode.allPersistenceModes()) throws -> RootComposition {
@@ -47,7 +47,7 @@ public final class Au3dioDataManager: Au3dioModulePlugin {
     public func fetchComposition<C: CompositionType>(idPath: IdPath, modes: Set<PersistenceMode> = PersistenceMode.allPersistenceModes()) throws -> C {
         var comp = C(idPath: idPath)
         for m in PersistenceMode.allPersistenceModes() where modes.contains(m) {
-            guard let raw = try? fetchRawIdPath(Au3dioDataManager.rootIdPath, mode: m) else { continue }
+            guard let raw = try? fetchRawIdPath(DataManager.rootIdPath, mode: m) else { continue }
             try comp.readData(raw, map: module.componentMap.componentTypes, mode: m, module: module)
         }
         return comp
@@ -61,7 +61,7 @@ public final class Au3dioDataManager: Au3dioModulePlugin {
         try data.writeToFile(idPath.filePath(path), options: NSDataWritingOptions.DataWritingAtomic)
     }
     public func saveRootComposition(modes: Set<PersistenceMode> = PersistenceMode.allPersistenceModes()) throws {
-        try savePersistable(rootComposition, idPath: Au3dioDataManager.rootIdPath, modes: modes)
+        try savePersistable(rootComposition, idPath: DataManager.rootIdPath, modes: modes)
     }
     /// TODO: Discuss
     public func savePersistable<T: ModePersistable>(persistable: T, idPath: IdPath, modes: Set<PersistenceMode> = PersistenceMode.allPersistenceModes()) throws {
@@ -80,7 +80,7 @@ public final class Au3dioDataManager: Au3dioModulePlugin {
         _ = try? NSFileManager.defaultManager().createDirectoryAtPath(idPath.directoryPath(prefixPath), withIntermediateDirectories: true, attributes: nil)
     }
 
-    public func invalidateModes(idPath: IdPath = Au3dioDataManager.rootIdPath, modes: Set<PersistenceMode> = PersistenceMode.writeablePersistenceModes()) throws {
+    public func invalidateModes(idPath: IdPath = DataManager.rootIdPath, modes: Set<PersistenceMode> = PersistenceMode.writeablePersistenceModes()) throws {
         let manager = NSFileManager.defaultManager()
         for m in PersistenceMode.writeablePersistenceModes() where modes.contains(m) {
             guard let prefixPath = module.configuration.persistenceModePaths[m] else { continue }
@@ -100,7 +100,7 @@ public final class Au3dioDataManager: Au3dioModulePlugin {
     }
 }
 
-public extension Au3dioDataManager {
+public extension DataManager {
 
     public enum FetchError: ErrorType {
         case InvalidFormat(Any, Log)

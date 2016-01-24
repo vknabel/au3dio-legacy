@@ -26,7 +26,7 @@
 		BA1A2A441C484D960005B550 /* Au3dioModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1A2A3F1C484D960005B550 /* Au3dioModule.swift */; };
 		BA1A2A451C484D960005B550 /* ComponentMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1A2A401C484D960005B550 /* ComponentMap.swift */; };
 		BA1A2A461C484D960005B550 /* GameDataInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1A2A411C484D960005B550 /* GameDataInteractor.swift */; };
-		BA1A2A481C484D9F0005B550 /* Au3dioDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1A2A471C484D9F0005B550 /* Au3dioDataManager.swift */; };
+		BA1A2A481C484D9F0005B550 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1A2A471C484D9F0005B550 /* DataManager.swift */; };
 		BA1A2A4C1C484DA90005B550 /* Composition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1A2A491C484DA90005B550 /* Composition.swift */; };
 		BA1A2A4D1C484DA90005B550 /* IdPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1A2A4A1C484DA90005B550 /* IdPath.swift */; };
 		BA1A2A4E1C484DA90005B550 /* Subtypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1A2A4B1C484DA90005B550 /* Subtypes.swift */; };
@@ -64,7 +64,7 @@
 		BA1A2A3F1C484D960005B550 /* Au3dioModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Au3dioModule.swift; path = Au3dio/Au3dioModule.swift; sourceTree = "<group>"; };
 		BA1A2A401C484D960005B550 /* ComponentMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ComponentMap.swift; path = Au3dio/ComponentMap.swift; sourceTree = "<group>"; };
 		BA1A2A411C484D960005B550 /* GameDataInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameDataInteractor.swift; path = Au3dio/GameDataInteractor.swift; sourceTree = "<group>"; };
-		BA1A2A471C484D9F0005B550 /* Au3dioDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Au3dioDataManager.swift; path = Au3dio/Model/Au3dioDataManager.swift; sourceTree = "<group>"; };
+		BA1A2A471C484D9F0005B550 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataManager.swift; path = Au3dio/Model/DataManager.swift; sourceTree = "<group>"; };
 		BA1A2A491C484DA90005B550 /* Composition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Composition.swift; path = Au3dio/Model/Entities/Composition.swift; sourceTree = "<group>"; };
 		BA1A2A4A1C484DA90005B550 /* IdPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IdPath.swift; path = Au3dio/Model/Entities/IdPath.swift; sourceTree = "<group>"; };
 		BA1A2A4B1C484DA90005B550 /* Subtypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Subtypes.swift; path = Au3dio/Model/Entities/Subtypes.swift; sourceTree = "<group>"; };
@@ -219,7 +219,7 @@
 				BA1A2A491C484DA90005B550 /* Composition.swift */,
 				BA1A2A4A1C484DA90005B550 /* IdPath.swift */,
 				BA1A2A4B1C484DA90005B550 /* Subtypes.swift */,
-				BA1A2A471C484D9F0005B550 /* Au3dioDataManager.swift */,
+				BA1A2A471C484D9F0005B550 /* DataManager.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -331,7 +331,7 @@
 				BA1A2A201C484D250005B550 /* Architecture.swift in Sources */,
 				BA3A408E1C48F79100AB0B95 /* CompositionListPlugin.swift in Sources */,
 				BA1A2A4E1C484DA90005B550 /* Subtypes.swift in Sources */,
-				BA1A2A481C484D9F0005B550 /* Au3dioDataManager.swift in Sources */,
+				BA1A2A481C484D9F0005B550 /* DataManager.swift in Sources */,
 				BA1A2A361C484D720005B550 /* LevelListPresenter.swift in Sources */,
 				BA1A2A4D1C484DA90005B550 /* IdPath.swift in Sources */,
 				BA1A2A2E1C484D5F0005B550 /* GameResultPresenter.swift in Sources */,

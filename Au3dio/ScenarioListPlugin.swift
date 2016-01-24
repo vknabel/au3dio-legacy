@@ -35,7 +35,7 @@ public final class ScenarioListPlugin: Au3dioModulePlugin {
                 try readDataArray(rawData, map: map, mode: mode, module: module)
 
             default:
-                throw Au3dioDataManager.FetchError.InvalidFormat(rawData, Log())
+                throw DataManager.FetchError.InvalidFormat(rawData, Log())
             }
         }
         private mutating func readDataArray(rawData: JSONType, map: ComponentMap.MapType, mode: PersistenceMode, module: Au3dioModule) throws {

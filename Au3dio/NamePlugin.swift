@@ -22,7 +22,7 @@ public final class NamePlugin: Au3dioModulePlugin {
             case .Null:
                 break
             default:
-                throw Au3dioDataManager.FetchError.InvalidFormat(rawData, Log())
+                throw DataManager.FetchError.InvalidFormat(rawData, Log())
             }
         }
 
