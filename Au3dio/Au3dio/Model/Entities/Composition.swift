@@ -61,7 +61,7 @@ public extension CompositionType {
             return
         }
         for (k, sub) in rawData {
-            guard let type = map[k] else { throw DataManager.FetchError.UnknownComponent(k, rawData, Log()) }
+            guard let type = map[k] else { throw FetchError.UnknownComponent(k, rawData, Log()) }
             self.components[k] = self.components[k] ?? type.init(composition: self, key: k)
             try self.components[k]?.readData(sub, map: map, mode: mode, module: module)
         }

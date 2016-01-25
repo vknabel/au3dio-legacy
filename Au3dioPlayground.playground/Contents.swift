@@ -44,7 +44,7 @@ public final class NamePlugin: Au3dioModulePlugin {
         public init(composition: CompositionType, key: String) { }
 
         public mutating func readData(rawData: RawDataType, map: ComponentMap.MapType, mode: PersistenceMode) throws {
-            guard rawData.type == .String else { throw DataManager.FetchError.InvalidFormat }
+            guard rawData.type == .String else { throw FetchError.InvalidFormat }
             name = rawData.string ?? ""
         }
 
@@ -132,4 +132,6 @@ do {
 
     let testId = IdPath(idPath: rootId, suffix: "ScenarioList")
 } catch {
-    print("failed \(error
+    print("failed \(error)")
+}
+*/

@@ -24,7 +24,7 @@ public final class GreetingPlugin: Au3dioModulePlugin {
             case .Null:
                 break
             default:
-                throw DataManager.FetchError.InvalidFormat(rawData, Log())
+                throw FetchError.InvalidFormat(rawData, Log())
             }
         }
 

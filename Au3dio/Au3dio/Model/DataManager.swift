@@ -109,16 +109,14 @@ public final class DataManager: Au3dioModulePlugin {
     }
 }
 
-public extension DataManager {
-    /// Describes all possible errors that may occur with persistence.
-    public enum FetchError: ErrorType {
-        case InvalidFormat(Any, Log)
-        case UnknownComponent(String, Any, Log)
-        case FileNotFound(String, Log)
-        case UndefinedMode
-        case NotImplemented
-        case InvalidTargetObject
-        case NoData
-        case FoundationError(NSError)
-    }
+/// Describes all possible errors that may occur with persistence.
+public enum FetchError: ErrorType {
+    case InvalidFormat(Any, Log)
+    case UnknownComponent(String, Any, Log)
+    case FileNotFound(String, Log)
+    case UndefinedMode
+    case NotImplemented
+    case InvalidTargetObject
+    case NoData
+    case FoundationError(NSError)
 }

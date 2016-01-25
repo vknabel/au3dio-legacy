@@ -41,7 +41,7 @@ public final class CompositionListPlugin: Au3dioModulePlugin {
                 try readDataArray(rawData, map: map, mode: mode, module: module)
 
             default:
-                throw DataManager.FetchError.InvalidFormat(rawData, Log())
+                throw FetchError.InvalidFormat(rawData, Log())
             }
         }
         private mutating func readDataArray(rawData: RawDataType, map: ComponentMap.MapType, mode: PersistenceMode, module: Au3dioModule) throws {

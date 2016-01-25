@@ -26,6 +26,7 @@ public struct IdPath: CustomStringConvertible {
             $0.appendingPath($1)
         })
     }
+    /// Returns a relative file path of the `IdPath`.
     public var description: String {
         return pathComponents.reduce("", combine: {
             $0.appendingPath($1)
