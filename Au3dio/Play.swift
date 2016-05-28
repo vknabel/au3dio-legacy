@@ -2,6 +2,7 @@
 import Au3dio
 import SwiftyJSON
 import ConclurerLog
+import RxSwift
 
 func play() {
     // log types will be printed colored
@@ -27,6 +28,15 @@ func play() {
 
     do {
         // value semantic
+        au3dio.rootCompositionSubject.asObservable().subscribe(onNext: { root in
+                Log.print("[UPDATED] \(root)", type: .Step)
+            },
+            onError: { error in
+                Log.print("[FAILURE] \(error)")
+            },
+            onCompleted: { 
+                Log.print("[COMPLETED]")
+            }).addDisposableTo(au3dio.disposeBag)
         var root = au3dio.dataManager.rootComposition
         Log.print("succeeded: \(root.components)")
 

@@ -1,6 +1,7 @@
 
 import Then
 import StateMachine
+import RxSwift
 
 /// The Interactor to be used in order to communicate with the framework.
 public final class Au3dioModule: ModuleType, Then {
@@ -11,6 +12,8 @@ public final class Au3dioModule: ModuleType, Then {
     public private(set) lazy var modulePlugins: [Au3dioModulePlugin] = [self.dataManager]
     public let configuration: Configuration
     public var componentMap: ComponentMap = ComponentMap()
+    public let rootCompositionSubject: PublishSubject<Composition> = PublishSubject()
+    public let disposeBag: DisposeBag = DisposeBag()
 
     /// Create an instance of Au3dioModule by the given Au3dioInteractorTypes.
     public init(configuration: Configuration, pluginTypes: [Au3dioModulePlugin.Type]) {

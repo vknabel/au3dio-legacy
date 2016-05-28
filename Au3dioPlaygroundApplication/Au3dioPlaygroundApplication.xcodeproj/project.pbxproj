@@ -7,41 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA2012311CF99D02006E7330 /* Au3dio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2012301CF99D02006E7330 /* Au3dio.framework */; };
+		BA2012321CF99D02006E7330 /* Au3dio.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BA2012301CF99D02006E7330 /* Au3dio.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BA2012351CF99D09006E7330 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2012341CF99D09006E7330 /* SwiftyJSON.framework */; };
+		BA2012361CF99D09006E7330 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BA2012341CF99D09006E7330 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BA2012381CF99D0F006E7330 /* Then.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2012371CF99D0F006E7330 /* Then.framework */; };
+		BA2012391CF99D0F006E7330 /* Then.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BA2012371CF99D0F006E7330 /* Then.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BA20123B1CF99D16006E7330 /* StateMachine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA20123A1CF99D16006E7330 /* StateMachine.framework */; };
+		BA20123C1CF99D16006E7330 /* StateMachine.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BA20123A1CF99D16006E7330 /* StateMachine.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BA20123E1CF99D1F006E7330 /* ArrayMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA20123D1CF99D1F006E7330 /* ArrayMap.framework */; };
+		BA20123F1CF99D1F006E7330 /* ArrayMap.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BA20123D1CF99D1F006E7330 /* ArrayMap.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BA2012411CF99D1F006E7330 /* ConclurerHook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2012401CF99D1F006E7330 /* ConclurerHook.framework */; };
+		BA2012421CF99D1F006E7330 /* ConclurerHook.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BA2012401CF99D1F006E7330 /* ConclurerHook.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BA2012481CF99F9E006E7330 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2012471CF99F9E006E7330 /* RxSwift.framework */; };
 		BA3A40621C48EC1D00AB0B95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3A40611C48EC1D00AB0B95 /* AppDelegate.swift */; };
 		BA3A40641C48EC1D00AB0B95 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3A40631C48EC1D00AB0B95 /* ViewController.swift */; };
 		BA3A40671C48EC1E00AB0B95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA3A40651C48EC1E00AB0B95 /* Main.storyboard */; };
 		BA3A40691C48EC1E00AB0B95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA3A40681C48EC1E00AB0B95 /* Assets.xcassets */; };
 		BA3A406C1C48EC1E00AB0B95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA3A406A1C48EC1E00AB0B95 /* LaunchScreen.storyboard */; };
 		BA3A40741C48EC3500AB0B95 /* Play.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3A40731C48EC3500AB0B95 /* Play.swift */; };
-		BA3A40761C48EC8A00AB0B95 /* Au3dio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA3A40751C48EC8A00AB0B95 /* Au3dio.framework */; };
-		BA3A40771C48EC8A00AB0B95 /* Au3dio.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BA3A40751C48EC8A00AB0B95 /* Au3dio.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		BA3A40791C48EC8A00AB0B95 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA3A40781C48EC8A00AB0B95 /* SwiftyJSON.framework */; };
-		BA3A407A1C48EC8A00AB0B95 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BA3A40781C48EC8A00AB0B95 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		BA3A407C1C48EC8A00AB0B95 /* Then.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA3A407B1C48EC8A00AB0B95 /* Then.framework */; };
-		BA3A407D1C48EC8A00AB0B95 /* Then.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BA3A407B1C48EC8A00AB0B95 /* Then.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		BA3A407F1C48EC8A00AB0B95 /* StateMachine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA3A407E1C48EC8A00AB0B95 /* StateMachine.framework */; };
-		BA3A40801C48EC8A00AB0B95 /* StateMachine.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BA3A407E1C48EC8A00AB0B95 /* StateMachine.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		BA3A40821C48EC8A00AB0B95 /* ArrayMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA3A40811C48EC8A00AB0B95 /* ArrayMap.framework */; };
-		BA3A40831C48EC8A00AB0B95 /* ArrayMap.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BA3A40811C48EC8A00AB0B95 /* ArrayMap.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		BA3A40851C48EC8A00AB0B95 /* ConclurerHook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA3A40841C48EC8A00AB0B95 /* ConclurerHook.framework */; };
-		BA3A40861C48EC8A00AB0B95 /* ConclurerHook.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BA3A40841C48EC8A00AB0B95 /* ConclurerHook.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BA3A408A1C48ECE500AB0B95 /* Readonly in Resources */ = {isa = PBXBuildFile; fileRef = BA3A40891C48ECE500AB0B95 /* Readonly */; };
-		BACA90421C55235100516175 /* ConclurerLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BACA90411C55235100516175 /* ConclurerLog.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		BA3A40871C48EC8A00AB0B95 /* Embed Frameworks */ = {
+		BA2012331CF99D02006E7330 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				BA3A40801C48EC8A00AB0B95 /* StateMachine.framework in Embed Frameworks */,
-				BA3A40861C48EC8A00AB0B95 /* ConclurerHook.framework in Embed Frameworks */,
-				BA3A407D1C48EC8A00AB0B95 /* Then.framework in Embed Frameworks */,
-				BA3A40831C48EC8A00AB0B95 /* ArrayMap.framework in Embed Frameworks */,
-				BA3A407A1C48EC8A00AB0B95 /* SwiftyJSON.framework in Embed Frameworks */,
-				BA3A40771C48EC8A00AB0B95 /* Au3dio.framework in Embed Frameworks */,
+				BA20123C1CF99D16006E7330 /* StateMachine.framework in Embed Frameworks */,
+				BA2012421CF99D1F006E7330 /* ConclurerHook.framework in Embed Frameworks */,
+				BA2012391CF99D0F006E7330 /* Then.framework in Embed Frameworks */,
+				BA20123F1CF99D1F006E7330 /* ArrayMap.framework in Embed Frameworks */,
+				BA2012361CF99D09006E7330 /* SwiftyJSON.framework in Embed Frameworks */,
+				BA2012321CF99D02006E7330 /* Au3dio.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -49,6 +49,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		BA2012301CF99D02006E7330 /* Au3dio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = Au3dio.framework; path = "/Users/vknabel/Library/Developer/Xcode/DerivedData/Au3dio-ffsopzheyocwevhbpmtyorqvbmlt/Build/Products/Debug-iphonesimulator/Au3dio.framework"; sourceTree = "<absolute>"; };
+		BA2012341CF99D09006E7330 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = SwiftyJSON.framework; path = "/Users/vknabel/Library/Developer/Xcode/DerivedData/Au3dio-ffsopzheyocwevhbpmtyorqvbmlt/Build/Products/Debug-iphonesimulator/SwiftyJSON.framework"; sourceTree = "<absolute>"; };
+		BA2012371CF99D0F006E7330 /* Then.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = Then.framework; path = "/Users/vknabel/Library/Developer/Xcode/DerivedData/Au3dio-ffsopzheyocwevhbpmtyorqvbmlt/Build/Products/Debug-iphonesimulator/Then.framework"; sourceTree = "<absolute>"; };
+		BA20123A1CF99D16006E7330 /* StateMachine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = StateMachine.framework; path = "/Users/vknabel/Library/Developer/Xcode/DerivedData/Au3dio-ffsopzheyocwevhbpmtyorqvbmlt/Build/Products/Debug-iphonesimulator/StateMachine.framework"; sourceTree = "<absolute>"; };
+		BA20123D1CF99D1F006E7330 /* ArrayMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = ArrayMap.framework; path = "/Users/vknabel/Library/Developer/Xcode/DerivedData/Au3dio-ffsopzheyocwevhbpmtyorqvbmlt/Build/Products/Debug-iphonesimulator/ArrayMap.framework"; sourceTree = "<absolute>"; };
+		BA2012401CF99D1F006E7330 /* ConclurerHook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = ConclurerHook.framework; path = "/Users/vknabel/Library/Developer/Xcode/DerivedData/Au3dio-ffsopzheyocwevhbpmtyorqvbmlt/Build/Products/Debug-iphonesimulator/ConclurerHook.framework"; sourceTree = "<absolute>"; };
+		BA2012471CF99F9E006E7330 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = "../RxSwift/build/Debug-iphoneos/RxSwift.framework"; sourceTree = "<group>"; };
 		BA3A405E1C48EC1D00AB0B95 /* Au3dioPlaygroundApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Au3dioPlaygroundApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA3A40611C48EC1D00AB0B95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA3A40631C48EC1D00AB0B95 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -72,13 +79,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BACA90421C55235100516175 /* ConclurerLog.framework in Frameworks */,
-				BA3A407F1C48EC8A00AB0B95 /* StateMachine.framework in Frameworks */,
-				BA3A40851C48EC8A00AB0B95 /* ConclurerHook.framework in Frameworks */,
-				BA3A407C1C48EC8A00AB0B95 /* Then.framework in Frameworks */,
-				BA3A40821C48EC8A00AB0B95 /* ArrayMap.framework in Frameworks */,
-				BA3A40791C48EC8A00AB0B95 /* SwiftyJSON.framework in Frameworks */,
-				BA3A40761C48EC8A00AB0B95 /* Au3dio.framework in Frameworks */,
+				BA2012481CF99F9E006E7330 /* RxSwift.framework in Frameworks */,
+				BA20123B1CF99D16006E7330 /* StateMachine.framework in Frameworks */,
+				BA2012411CF99D1F006E7330 /* ConclurerHook.framework in Frameworks */,
+				BA2012381CF99D0F006E7330 /* Then.framework in Frameworks */,
+				BA20123E1CF99D1F006E7330 /* ArrayMap.framework in Frameworks */,
+				BA2012351CF99D09006E7330 /* SwiftyJSON.framework in Frameworks */,
+				BA2012311CF99D02006E7330 /* Au3dio.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,6 +127,13 @@
 		BA3A40881C48EC9100AB0B95 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
+				BA2012471CF99F9E006E7330 /* RxSwift.framework */,
+				BA2012401CF99D1F006E7330 /* ConclurerHook.framework */,
+				BA20123D1CF99D1F006E7330 /* ArrayMap.framework */,
+				BA20123A1CF99D16006E7330 /* StateMachine.framework */,
+				BA2012371CF99D0F006E7330 /* Then.framework */,
+				BA2012341CF99D09006E7330 /* SwiftyJSON.framework */,
+				BA2012301CF99D02006E7330 /* Au3dio.framework */,
 				BACA90411C55235100516175 /* ConclurerLog.framework */,
 				BA3A40841C48EC8A00AB0B95 /* ConclurerHook.framework */,
 				BA3A40811C48EC8A00AB0B95 /* ArrayMap.framework */,
@@ -141,7 +155,7 @@
 				BA3A405A1C48EC1D00AB0B95 /* Sources */,
 				BA3A405B1C48EC1D00AB0B95 /* Frameworks */,
 				BA3A405C1C48EC1D00AB0B95 /* Resources */,
-				BA3A40871C48EC8A00AB0B95 /* Embed Frameworks */,
+				BA2012331CF99D02006E7330 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

@@ -9,7 +9,20 @@ public final class DataManager: Au3dioModulePlugin {
     public static let rootIdPath = IdPath(id: "Au3dioRoot")
 
     /// The composition defined as root. It represents the data stored using `DataManager.rootIdPath`.
-    public lazy var rootComposition: RootComposition = self.fetchRootCompositionUnthrowingly()
+    private lazy var _rootComposition: RootComposition = {
+        let root = self.fetchRootCompositionUnthrowingly()
+        self.module.rootCompositionSubject.onNext(root) // initial value
+        return root
+    }()
+    public var rootComposition: RootComposition {
+        get {
+            return _rootComposition
+        }
+        set {
+            _rootComposition = newValue
+            module.rootCompositionSubject.onNext(newValue)
+        }
+    }
 
     public init(module: Au3dioModule) {
         self.module = module
