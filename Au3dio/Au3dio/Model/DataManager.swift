@@ -2,6 +2,7 @@
 import Foundation
 import SwiftyJSON
 import ConclurerLog
+import RxSwift
 
 /// A DataManager handles all kind of access to raw data in specified peristence modes.
 public final class DataManager: Au3dioModulePlugin {
@@ -9,20 +10,7 @@ public final class DataManager: Au3dioModulePlugin {
     public static let rootIdPath = IdPath(id: "Au3dioRoot")
 
     /// The composition defined as root. It represents the data stored using `DataManager.rootIdPath`.
-    private lazy var _rootComposition: RootComposition = {
-        let root = self.fetchRootCompositionUnthrowingly()
-        self.module.rootCompositionSubject.onNext(root) // initial value
-        return root
-    }()
-    public var rootComposition: RootComposition {
-        get {
-            return _rootComposition
-        }
-        set {
-            _rootComposition = newValue
-            module.rootCompositionSubject.onNext(newValue)
-        }
-    }
+    public private(set) lazy var rootCompositionSubject: BehaviorSubject<RootComposition> = BehaviorSubject(value: self.fetchRootCompositionUnthrowingly())
 
     public init(module: Au3dioModule) {
         self.module = module
@@ -119,6 +107,17 @@ public final class DataManager: Au3dioModulePlugin {
         }
 
         _ = try self.reloadRootComposition()
+    }
+}
+
+public extension DataManager {
+    public var rootComposition: RootComposition {
+        get {
+            return try! self.rootCompositionSubject.value()
+        }
+        set {
+            self.rootCompositionSubject.onNext(newValue)
+        }
     }
 }
 

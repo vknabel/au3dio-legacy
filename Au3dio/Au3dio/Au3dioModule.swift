@@ -12,7 +12,7 @@ public final class Au3dioModule: ModuleType, Then {
     public private(set) lazy var modulePlugins: [Au3dioModulePlugin] = [self.dataManager]
     public let configuration: Configuration
     public var componentMap: ComponentMap = ComponentMap()
-    public let rootCompositionSubject: PublishSubject<Composition> = PublishSubject()
+    public private(set) lazy var rootCompositionStream: Observable<RootComposition> = self.dataManager.rootCompositionSubject.asObservable().shareReplayLatestWhileConnected()
     public let disposeBag: DisposeBag = DisposeBag()
 
     /// Create an instance of Au3dioModule by the given Au3dioInteractorTypes.
