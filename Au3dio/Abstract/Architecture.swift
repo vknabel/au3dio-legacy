@@ -5,7 +5,7 @@ public protocol ModuleType { }
 public protocol InteractorType {
     /// The target module type.
     /// All requirements should be provided by the module.
-    typealias Module: ModuleType
+    associatedtype Module: ModuleType
     /// The module the interactor was created with.
     var module: Module { get }
     /// Creates a new interactor.
@@ -15,7 +15,7 @@ public protocol InteractorType {
 public protocol PresenterType {
     /// The target module type.
     /// All requirements should be provided by the module.
-    typealias Module: ModuleType
+    associatedtype Module: ModuleType
     /// The module the presenter was created with.
     var module: Module { get }
     /// Creates a new presenter.

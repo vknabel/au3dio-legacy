@@ -55,7 +55,7 @@ public final class CompositionListPlugin: Au3dioModulePlugin {
 
                 defer {
                     newScs.append(scenario)
-                    i++
+                    i += 1
                 }
                 guard v.type != .Null else { continue }
                 try scenario.readData(v, map: map, mode: mode, module: module)

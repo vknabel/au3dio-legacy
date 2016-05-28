@@ -3,7 +3,7 @@ import Foundation
 
 /// Fails in debug mode when two provided values are unequal.
 /// Otherwise nothing will be executed.
-public func assertEqual<T: Equatable>(@autoclosure lhs: () -> T, @autoclosure _ rhs: () -> T, file: StaticString = __FILE__, line: UInt = __LINE__) {
+public func assertEqual<T: Equatable>(@autoclosure lhs: () -> T, @autoclosure _ rhs: () -> T, file: StaticString = #file, line: UInt = #line) {
     #if debug
     let (l, r) = (lhs(), rhs())
     assert(l == r, "\(file):\(line) Expected value to be \(r), given \(l)")
@@ -11,7 +11,7 @@ public func assertEqual<T: Equatable>(@autoclosure lhs: () -> T, @autoclosure _ 
 }
 /// Fails in debug mode when the first value is not contained in the latter ones.
 /// Otherwise nothing will be executed.
-public func assertOneOf<T: Equatable>(@autoclosure lhs: () -> T, @autoclosure _ rhss: () -> [T], file: StaticString = __FILE__, line: UInt = __LINE__) {
+public func assertOneOf<T: Equatable>(@autoclosure lhs: () -> T, @autoclosure _ rhss: () -> [T], file: StaticString = #file, line: UInt = #line) {
     #if debug
         let (l, rs) = (lhs(), rhss())
         assert(rs.contains(l), "\(file):\(line) Expected value to be one of \(rs), given \(l)")
@@ -21,11 +21,12 @@ public func assertOneOf<T: Equatable>(@autoclosure lhs: () -> T, @autoclosure _ 
 extension SequenceType {
     /// Returns all values of a specific type.
     public func castReduce<T>() -> [T] {
-        return reduce([], combine: { (var slf, val) -> [T] in
+        return reduce([], combine: { ( slf, val) -> [T] in
+            var mutate = slf
             if let castVal = val as? T {
-                slf.append(castVal)
+                mutate.append(castVal)
             }
-            return slf
+            return mutate
         })
     }
 }

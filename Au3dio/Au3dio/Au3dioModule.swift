@@ -17,9 +17,9 @@ public final class Au3dioModule: ModuleType, Then {
         self.configuration = configuration
         
         phaseMachine = StateMachine(initial: .Preparation(.Initial)) { trans in
-            trans.allow(from: .Preparation(.Initial), to: .Preparation(.PrepareHooks))
-            trans.allow(from: .Preparation(.PrepareHooks), to: .Preparation(.RegisterHooks))
-            trans.allow(from: .Preparation(.RegisterHooks), to: .Runtime(.Idle))
+            trans.allow(transitionFrom: .Preparation(.Initial), to: .Preparation(.PrepareHooks))
+            trans.allow(transitionFrom: .Preparation(.PrepareHooks), to: .Preparation(.RegisterHooks))
+            trans.allow(transitionFrom: .Preparation(.RegisterHooks), to: .Runtime(.Idle))
             trans.allowAssociatively([.Runtime(.Idle), .Runtime(.Running)])
         }
         modulePlugins.appendContentsOf(pluginTypes.map { $0.init(module: self) })
@@ -31,7 +31,7 @@ public final class Au3dioModule: ModuleType, Then {
 
     /// Performs the given operation on phase transitions to a given phase.
     public func onPhase(phase: Phase, perform op: StateMachine<Phase>.Operation) {
-        phaseMachine.onTransitions(to: phase, perform: op)
+        phaseMachine.on(transitionTo: phase, perform: op)
     }
 
 }
