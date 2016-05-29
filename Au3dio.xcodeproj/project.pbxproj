@@ -84,6 +84,8 @@
 		BAA42EDC1C48E078002F04C2 /* NamePlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NamePlugin.swift; sourceTree = "<group>"; };
 		BAA42EDE1C48E085002F04C2 /* ScenarioListPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScenarioListPlugin.swift; sourceTree = "<group>"; };
 		BAA723D21C553CCD00D5D629 /* PersistenceMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceMode.swift; sourceTree = "<group>"; };
+		BABF32581CF9C6D300C88251 /* ObjectAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectAL.framework; path = "ObjectAL-for-iPhone/ObjectAL/build/Debug/ObjectAL.framework"; sourceTree = "<group>"; };
+		BABF325C1CF9C78F00C88251 /* libObjectAL.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libObjectAL.a; path = "../../../Library/Developer/Xcode/DerivedData/Au3dio-ffsopzheyocwevhbpmtyorqvbmlt/Build/Products/Debug-iphonesimulator/libObjectAL.a"; sourceTree = "<group>"; };
 		BACA903F1C55234700516175 /* ConclurerLog.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ConclurerLog.framework; path = "ConclurerLog/build/Debug-iphoneos/ConclurerLog.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -138,6 +140,8 @@
 		BA1A29F41C4849950005B550 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
+				BABF325C1CF9C78F00C88251 /* libObjectAL.a */,
+				BABF32581CF9C6D300C88251 /* ObjectAL.framework */,
 				BA2012451CF99F8E006E7330 /* RxSwift.framework */,
 				BACA903F1C55234700516175 /* ConclurerLog.framework */,
 				BA725E1C1C48DDB200C03A2D /* SwiftyJSON.framework */,
@@ -464,6 +468,7 @@
 					"$(PROJECT_DIR)/Carthage/Checkouts/SwiftyJSON/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/ConclurerLog/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/RxSwift/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/ObjectAL-for-iPhone/ObjectAL/build/Debug",
 				);
 				INFOPLIST_FILE = Au3dio/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -491,6 +496,7 @@
 					"$(PROJECT_DIR)/Carthage/Checkouts/SwiftyJSON/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/ConclurerLog/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/RxSwift/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/ObjectAL-for-iPhone/ObjectAL/build/Debug",
 				);
 				INFOPLIST_FILE = Au3dio/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
