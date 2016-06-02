@@ -6,132 +6,105 @@
 - Implement hook for every implementation of Composition: (String) -> Component.Type
 */
 import Foundation
+import Au3dio
+import SwiftyJSON
+import ConclurerLog
+import XCPlayground
 
-/*
-public final class GreetingPlugin: Au3dioModulePlugin {
-    public var module: Au3dioModule
-    public init(module: Au3dioModule) {
-        self.module = module
+private extension String {
+    static var soundSource: String { return "source" }
+    static var soundPosition: String { return "position" }
+    static var soundVolume: String { return "volume" }
+    static var soundLoops: String { return "loops" }
+    static var soundDelay: String { return "delay" }
+}
 
-        module.componentMap.componentTypes["greeting"] = Component.self
+public final class SoundNodePlugin: CommonModulePlugin {
+    public required init(module: Au3dioModule) {
+        super.init(module: module)
+        module.componentMap.componentTypes["sound"] = SoundComponent.self
     }
 
-    public struct Component: ComponentType {
-        public var greeting: String = ""
+    public struct SoundComponent: ComponentType {
+        public private(set) var source: String!
+        public private(set) var position: Float?
+        public private(set) var volume: Float?
+        public private(set) var loops: Int?
+        public private(set) var delay: NSTimeInterval?
 
         public init(composition: CompositionType, key: String) { }
 
-        public mutating func readData(rawData: RawDataType, map: ComponentMap.MapType, mode: PersistenceMode) throws {
-            greeting = rawData.string ?? ""
+        public mutating func readData(rawData: RawDataType, map: ComponentMap.MapType, mode: PersistenceMode, module: Au3dioModule) throws {
+            guard let dict: [String : JSON] = rawData.dictionary,
+                let source = dict[.soundSource]?.string
+                else { throw FetchError.InvalidFormat("Value of type [String: JSON] containing [\"\(.soundSource)\"]: String \(rawData.debugDescription)", Log(type: .Error)) }
+            self.source = source
+            self.position = dict[.soundPosition]?.float
+            self.volume = dict[.soundVolume]?.float
+            self.loops = dict[.soundLoops]?.int
+            self.delay = dict[.soundDelay]?.double
         }
 
-        public func export() -> JSON {
-            return JSON(greeting)
+        public func export(mode: PersistenceMode) -> RawDataType? {
+            assert(source != nil, "Tried to export SoundComponent without any source (\(.soundSource)) given")
+            return JSON([
+                String.soundSource: source,
+                .soundPosition: position ?? NSNull(),
+                .soundVolume: volume ?? NSNull(),
+                .soundLoops: loops ?? NSNull(),
+                .soundDelay: delay ?? NSNull()
+            ])
         }
     }
 }
-public final class NamePlugin: Au3dioModulePlugin {
-    public var module: Au3dioModule
-    public init(module: Au3dioModule) {
-        self.module = module
 
-        module.componentMap.componentTypes["name"] = NameComponent.self
+public final class PositionPlugin: CommonModulePlugin {
+    public required init(module: Au3dioModule) {
+        super.init(module: module)
+        module.componentMap.componentTypes["position"] = PositionComponent.self
     }
 
-    public struct NameComponent: ComponentType {
-        public var name: String = ""
+    public struct PositionComponent: ComponentType {
+        public private(set) var x: Float!
+        public private(set) var y: Float!
 
         public init(composition: CompositionType, key: String) { }
 
-        public mutating func readData(rawData: RawDataType, map: ComponentMap.MapType, mode: PersistenceMode) throws {
-            guard rawData.type == .String else { throw FetchError.InvalidFormat }
-            name = rawData.string ?? ""
+        public mutating func readData(rawData: RawDataType, map: ComponentMap.MapType, mode: PersistenceMode, module: Au3dioModule) throws {
+            guard let coords = rawData.arrayObject as? [Float]
+                where coords.count == 2
+                else { throw FetchError.InvalidFormat("Expected [Float] of length 2, \(rawData) given", Log(type: .Error)) }
+            self.x = coords[0]
+            self.y = coords[1]
         }
 
-        public func export(mode: PersistenceMode) -> RawDataType {
-            switch mode {
-            case .Readonly, .SemiPersistent:
-                return JSON(NSNull())
-            case .Descriptive, .FullyPersistent:
-                return JSON(name)
-            }
+        public func export(mode: PersistenceMode) -> RawDataType? {
+            return JSON([x, y])
         }
     }
 }
-
-public protocol ScenarioListComponentType {
-    var scenarios: [CompositionType] { get }
-}
-public final class ScenarioListPlugin: Au3dioModulePlugin {
-    public let module: Au3dioModule
-    public init(module: Au3dioModule) {
-        self.module = module
-
-        module.componentMap.componentTypes["scenarios"] = Component.self
-    }
-
-    public struct Component: ComponentType, ScenarioListComponentType {
-        private var idPath: IdPath
-        private var readModes: [PersistenceMode] = []
-        public private(set) var scenarios: [CompositionType] = []
-
-        public mutating func readData(rawData: RawDataType, map: ComponentMap.MapType, mode: PersistenceMode) throws {
-            assertEqual(rawData.type, .Array)
-
-            defer { readModes.append(mode) }
-            for (_, v) in rawData {
-                assertEqual(rawData.type, .Dictionary)
-                var scenario = ScenarioComposition(idPath: idPath)
-                try scenario.readComponents(v, map: map, mode: mode)
-                scenarios.append(scenario)
-            }
-        }
-        public init(composition: CompositionType, key: String) {
-            idPath = composition.idPath
-        }
-        public func export(mode: PersistenceMode) -> RawDataType {
-            return RawDataType(scenarios.map { $0.export(mode) })
-        }
-    }
-
-    public struct ExternalComponent: ComponentType, ExtendedModePersistable {
-    var idPath: IdPath
-    private var _list: [String] = []
-
-    public init(composition: CompositionType, key: String) {
-    idPath = IdPath(idPath: composition.idPath, suffix: key)
-    }
-    mutating public func readData(rawData: RawDataType, mode: PersistenceMode) {
-    assertEqual(rawData.type, .String)
-    }
-    public func save(ensureCached: (IdPath, Int) -> Void) throws { }
-    public func export() -> RawDataType {
-    return RawDataType(NSNull())
-    }
-    }
-}
-
+NSURL(string: "/Users/vknabel/Developer/university/au3dio/Au3dioPlayground.playground/Resources/")
 let paths: [PersistenceMode: String] = [
     PersistenceMode.Readonly: "Readonly",
     .Descriptive: "Descriptive",
     .SemiPersistent: "Semi",
     .FullyPersistent: "Fully"
-    ].mapDict { ($0.0, NSBundle.mainBundle().resourcePath!.nsstring.stringByAppendingPathComponent($0.1)) }
+    ].mapDict { ($0.0, "/Users/vknabel/Developer/university/au3dio/Au3dioPlayground.playground/Resources/\($0.1)") }
+
 let config = Configuration(persistenceModePaths: paths)
 let au3dio = Au3dioModule(configuration: config, listOfPluginTypes:
     GameDataInteractor.self,
     NamePlugin.self,
     GreetingPlugin.self,
-    ScenarioListPlugin.self
+    CompositionListPlugin.self,
+    SoundNodePlugin.self,
+    PositionPlugin.self
 )
+au3dio.findPlugin(CompositionListPlugin.self)?.addAliases(["scenarios"])
 
-do {
-    let rootId = IdPath(id: "Au3dioData")
-    let root = try au3dio.dataManager.fetchIdPath(rootId, mode: .Readonly)
-    root.components
+au3dio.rootCompositionStream.subscribeNext({ comp in
+    print(comp)
+    }).addDisposableTo(au3dio.disposeBag)
 
-    let testId = IdPath(idPath: rootId, suffix: "ScenarioList")
-} catch {
-    print("failed \(error)")
-}
-*/
+let root = try! au3dio.dataManager.reloadRootComposition()
+print("ROOT", root)

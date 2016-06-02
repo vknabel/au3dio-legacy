@@ -33,6 +33,7 @@
 		BA2012441CF99EFE006E7330 /* Redux.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2012431CF99EFE006E7330 /* Redux.swift */; };
 		BA2012461CF99F8E006E7330 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2012451CF99F8E006E7330 /* RxSwift.framework */; };
 		BA3A408E1C48F79100AB0B95 /* CompositionListPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3A408D1C48F79100AB0B95 /* CompositionListPlugin.swift */; };
+		BA578DF11CFB84A8008B637D /* CommonModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA578DF01CFB84A8008B637D /* CommonModule.swift */; };
 		BA725E181C48DDB200C03A2D /* ArrayMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA725E0E1C48BF8300C03A2D /* ArrayMap.framework */; };
 		BA725E191C48DDB200C03A2D /* ConclurerHook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA725E0F1C48BF8300C03A2D /* ConclurerHook.framework */; };
 		BA725E1A1C48DDB200C03A2D /* StateMachine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA725E101C48BF8300C03A2D /* StateMachine.framework */; };
@@ -74,6 +75,7 @@
 		BA2012431CF99EFE006E7330 /* Redux.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Redux.swift; path = "../../../../Desktop/Manual Backup/Developer/au3dio/Sources/Redux.swift"; sourceTree = "<group>"; };
 		BA2012451CF99F8E006E7330 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = "RxSwift/build/Debug-iphoneos/RxSwift.framework"; sourceTree = "<group>"; };
 		BA3A408D1C48F79100AB0B95 /* CompositionListPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompositionListPlugin.swift; sourceTree = "<group>"; };
+		BA578DF01CFB84A8008B637D /* CommonModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonModule.swift; sourceTree = "<group>"; };
 		BA725E0E1C48BF8300C03A2D /* ArrayMap.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ArrayMap.framework; path = "../../../Library/Developer/Xcode/DerivedData/Au3dio-fzoobmuxboggsfcobbvnvisxustv/Build/Products/Debug-iphoneos/ArrayMap.framework"; sourceTree = "<group>"; };
 		BA725E0F1C48BF8300C03A2D /* ConclurerHook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ConclurerHook.framework; path = "../../../Library/Developer/Xcode/DerivedData/Au3dio-fzoobmuxboggsfcobbvnvisxustv/Build/Products/Debug-iphoneos/ConclurerHook.framework"; sourceTree = "<group>"; };
 		BA725E101C48BF8300C03A2D /* StateMachine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StateMachine.framework; path = "../../../Library/Developer/Xcode/DerivedData/Au3dio-fzoobmuxboggsfcobbvnvisxustv/Build/Products/Debug-iphoneos/StateMachine.framework"; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				BA1A29B11C4846F20005B550 /* Au3dio.h */,
+				BA578DF01CFB84A8008B637D /* CommonModule.swift */,
 				BAA42ED71C48E03F002F04C2 /* Play */,
 				BA1A2A3B1C484D860005B550 /* Au3dio */,
 				BA1A2A1B1C484D1A0005B550 /* Abstract */,
@@ -334,6 +337,7 @@
 				BAA42EDF1C48E085002F04C2 /* ScenarioListPlugin.swift in Sources */,
 				BA1A2A461C484D960005B550 /* GameDataInteractor.swift in Sources */,
 				BA1A2A2A1C484D5A0005B550 /* Au3dioWireframe.swift in Sources */,
+				BA578DF11CFB84A8008B637D /* CommonModule.swift in Sources */,
 				BA1A2A4C1C484DA90005B550 /* Composition.swift in Sources */,
 				BA1A2A421C484D960005B550 /* Au3dioArchitecture.swift in Sources */,
 				BA1A2A321C484D660005B550 /* LevelGamePresenter.swift in Sources */,

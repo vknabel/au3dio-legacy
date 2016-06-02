@@ -1,0 +1,13 @@
+[
+    {
+        "greeting": "Hello",
+        "name": "World"
+    },
+    {
+        "sound": {
+            "source": "bird.wav",
+            "volume": 1.0,
+        },
+        "position": [1, 0]
+    }
+ ]
