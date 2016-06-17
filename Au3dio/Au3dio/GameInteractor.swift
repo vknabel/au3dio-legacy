@@ -29,11 +29,11 @@ public final class GameInteractor: Au3dioInteractorType, InteractorType, Then {
         return try Environment(level: level)
     }
 
-    enum Error: ErrorType {
-        case InvalidLevel
-    }
-
     public final class Environment {
+        public enum Error: ErrorType {
+            case MissingLevelComponent
+        }
+
         // TODO: Revalidate typealiases
         public typealias LevelComposition = CompositionType
         public typealias GameState = CompositionType
@@ -48,7 +48,7 @@ public final class GameInteractor: Au3dioInteractorType, InteractorType, Then {
                 let background = level.findComponent(GreetingPlugin.Component.self),
                 let sound = level.findComponent(SoundPlugin.Component.self),
                 let behaviors = level.findComponent(CompositionListPlugin.Component.self)
-                else { throw Error.InvalidLevel }
+                else { throw Error.MissingLevelComponent }
 
             stateSubject.takeLast(1).subscribeNext(complete).addDisposableTo(bag)
 
