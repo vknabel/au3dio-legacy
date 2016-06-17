@@ -1,5 +1,5 @@
 //
-//  SoundPlugin.swift
+//  SoundNodePlugin.swift
 //  Au3dio
 //
 //  Created by Valentin Knabel on 17.06.16.

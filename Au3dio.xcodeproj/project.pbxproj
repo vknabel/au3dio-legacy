@@ -45,7 +45,8 @@
 		BAA723D31C553CCD00D5D629 /* PersistenceMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA723D21C553CCD00D5D629 /* PersistenceMode.swift */; };
 		BACA90401C55234700516175 /* ConclurerLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BACA903F1C55234700516175 /* ConclurerLog.framework */; };
 		BAE922521D14599D007E401D /* PositionPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE922511D14599D007E401D /* PositionPlugin.swift */; };
-		BAE922541D1459C4007E401D /* SoundPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE922531D1459C4007E401D /* SoundPlugin.swift */; };
+		BAE922541D1459C4007E401D /* SoundNodePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE922531D1459C4007E401D /* SoundNodePlugin.swift */; };
+		BAE922561D145B2B007E401D /* CommonPlugins.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE922551D145B2B007E401D /* CommonPlugins.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,7 +93,8 @@
 		BABF325C1CF9C78F00C88251 /* libObjectAL.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libObjectAL.a; path = "../../../Library/Developer/Xcode/DerivedData/Au3dio-ffsopzheyocwevhbpmtyorqvbmlt/Build/Products/Debug-iphonesimulator/libObjectAL.a"; sourceTree = "<group>"; };
 		BACA903F1C55234700516175 /* ConclurerLog.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ConclurerLog.framework; path = "ConclurerLog/build/Debug-iphoneos/ConclurerLog.framework"; sourceTree = "<group>"; };
 		BAE922511D14599D007E401D /* PositionPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositionPlugin.swift; sourceTree = "<group>"; };
-		BAE922531D1459C4007E401D /* SoundPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundPlugin.swift; sourceTree = "<group>"; };
+		BAE922531D1459C4007E401D /* SoundNodePlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundNodePlugin.swift; sourceTree = "<group>"; };
+		BAE922551D145B2B007E401D /* CommonPlugins.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonPlugins.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,7 +256,8 @@
 				BA3A408D1C48F79100AB0B95 /* CompositionListPlugin.swift */,
 				BAA42EDE1C48E085002F04C2 /* ScenarioListPlugin.swift */,
 				BAE922511D14599D007E401D /* PositionPlugin.swift */,
-				BAE922531D1459C4007E401D /* SoundPlugin.swift */,
+				BAE922531D1459C4007E401D /* SoundNodePlugin.swift */,
+				BAE922551D145B2B007E401D /* CommonPlugins.swift */,
 			);
 			name = Play;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 			files = (
 				BA1A2A231C484D250005B550 /* SwiftyJSONAddtitions.swift in Sources */,
 				BA1A2A311C484D660005B550 /* LevelGameInteractor.swift in Sources */,
+				BAE922561D145B2B007E401D /* CommonPlugins.swift in Sources */,
 				BA2012441CF99EFE006E7330 /* Redux.swift in Sources */,
 				BAA42EDF1C48E085002F04C2 /* ScenarioListPlugin.swift in Sources */,
 				BA1A2A461C484D960005B550 /* GameDataInteractor.swift in Sources */,
@@ -353,7 +357,7 @@
 				BA1A2A3A1C484D790005B550 /* ScenarioListPresenter.swift in Sources */,
 				BAA42EDD1C48E078002F04C2 /* NamePlugin.swift in Sources */,
 				BA1A2A441C484D960005B550 /* Au3dioModule.swift in Sources */,
-				BAE922541D1459C4007E401D /* SoundPlugin.swift in Sources */,
+				BAE922541D1459C4007E401D /* SoundNodePlugin.swift in Sources */,
 				BAA42EDB1C48E070002F04C2 /* GreetingPlugin.swift in Sources */,
 				BA1A2A201C484D250005B550 /* Architecture.swift in Sources */,
 				BA3A408E1C48F79100AB0B95 /* CompositionListPlugin.swift in Sources */,
