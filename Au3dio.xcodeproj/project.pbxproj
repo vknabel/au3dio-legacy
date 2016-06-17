@@ -25,7 +25,7 @@
 		BA1A2A431C484D960005B550 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1A2A3E1C484D960005B550 /* Configuration.swift */; };
 		BA1A2A441C484D960005B550 /* Au3dioModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1A2A3F1C484D960005B550 /* Au3dioModule.swift */; };
 		BA1A2A451C484D960005B550 /* ComponentMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1A2A401C484D960005B550 /* ComponentMap.swift */; };
-		BA1A2A461C484D960005B550 /* GameDataInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1A2A411C484D960005B550 /* GameDataInteractor.swift */; };
+		BA1A2A461C484D960005B550 /* GameInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1A2A411C484D960005B550 /* GameInteractor.swift */; };
 		BA1A2A481C484D9F0005B550 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1A2A471C484D9F0005B550 /* DataManager.swift */; };
 		BA1A2A4C1C484DA90005B550 /* Composition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1A2A491C484DA90005B550 /* Composition.swift */; };
 		BA1A2A4D1C484DA90005B550 /* IdPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1A2A4A1C484DA90005B550 /* IdPath.swift */; };
@@ -45,7 +45,7 @@
 		BAA723D31C553CCD00D5D629 /* PersistenceMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA723D21C553CCD00D5D629 /* PersistenceMode.swift */; };
 		BACA90401C55234700516175 /* ConclurerLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BACA903F1C55234700516175 /* ConclurerLog.framework */; };
 		BAE922521D14599D007E401D /* PositionPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE922511D14599D007E401D /* PositionPlugin.swift */; };
-		BAE922541D1459C4007E401D /* SoundNodePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE922531D1459C4007E401D /* SoundNodePlugin.swift */; };
+		BAE922541D1459C4007E401D /* SoundPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE922531D1459C4007E401D /* SoundPlugin.swift */; };
 		BAE922561D145B2B007E401D /* CommonPlugins.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE922551D145B2B007E401D /* CommonPlugins.swift */; };
 /* End PBXBuildFile section */
 
@@ -70,7 +70,7 @@
 		BA1A2A3E1C484D960005B550 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Configuration.swift; path = Au3dio/Configuration.swift; sourceTree = "<group>"; };
 		BA1A2A3F1C484D960005B550 /* Au3dioModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Au3dioModule.swift; path = Au3dio/Au3dioModule.swift; sourceTree = "<group>"; };
 		BA1A2A401C484D960005B550 /* ComponentMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ComponentMap.swift; path = Au3dio/ComponentMap.swift; sourceTree = "<group>"; };
-		BA1A2A411C484D960005B550 /* GameDataInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameDataInteractor.swift; path = Au3dio/GameDataInteractor.swift; sourceTree = "<group>"; };
+		BA1A2A411C484D960005B550 /* GameInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameInteractor.swift; path = Au3dio/GameInteractor.swift; sourceTree = "<group>"; };
 		BA1A2A471C484D9F0005B550 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataManager.swift; path = Au3dio/Model/DataManager.swift; sourceTree = "<group>"; };
 		BA1A2A491C484DA90005B550 /* Composition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Composition.swift; path = Au3dio/Model/Entities/Composition.swift; sourceTree = "<group>"; };
 		BA1A2A4A1C484DA90005B550 /* IdPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IdPath.swift; path = Au3dio/Model/Entities/IdPath.swift; sourceTree = "<group>"; };
@@ -93,7 +93,7 @@
 		BABF325C1CF9C78F00C88251 /* libObjectAL.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libObjectAL.a; path = "../../../Library/Developer/Xcode/DerivedData/Au3dio-ffsopzheyocwevhbpmtyorqvbmlt/Build/Products/Debug-iphonesimulator/libObjectAL.a"; sourceTree = "<group>"; };
 		BACA903F1C55234700516175 /* ConclurerLog.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ConclurerLog.framework; path = "ConclurerLog/build/Debug-iphoneos/ConclurerLog.framework"; sourceTree = "<group>"; };
 		BAE922511D14599D007E401D /* PositionPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositionPlugin.swift; sourceTree = "<group>"; };
-		BAE922531D1459C4007E401D /* SoundNodePlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundNodePlugin.swift; sourceTree = "<group>"; };
+		BAE922531D1459C4007E401D /* SoundPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundPlugin.swift; sourceTree = "<group>"; };
 		BAE922551D145B2B007E401D /* CommonPlugins.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonPlugins.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -229,7 +229,7 @@
 				BA1A2A3E1C484D960005B550 /* Configuration.swift */,
 				BA1A2A3F1C484D960005B550 /* Au3dioModule.swift */,
 				BA1A2A401C484D960005B550 /* ComponentMap.swift */,
-				BA1A2A411C484D960005B550 /* GameDataInteractor.swift */,
+				BA1A2A411C484D960005B550 /* GameInteractor.swift */,
 				BA1A2A3C1C484D8E0005B550 /* Model */,
 			);
 			name = Au3dio;
@@ -256,7 +256,7 @@
 				BA3A408D1C48F79100AB0B95 /* CompositionListPlugin.swift */,
 				BAA42EDE1C48E085002F04C2 /* ScenarioListPlugin.swift */,
 				BAE922511D14599D007E401D /* PositionPlugin.swift */,
-				BAE922531D1459C4007E401D /* SoundNodePlugin.swift */,
+				BAE922531D1459C4007E401D /* SoundPlugin.swift */,
 				BAE922551D145B2B007E401D /* CommonPlugins.swift */,
 			);
 			name = Play;
@@ -345,7 +345,7 @@
 				BAE922561D145B2B007E401D /* CommonPlugins.swift in Sources */,
 				BA2012441CF99EFE006E7330 /* Redux.swift in Sources */,
 				BAA42EDF1C48E085002F04C2 /* ScenarioListPlugin.swift in Sources */,
-				BA1A2A461C484D960005B550 /* GameDataInteractor.swift in Sources */,
+				BA1A2A461C484D960005B550 /* GameInteractor.swift in Sources */,
 				BAE922521D14599D007E401D /* PositionPlugin.swift in Sources */,
 				BA1A2A2A1C484D5A0005B550 /* Au3dioWireframe.swift in Sources */,
 				BA578DF11CFB84A8008B637D /* CommonModule.swift in Sources */,
@@ -357,7 +357,7 @@
 				BA1A2A3A1C484D790005B550 /* ScenarioListPresenter.swift in Sources */,
 				BAA42EDD1C48E078002F04C2 /* NamePlugin.swift in Sources */,
 				BA1A2A441C484D960005B550 /* Au3dioModule.swift in Sources */,
-				BAE922541D1459C4007E401D /* SoundNodePlugin.swift in Sources */,
+				BAE922541D1459C4007E401D /* SoundPlugin.swift in Sources */,
 				BAA42EDB1C48E070002F04C2 /* GreetingPlugin.swift in Sources */,
 				BA1A2A201C484D250005B550 /* Architecture.swift in Sources */,
 				BA3A408E1C48F79100AB0B95 /* CompositionListPlugin.swift in Sources */,

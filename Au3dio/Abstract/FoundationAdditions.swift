@@ -20,7 +20,7 @@ public func assertOneOf<T: Equatable>(@autoclosure lhs: () -> T, @autoclosure _ 
 
 extension SequenceType {
     /// Returns all values of a specific type.
-    public func castReduce<T>() -> [T] {
+    public func castReduce<T>(_ type: T.Type? = nil) -> [T] {
         return reduce([], combine: { ( slf, val) -> [T] in
             var mutate = slf
             if let castVal = val as? T {

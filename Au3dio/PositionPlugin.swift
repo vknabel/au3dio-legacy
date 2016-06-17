@@ -12,10 +12,10 @@ import SwiftyJSON
 public final class PositionPlugin: CommonModulePlugin {
     public required init(module: Au3dioModule) {
         super.init(module: module)
-        module.componentMap.componentTypes["position"] = PositionComponent.self
+        module.componentMap.componentTypes["position"] = Component.self
     }
 
-    public struct PositionComponent: ComponentType {
+    public struct Component: ComponentType {
         public private(set) var x: Float!
         public private(set) var y: Float!
 

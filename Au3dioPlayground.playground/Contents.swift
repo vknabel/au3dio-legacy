@@ -10,6 +10,25 @@ import Au3dio
 import SwiftyJSON
 import ConclurerLog
 import XCPlayground
+import RxSwift
+
+extension Int {
+    var seconds: Int {
+        return self
+    }
+    var minutes: Int {
+        return self * 60
+    }
+}
+
+let levelTicks = 1.minutes
+
+let bag = DisposeBag()
+let tick = Observable<Int>.interval(1, scheduler: MainScheduler.instance).publish().replay(1).refCount()
+tick.take(Int(levelTicks))
+    .subscribeNext({ i in
+        print(levelTicks - i)
+    }).addDisposableTo(bag)
 
 NSURL(string: "/Users/vknabel/Developer/university/au3dio/Au3dioPlayground.playground/Resources/")
 let paths: [PersistenceMode: String] = [
@@ -36,3 +55,5 @@ au3dio.rootCompositionStream.subscribeNext({ comp in
 
 let root = try! au3dio.dataManager.reloadRootComposition()
 print("ROOT", root)
+
+XCPlaygroundPage.currentPage.needsIndefiniteExecution = true

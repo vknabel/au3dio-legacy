@@ -1,5 +1,5 @@
 //
-//  SoundNodePlugin.swift
+//  SoundPlugin.swift
 //  Au3dio
 //
 //  Created by Valentin Knabel on 17.06.16.
@@ -17,13 +17,13 @@ private extension String {
     static var soundDelay: String { return "delay" }
 }
 
-public final class SoundNodePlugin: CommonModulePlugin {
+public final class SoundPlugin: CommonModulePlugin {
     public required init(module: Au3dioModule) {
         super.init(module: module)
-        module.componentMap.componentTypes["sound"] = SoundComponent.self
+        module.componentMap.componentTypes["sound"] = Component.self
     }
 
-    public struct SoundComponent: ComponentType {
+    public struct Component: ComponentType {
         public private(set) var source: String!
         public private(set) var position: Float?
         public private(set) var volume: Float?

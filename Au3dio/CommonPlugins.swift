@@ -12,7 +12,7 @@ public extension Au3dioModule {
         CompositionListPlugin.self,
         ScenarioListPlugin.self,
         PositionPlugin.self,
-        SoundNodePlugin.self
+        SoundPlugin.self
     ]
     public private(set) static var debugPlugins: [Au3dioModulePlugin.Type] = {
         var plugins: [Au3dioModulePlugin.Type] = [GreetingPlugin.self]
