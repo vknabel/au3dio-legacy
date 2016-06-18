@@ -34,14 +34,14 @@ public extension ListComponentType {
         var i = 0
         for (_, v) in rawData {
             assertEqual(rawData.type, .Dictionary)
-            var scenario = sc.count > i ? sc[i] : ScenarioComposition(idPath: idPath)
+            var list = sc.count > i ? sc[i] : InlineComposition(idPath: idPath)
 
             defer {
-                newScs.append(scenario)
+                newScs.append(list)
                 i += 1
             }
             guard v.type != .Null else { continue }
-            try scenario.readData(v, map: map, mode: mode, module: module)
+            try list.readData(v, map: map, mode: mode, module: module)
         }
         children = newScs
     }

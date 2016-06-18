@@ -32,7 +32,7 @@
 		BA1A2A4E1C484DA90005B550 /* Subtypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1A2A4B1C484DA90005B550 /* Subtypes.swift */; };
 		BA2012441CF99EFE006E7330 /* Redux.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2012431CF99EFE006E7330 /* Redux.swift */; };
 		BA2012461CF99F8E006E7330 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2012451CF99F8E006E7330 /* RxSwift.framework */; };
-		BA3A408E1C48F79100AB0B95 /* CompositionListComponentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3A408D1C48F79100AB0B95 /* CompositionListComponentType.swift */; };
+		BA3A408E1C48F79100AB0B95 /* ListComponentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3A408D1C48F79100AB0B95 /* ListComponentType.swift */; };
 		BA578DF11CFB84A8008B637D /* CommonModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA578DF01CFB84A8008B637D /* CommonModule.swift */; };
 		BA725E181C48DDB200C03A2D /* ArrayMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA725E0E1C48BF8300C03A2D /* ArrayMap.framework */; };
 		BA725E191C48DDB200C03A2D /* ConclurerHook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA725E0F1C48BF8300C03A2D /* ConclurerHook.framework */; };
@@ -80,7 +80,7 @@
 		BA1A2A4B1C484DA90005B550 /* Subtypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Subtypes.swift; path = Au3dio/Model/Entities/Subtypes.swift; sourceTree = "<group>"; };
 		BA2012431CF99EFE006E7330 /* Redux.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Redux.swift; path = "../../../../Desktop/Manual Backup/Developer/au3dio/Sources/Redux.swift"; sourceTree = "<group>"; };
 		BA2012451CF99F8E006E7330 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = "RxSwift/build/Debug-iphoneos/RxSwift.framework"; sourceTree = "<group>"; };
-		BA3A408D1C48F79100AB0B95 /* CompositionListComponentType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompositionListComponentType.swift; sourceTree = "<group>"; };
+		BA3A408D1C48F79100AB0B95 /* ListComponentType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListComponentType.swift; sourceTree = "<group>"; };
 		BA578DF01CFB84A8008B637D /* CommonModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonModule.swift; sourceTree = "<group>"; };
 		BA725E0E1C48BF8300C03A2D /* ArrayMap.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ArrayMap.framework; path = "../../../Library/Developer/Xcode/DerivedData/Au3dio-fzoobmuxboggsfcobbvnvisxustv/Build/Products/Debug-iphoneos/ArrayMap.framework"; sourceTree = "<group>"; };
 		BA725E0F1C48BF8300C03A2D /* ConclurerHook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ConclurerHook.framework; path = "../../../Library/Developer/Xcode/DerivedData/Au3dio-fzoobmuxboggsfcobbvnvisxustv/Build/Products/Debug-iphoneos/ConclurerHook.framework"; sourceTree = "<group>"; };
@@ -277,7 +277,7 @@
 		BA8D14EA1D15E137009C2FC2 /* templates */ = {
 			isa = PBXGroup;
 			children = (
-				BA3A408D1C48F79100AB0B95 /* CompositionListComponentType.swift */,
+				BA3A408D1C48F79100AB0B95 /* ListComponentType.swift */,
 			);
 			name = templates;
 			sourceTree = "<group>";
@@ -419,7 +419,7 @@
 				BAE922541D1459C4007E401D /* SoundPlugin.swift in Sources */,
 				BAA42EDB1C48E070002F04C2 /* GreetingPlugin.swift in Sources */,
 				BA1A2A201C484D250005B550 /* Architecture.swift in Sources */,
-				BA3A408E1C48F79100AB0B95 /* CompositionListComponentType.swift in Sources */,
+				BA3A408E1C48F79100AB0B95 /* ListComponentType.swift in Sources */,
 				BA1A2A4E1C484DA90005B550 /* Subtypes.swift in Sources */,
 				BA1A2A481C484D9F0005B550 /* DataManager.swift in Sources */,
 				BAA723D31C553CCD00D5D629 /* PersistenceMode.swift in Sources */,
