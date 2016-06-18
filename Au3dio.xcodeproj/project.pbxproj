@@ -32,13 +32,16 @@
 		BA1A2A4E1C484DA90005B550 /* Subtypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1A2A4B1C484DA90005B550 /* Subtypes.swift */; };
 		BA2012441CF99EFE006E7330 /* Redux.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2012431CF99EFE006E7330 /* Redux.swift */; };
 		BA2012461CF99F8E006E7330 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2012451CF99F8E006E7330 /* RxSwift.framework */; };
-		BA3A408E1C48F79100AB0B95 /* CompositionListPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3A408D1C48F79100AB0B95 /* CompositionListPlugin.swift */; };
+		BA3A408E1C48F79100AB0B95 /* CompositionListComponentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3A408D1C48F79100AB0B95 /* CompositionListComponentType.swift */; };
 		BA578DF11CFB84A8008B637D /* CommonModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA578DF01CFB84A8008B637D /* CommonModule.swift */; };
 		BA725E181C48DDB200C03A2D /* ArrayMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA725E0E1C48BF8300C03A2D /* ArrayMap.framework */; };
 		BA725E191C48DDB200C03A2D /* ConclurerHook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA725E0F1C48BF8300C03A2D /* ConclurerHook.framework */; };
 		BA725E1A1C48DDB200C03A2D /* StateMachine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA725E101C48BF8300C03A2D /* StateMachine.framework */; };
 		BA725E1B1C48DDB200C03A2D /* Then.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA725E121C48BF8300C03A2D /* Then.framework */; };
 		BA725E1D1C48DDB200C03A2D /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA725E1C1C48DDB200C03A2D /* SwiftyJSON.framework */; };
+		BA8D14E81D15DBE9009C2FC2 /* GameEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D14E71D15DBE9009C2FC2 /* GameEnvironment.swift */; };
+		BA8D14ED1D15E798009C2FC2 /* BehaviorListPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D14EC1D15E798009C2FC2 /* BehaviorListPlugin.swift */; };
+		BA8D14F41D15FC17009C2FC2 /* EntityListPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D14F31D15FC17009C2FC2 /* EntityListPlugin.swift */; };
 		BAA42EDB1C48E070002F04C2 /* GreetingPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA42EDA1C48E070002F04C2 /* GreetingPlugin.swift */; };
 		BAA42EDD1C48E078002F04C2 /* NamePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA42EDC1C48E078002F04C2 /* NamePlugin.swift */; };
 		BAA42EDF1C48E085002F04C2 /* ScenarioListPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA42EDE1C48E085002F04C2 /* ScenarioListPlugin.swift */; };
@@ -77,13 +80,16 @@
 		BA1A2A4B1C484DA90005B550 /* Subtypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Subtypes.swift; path = Au3dio/Model/Entities/Subtypes.swift; sourceTree = "<group>"; };
 		BA2012431CF99EFE006E7330 /* Redux.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Redux.swift; path = "../../../../Desktop/Manual Backup/Developer/au3dio/Sources/Redux.swift"; sourceTree = "<group>"; };
 		BA2012451CF99F8E006E7330 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = "RxSwift/build/Debug-iphoneos/RxSwift.framework"; sourceTree = "<group>"; };
-		BA3A408D1C48F79100AB0B95 /* CompositionListPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompositionListPlugin.swift; sourceTree = "<group>"; };
+		BA3A408D1C48F79100AB0B95 /* CompositionListComponentType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompositionListComponentType.swift; sourceTree = "<group>"; };
 		BA578DF01CFB84A8008B637D /* CommonModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonModule.swift; sourceTree = "<group>"; };
 		BA725E0E1C48BF8300C03A2D /* ArrayMap.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ArrayMap.framework; path = "../../../Library/Developer/Xcode/DerivedData/Au3dio-fzoobmuxboggsfcobbvnvisxustv/Build/Products/Debug-iphoneos/ArrayMap.framework"; sourceTree = "<group>"; };
 		BA725E0F1C48BF8300C03A2D /* ConclurerHook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ConclurerHook.framework; path = "../../../Library/Developer/Xcode/DerivedData/Au3dio-fzoobmuxboggsfcobbvnvisxustv/Build/Products/Debug-iphoneos/ConclurerHook.framework"; sourceTree = "<group>"; };
 		BA725E101C48BF8300C03A2D /* StateMachine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StateMachine.framework; path = "../../../Library/Developer/Xcode/DerivedData/Au3dio-fzoobmuxboggsfcobbvnvisxustv/Build/Products/Debug-iphoneos/StateMachine.framework"; sourceTree = "<group>"; };
 		BA725E121C48BF8300C03A2D /* Then.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Then.framework; path = "../../../Library/Developer/Xcode/DerivedData/Au3dio-fzoobmuxboggsfcobbvnvisxustv/Build/Products/Debug-iphoneos/Then.framework"; sourceTree = "<group>"; };
 		BA725E1C1C48DDB200C03A2D /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "../../../Library/Developer/Xcode/DerivedData/Au3dio-fzoobmuxboggsfcobbvnvisxustv/Build/Products/Debug-iphoneos/SwiftyJSON.framework"; sourceTree = "<group>"; };
+		BA8D14E71D15DBE9009C2FC2 /* GameEnvironment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameEnvironment.swift; sourceTree = "<group>"; };
+		BA8D14EC1D15E798009C2FC2 /* BehaviorListPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BehaviorListPlugin.swift; sourceTree = "<group>"; };
+		BA8D14F31D15FC17009C2FC2 /* EntityListPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityListPlugin.swift; sourceTree = "<group>"; };
 		BAA42ED81C48E04F002F04C2 /* Play.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Play.swift; sourceTree = "<group>"; };
 		BAA42EDA1C48E070002F04C2 /* GreetingPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreetingPlugin.swift; sourceTree = "<group>"; };
 		BAA42EDC1C48E078002F04C2 /* NamePlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NamePlugin.swift; sourceTree = "<group>"; };
@@ -137,6 +143,7 @@
 			children = (
 				BA1A29B11C4846F20005B550 /* Au3dio.h */,
 				BA578DF01CFB84A8008B637D /* CommonModule.swift */,
+				BA8D14E91D15DC17009C2FC2 /* Plugins */,
 				BAA42ED71C48E03F002F04C2 /* Play */,
 				BA1A2A3B1C484D860005B550 /* Au3dio */,
 				BA1A2A1B1C484D1A0005B550 /* Abstract */,
@@ -229,7 +236,6 @@
 				BA1A2A3E1C484D960005B550 /* Configuration.swift */,
 				BA1A2A3F1C484D960005B550 /* Au3dioModule.swift */,
 				BA1A2A401C484D960005B550 /* ComponentMap.swift */,
-				BA1A2A411C484D960005B550 /* GameInteractor.swift */,
 				BA1A2A3C1C484D8E0005B550 /* Model */,
 			);
 			name = Au3dio;
@@ -247,14 +253,65 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		BA8D14E41D15DBC2009C2FC2 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				BA1A2A411C484D960005B550 /* GameInteractor.swift */,
+				BA8D14E71D15DBE9009C2FC2 /* GameEnvironment.swift */,
+			);
+			name = Game;
+			sourceTree = "<group>";
+		};
+		BA8D14E91D15DC17009C2FC2 /* Plugins */ = {
+			isa = PBXGroup;
+			children = (
+				BA8D14F51D15FCAB009C2FC2 /* Scenario */,
+				BA8D14F21D15FBFA009C2FC2 /* Entity */,
+				BA8D14EB1D15E782009C2FC2 /* Behavior */,
+				BA8D14EA1D15E137009C2FC2 /* templates */,
+				BA8D14E41D15DBC2009C2FC2 /* Game */,
+			);
+			name = Plugins;
+			sourceTree = "<group>";
+		};
+		BA8D14EA1D15E137009C2FC2 /* templates */ = {
+			isa = PBXGroup;
+			children = (
+				BA3A408D1C48F79100AB0B95 /* CompositionListComponentType.swift */,
+			);
+			name = templates;
+			sourceTree = "<group>";
+		};
+		BA8D14EB1D15E782009C2FC2 /* Behavior */ = {
+			isa = PBXGroup;
+			children = (
+				BA8D14EC1D15E798009C2FC2 /* BehaviorListPlugin.swift */,
+			);
+			name = Behavior;
+			sourceTree = "<group>";
+		};
+		BA8D14F21D15FBFA009C2FC2 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				BA8D14F31D15FC17009C2FC2 /* EntityListPlugin.swift */,
+			);
+			name = Entity;
+			sourceTree = "<group>";
+		};
+		BA8D14F51D15FCAB009C2FC2 /* Scenario */ = {
+			isa = PBXGroup;
+			children = (
+				BAA42EDE1C48E085002F04C2 /* ScenarioListPlugin.swift */,
+			);
+			name = Scenario;
+			sourceTree = "<group>";
+		};
 		BAA42ED71C48E03F002F04C2 /* Play */ = {
 			isa = PBXGroup;
 			children = (
 				BAA42ED81C48E04F002F04C2 /* Play.swift */,
 				BAA42EDA1C48E070002F04C2 /* GreetingPlugin.swift */,
 				BAA42EDC1C48E078002F04C2 /* NamePlugin.swift */,
-				BA3A408D1C48F79100AB0B95 /* CompositionListPlugin.swift */,
-				BAA42EDE1C48E085002F04C2 /* ScenarioListPlugin.swift */,
 				BAE922511D14599D007E401D /* PositionPlugin.swift */,
 				BAE922531D1459C4007E401D /* SoundPlugin.swift */,
 				BAE922551D145B2B007E401D /* CommonPlugins.swift */,
@@ -343,10 +400,12 @@
 				BA1A2A231C484D250005B550 /* SwiftyJSONAddtitions.swift in Sources */,
 				BA1A2A311C484D660005B550 /* LevelGameInteractor.swift in Sources */,
 				BAE922561D145B2B007E401D /* CommonPlugins.swift in Sources */,
+				BA8D14E81D15DBE9009C2FC2 /* GameEnvironment.swift in Sources */,
 				BA2012441CF99EFE006E7330 /* Redux.swift in Sources */,
 				BAA42EDF1C48E085002F04C2 /* ScenarioListPlugin.swift in Sources */,
 				BA1A2A461C484D960005B550 /* GameInteractor.swift in Sources */,
 				BAE922521D14599D007E401D /* PositionPlugin.swift in Sources */,
+				BA8D14F41D15FC17009C2FC2 /* EntityListPlugin.swift in Sources */,
 				BA1A2A2A1C484D5A0005B550 /* Au3dioWireframe.swift in Sources */,
 				BA578DF11CFB84A8008B637D /* CommonModule.swift in Sources */,
 				BA1A2A4C1C484DA90005B550 /* Composition.swift in Sources */,
@@ -360,7 +419,7 @@
 				BAE922541D1459C4007E401D /* SoundPlugin.swift in Sources */,
 				BAA42EDB1C48E070002F04C2 /* GreetingPlugin.swift in Sources */,
 				BA1A2A201C484D250005B550 /* Architecture.swift in Sources */,
-				BA3A408E1C48F79100AB0B95 /* CompositionListPlugin.swift in Sources */,
+				BA3A408E1C48F79100AB0B95 /* CompositionListComponentType.swift in Sources */,
 				BA1A2A4E1C484DA90005B550 /* Subtypes.swift in Sources */,
 				BA1A2A481C484D9F0005B550 /* DataManager.swift in Sources */,
 				BAA723D31C553CCD00D5D629 /* PersistenceMode.swift in Sources */,
@@ -369,6 +428,7 @@
 				BA1A2A2E1C484D5F0005B550 /* GameResultPresenter.swift in Sources */,
 				BA1A2A451C484D960005B550 /* ComponentMap.swift in Sources */,
 				BA1A2A351C484D720005B550 /* LevelListInteractor.swift in Sources */,
+				BA8D14ED1D15E798009C2FC2 /* BehaviorListPlugin.swift in Sources */,
 				BA1A2A221C484D250005B550 /* StateMachineAdditions.swift in Sources */,
 				BA1A2A391C484D790005B550 /* ScenarioListInteractor.swift in Sources */,
 				BA1A2A2D1C484D5F0005B550 /* GameResultInteractor.swift in Sources */,

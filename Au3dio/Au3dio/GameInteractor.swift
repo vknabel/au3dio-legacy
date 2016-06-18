@@ -28,38 +28,4 @@ public final class GameInteractor: Au3dioInteractorType, InteractorType, Then {
     public func environment(level: Environment.LevelComposition) throws -> Environment {
         return try Environment(level: level)
     }
-
-    public final class Environment {
-        public enum Error: ErrorType {
-            case MissingLevelComponent
-        }
-
-        // TODO: Revalidate typealiases
-        public typealias LevelComposition = CompositionType
-        public typealias GameState = CompositionType
-
-        private let stateSubject: PublishSubject<GameState> = PublishSubject()
-        private let bag: DisposeBag = DisposeBag()
-
-        internal init(level: LevelComposition) throws {
-            // TODO: Implement all Component Plugins
-            guard let goals = level.findComponent(GreetingPlugin.Component.self),
-                let entities = level.findComponent(GreetingPlugin.Component.self),
-                let background = level.findComponent(GreetingPlugin.Component.self),
-                let sound = level.findComponent(SoundPlugin.Component.self),
-                let behaviors = level.findComponent(CompositionListPlugin.Component.self)
-                else { throw Error.MissingLevelComponent }
-
-            stateSubject.takeLast(1).subscribeNext(complete).addDisposableTo(bag)
-
-            // TODO: Also add global behaviors to Au3dioModule
-            behaviors.scenarios.castReduce(GameBehavior.self).forEach { behavior in
-                behavior.connect(to: stateSubject).addDisposableTo(bag)
-            }
-        }
-
-        internal func complete(final state: GameState) {
-
-        }
-    }
 }
