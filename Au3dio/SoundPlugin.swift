@@ -11,7 +11,7 @@ import ConclurerLog
 
 private extension String {
     static var soundSource: String { return "source" }
-    static var soundPosition: String { return "position" }
+    static var soundPosition: String { return "position" } // TODO: Replace by access of real position
     static var soundVolume: String { return "volume" }
     static var soundLoops: String { return "loops" }
     static var soundDelay: String { return "delay" }

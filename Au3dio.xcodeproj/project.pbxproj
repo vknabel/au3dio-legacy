@@ -253,6 +253,14 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		BA54A69E1D181C0700326A26 /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				BAE922531D1459C4007E401D /* SoundPlugin.swift */,
+			);
+			name = Sound;
+			sourceTree = "<group>";
+		};
 		BA8D14E41D15DBC2009C2FC2 /* Game */ = {
 			isa = PBXGroup;
 			children = (
@@ -265,6 +273,7 @@
 		BA8D14E91D15DC17009C2FC2 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
+				BA54A69E1D181C0700326A26 /* Sound */,
 				BA8D14F51D15FCAB009C2FC2 /* Scenario */,
 				BA8D14F21D15FBFA009C2FC2 /* Entity */,
 				BA8D14EB1D15E782009C2FC2 /* Behavior */,
@@ -313,7 +322,6 @@
 				BAA42EDA1C48E070002F04C2 /* GreetingPlugin.swift */,
 				BAA42EDC1C48E078002F04C2 /* NamePlugin.swift */,
 				BAE922511D14599D007E401D /* PositionPlugin.swift */,
-				BAE922531D1459C4007E401D /* SoundPlugin.swift */,
 				BAE922551D145B2B007E401D /* CommonPlugins.swift */,
 			);
 			name = Play;

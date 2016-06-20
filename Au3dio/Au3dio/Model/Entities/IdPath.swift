@@ -3,6 +3,19 @@
 public struct IdPath: CustomStringConvertible {
     internal var pathComponents: [String]
 
+    private init(components: [String]) {
+        pathComponents = components
+    }
+}
+
+public extension IdPath {
+    public var parent: IdPath? {
+        guard pathComponents.count > 0 else { return nil }
+        var comps = pathComponents
+        _ = comps.removeLast()
+        return IdPath(components: comps)
+    }
+
     /// Creates a root id path.
     internal init(id: String) {
         pathComponents = [id]
