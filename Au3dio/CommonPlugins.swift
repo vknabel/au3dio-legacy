@@ -10,7 +10,7 @@ public extension Au3dioModule {
     public static let commonPlugins: [Au3dioModulePlugin.Type] = [
         NamePlugin.self,
         ScenarioListPlugin.self,
-        BehaviorListPlugin.self,
+        BehaviorPlugin.self,
         EntityListPlugin.self,
         PositionPlugin.self,
         SoundPlugin.self
