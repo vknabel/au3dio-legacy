@@ -40,7 +40,7 @@
 		BA725E1B1C48DDB200C03A2D /* Then.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA725E121C48BF8300C03A2D /* Then.framework */; };
 		BA725E1D1C48DDB200C03A2D /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA725E1C1C48DDB200C03A2D /* SwiftyJSON.framework */; };
 		BA8D14E81D15DBE9009C2FC2 /* GameEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D14E71D15DBE9009C2FC2 /* GameEnvironment.swift */; };
-		BA8D14ED1D15E798009C2FC2 /* BehaviorListPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D14EC1D15E798009C2FC2 /* BehaviorListPlugin.swift */; };
+		BA8D14ED1D15E798009C2FC2 /* BehaviorPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D14EC1D15E798009C2FC2 /* BehaviorPlugin.swift */; };
 		BA8D14F41D15FC17009C2FC2 /* EntityListPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D14F31D15FC17009C2FC2 /* EntityListPlugin.swift */; };
 		BAA42EDB1C48E070002F04C2 /* GreetingPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA42EDA1C48E070002F04C2 /* GreetingPlugin.swift */; };
 		BAA42EDD1C48E078002F04C2 /* NamePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA42EDC1C48E078002F04C2 /* NamePlugin.swift */; };
@@ -88,7 +88,7 @@
 		BA725E121C48BF8300C03A2D /* Then.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Then.framework; path = "../../../Library/Developer/Xcode/DerivedData/Au3dio-fzoobmuxboggsfcobbvnvisxustv/Build/Products/Debug-iphoneos/Then.framework"; sourceTree = "<group>"; };
 		BA725E1C1C48DDB200C03A2D /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "../../../Library/Developer/Xcode/DerivedData/Au3dio-fzoobmuxboggsfcobbvnvisxustv/Build/Products/Debug-iphoneos/SwiftyJSON.framework"; sourceTree = "<group>"; };
 		BA8D14E71D15DBE9009C2FC2 /* GameEnvironment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameEnvironment.swift; sourceTree = "<group>"; };
-		BA8D14EC1D15E798009C2FC2 /* BehaviorListPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BehaviorListPlugin.swift; sourceTree = "<group>"; };
+		BA8D14EC1D15E798009C2FC2 /* BehaviorPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BehaviorPlugin.swift; sourceTree = "<group>"; };
 		BA8D14F31D15FC17009C2FC2 /* EntityListPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityListPlugin.swift; sourceTree = "<group>"; };
 		BAA42ED81C48E04F002F04C2 /* Play.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Play.swift; sourceTree = "<group>"; };
 		BAA42EDA1C48E070002F04C2 /* GreetingPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreetingPlugin.swift; sourceTree = "<group>"; };
@@ -285,7 +285,7 @@
 		BA8D14EB1D15E782009C2FC2 /* Behavior */ = {
 			isa = PBXGroup;
 			children = (
-				BA8D14EC1D15E798009C2FC2 /* BehaviorListPlugin.swift */,
+				BA8D14EC1D15E798009C2FC2 /* BehaviorPlugin.swift */,
 			);
 			name = Behavior;
 			sourceTree = "<group>";
@@ -428,7 +428,7 @@
 				BA1A2A2E1C484D5F0005B550 /* GameResultPresenter.swift in Sources */,
 				BA1A2A451C484D960005B550 /* ComponentMap.swift in Sources */,
 				BA1A2A351C484D720005B550 /* LevelListInteractor.swift in Sources */,
-				BA8D14ED1D15E798009C2FC2 /* BehaviorListPlugin.swift in Sources */,
+				BA8D14ED1D15E798009C2FC2 /* BehaviorPlugin.swift in Sources */,
 				BA1A2A221C484D250005B550 /* StateMachineAdditions.swift in Sources */,
 				BA1A2A391C484D790005B550 /* ScenarioListInteractor.swift in Sources */,
 				BA1A2A2D1C484D5F0005B550 /* GameResultInteractor.swift in Sources */,

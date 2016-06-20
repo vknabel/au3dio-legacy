@@ -16,26 +16,40 @@ public extension GameInteractor {
 
         // TODO: Revalidate typealiases
         public typealias LevelComposition = CompositionType
-        public typealias GameState = CompositionType
+        public typealias State = CompositionType
+        public typealias StateReducer = (State) -> State
 
-        private let stateSubject: PublishSubject<GameState> = PublishSubject()
+        private let stateReducerSubject: PublishSubject<StateReducer> = PublishSubject()
+        private let stateSubject: PublishSubject<State> = PublishSubject()
         private let bag: DisposeBag = DisposeBag()
 
         internal init(level: LevelComposition) throws {
-            // TODO: Implement all Component Plugins
             guard let entities = level.findComponent(EntityListPlugin.Component.self),
-                let behaviors = level.findComponent(BehaviorListPlugin.Component.self)
+                let levelBehavior = level.findComponent(BehaviorPlugin.Component.self)
                 else { throw Error.MissingLevelComponent }
 
-            stateSubject.takeLast(1).subscribeNext(complete).addDisposableTo(bag)
+            var behaviors = entities.children.map { entity in
+                entity.findComponent(BehaviorPlugin.Component.self)
+                }.castReduce(BehaviorPlugin.Component.self)
+            behaviors.append(levelBehavior)
 
-            // TODO: Also add global behaviors to Au3dioModule
-            behaviors.children.castReduce(GameBehavior.self).forEach { behavior in
-                behavior.connect(to: stateSubject).addDisposableTo(bag)
+            behaviors.forEach { behavior in
+                behavior.components.flatMapCastDict(GameStateReducer.self).forEach { _, stateReducer in
+                    stateReducer.connect(
+                        to: behavior.idPath,
+                        receiving: stateSubject.asObservable(),
+                        reducing: stateReducerSubject.asObserver()
+                        ).addDisposableTo(bag)
+                }
             }
+
+            stateReducerSubject.flatMap({ reducer in
+                return self.stateSubject.map(reducer)
+            }).subscribe(stateSubject).addDisposableTo(bag)
+            stateSubject.takeLast(1).subscribeNext(complete).addDisposableTo(bag)
         }
 
-        internal func complete(final state: GameState) {
+        internal func complete(final state: State) {
             // TODO: Discuss wether this function is really needed.
         }
     }

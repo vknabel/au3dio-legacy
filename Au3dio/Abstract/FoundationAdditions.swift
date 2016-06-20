@@ -53,7 +53,7 @@ extension Dictionary {
         return result
     }
     /// Returns a dictionary filtered for a specific type.
-    public func flatMapCastDict<T>() -> [Key: T] {
+    public func flatMapCastDict<T>(_ type: T.Type? = nil) -> [Key: T] {
         var result = [Key: T]()
         for (k, v) in self {
             if let newV = v as? T {
