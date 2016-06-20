@@ -39,15 +39,7 @@ let paths: [PersistenceMode: String] = [
     ].mapDict { ($0.0, "/Users/vknabel/Developer/university/au3dio/Au3dioPlayground.playground/Resources/\($0.1)") }
 
 let config = Configuration(persistenceModePaths: paths)
-let au3dio = Au3dioModule(configuration: config, listOfPluginTypes:
-    GameDataInteractor.self,
-    NamePlugin.self,
-    GreetingPlugin.self,
-    CompositionListPlugin.self,
-    SoundNodePlugin.self,
-    PositionPlugin.self
-)
-au3dio.findPlugin(CompositionListPlugin.self)?.addAliases(["scenarios"])
+let au3dio = Au3dioModule(configuration: config, debug: false)
 
 au3dio.rootCompositionStream.subscribeNext({ comp in
     print(comp)

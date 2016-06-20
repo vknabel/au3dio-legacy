@@ -1,0 +1,34 @@
+[
+    {
+        "name": "My Level",
+        "entities": [
+            {
+                "name": "My Bird",
+                "position": [
+                    0.3,
+                    0.5
+                ],
+                "image": "bird0.png",
+                "behavior": {
+                    "sound": {
+                        "source": "bird0.mp3",
+                        "volume": 1.0,
+                        "repeat": true,
+                        "timeout": 2
+                    }
+                }
+            }
+        ],
+        "behavior": {
+            "search": {
+                "targets": [
+                    0
+                ]
+            },
+            "sound": {
+                "source": "rain.mp3",
+                "repeat": true
+            }
+        }
+    }
+]
