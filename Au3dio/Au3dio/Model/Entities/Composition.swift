@@ -68,7 +68,7 @@ public extension CompositionType {
     }
     /// Returns a component of a given type when found.
     public func findComponent<T: ComponentType>(type: T.Type) -> T? {
-        for c in components {
+        for (_, c) in components {
             if let c = c as? T {
                 return c
             }

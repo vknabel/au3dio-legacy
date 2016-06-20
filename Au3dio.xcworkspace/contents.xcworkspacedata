@@ -5,9 +5,6 @@
       location = "container:Au3dio.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Au3dioPlaygroundApplication/Au3dioPlaygroundApplication.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "container:Au3dioPlayground.playground">
    </FileRef>
    <FileRef

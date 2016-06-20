@@ -24,11 +24,6 @@ extension Int {
 let levelTicks = 1.minutes
 
 let bag = DisposeBag()
-let tick = Observable<Int>.interval(1, scheduler: MainScheduler.instance).publish().replay(1).refCount()
-tick.take(Int(levelTicks))
-    .subscribeNext({ i in
-        print(levelTicks - i)
-    }).addDisposableTo(bag)
 
 NSURL(string: "/Users/vknabel/Developer/university/au3dio/Au3dioPlayground.playground/Resources/")
 let paths: [PersistenceMode: String] = [
@@ -41,11 +36,30 @@ let paths: [PersistenceMode: String] = [
 let config = Configuration(persistenceModePaths: paths)
 let au3dio = Au3dioModule(configuration: config, debug: false)
 
-au3dio.rootCompositionStream.subscribeNext({ comp in
-    print(comp)
-    }).addDisposableTo(au3dio.disposeBag)
 
-let root = try! au3dio.dataManager.reloadRootComposition()
-print("ROOT", root)
+let levelStream = au3dio.rootCompositionStream.map { (root) -> CompositionType? in
+    let scenarios = root.findComponent(ScenarioListPlugin.Component.self)
+    let firstScenario = scenarios?.children.first
+    let levels = firstScenario?.findComponent(LevelListPlugin.Component.self)
+    let firstLevel = levels?.children.first
+    return firstLevel
+}
+
+let environmentStream = levelStream.map({ (level: CompositionType?) -> GameInteractor.Environment? in
+    guard let level = level else { return nil }
+    return try! au3dio.findPlugin(GameInteractor.self)?.environment(level)
+})
+
+let nonOptionalStream = environmentStream.flatMap { (optEnv) -> Observable<GameInteractor.Environment> in
+    if let env = optEnv {
+        return Observable.of(env)
+    } else {
+        return Observable.empty()
+    }
+}
+
+nonOptionalStream.subscribeNext({ (environment: GameInteractor.Environment) -> Void in
+    Log.print("Game Environment created", type: .Step)
+}).addDisposableTo(bag)
 
 XCPlaygroundPage.currentPage.needsIndefiniteExecution = true
