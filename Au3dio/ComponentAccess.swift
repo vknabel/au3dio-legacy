@@ -6,64 +6,11 @@
 //  Copyright © 2016 Valentin Knabel. All rights reserved.
 //
 
-public protocol ComponentAccessType {
-    associatedtype IndexType: Equatable
-    associatedtype ValueType
-    subscript(index: IndexType) -> ValueType? { get set }
+public protocol SubscriptCompositionType {
+    subscript(index: Int) -> CompositionType? { get set }
 }
-
-public extension CompositionType {
-    public typealias IndexType = String
-    public typealias ValueType = ComponentType
-
-    public subscript(index: IndexType) -> ValueType? {
-        get {
-            return self.components[index]
-        }
-        set {
-            if let newValue = newValue {
-                self.components[index] = newValue
-            } else {
-                self.components.removeValueForKey(index)
-            }
-        }
-    }
+public protocol FindComponentType {
+    func findComponent<T: ComponentType>(type: T.Type) -> T?
+    mutating func setComponent<T: ComponentType>(key: String, component: T)
+    mutating func updateComponent<T: ComponentType>(type: T.Type, update: (inout T) -> ())
 }
-
-public extension ListComponentType {
-    public typealias IndexType = Int
-    public typealias ValueType = CompositionType
-
-    public subscript(index: Int) -> CompositionType? {
-        get {
-            guard index < children.count else { return nil }
-            return self.children[index]
-        }
-        set {
-            if let newValue = newValue {
-                children[index] = newValue
-            } else {
-                children.removeAtIndex(index)
-            }
-        }
-    }
-}
-
-public extension ComposedComponentType {
-    public typealias IndexType = String
-    public typealias ValueType = ComponentType
-
-    public subscript(index: IndexType) -> ValueType? {
-        get {
-            return self.components[index]
-        }
-        set {
-            if let newValue = newValue {
-                self.components[index] = newValue
-            } else {
-                self.components.removeValueForKey(index)
-            }
-        }
-    }
-}
-

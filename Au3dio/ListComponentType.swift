@@ -2,7 +2,7 @@
 import SwiftyJSON
 import ConclurerLog
 
-public protocol ListComponentType: ComponentType {
+public protocol ListComponentType: ComponentType, SubscriptCompositionType {
     var idPath: IdPath { get }
     /// wether a specific mode is external or internal
     var readModesExternal: [PersistenceMode: Bool] { get set }
@@ -48,5 +48,19 @@ public extension ListComponentType {
     }
     public func export(mode: PersistenceMode) -> RawDataType? {
         return RawDataType(children.map { $0.export(mode) ?? RawDataType(NSNull()) })
+    }
+
+    public subscript(index: Int) -> CompositionType? {
+        get {
+            guard index < children.count else { return nil }
+            return self.children[index]
+        }
+        set {
+            if let newValue = newValue {
+                children[index] = newValue
+            } else {
+                children.removeAtIndex(index)
+            }
+        }
     }
 }

@@ -6,11 +6,9 @@ import ConclurerLog
 public typealias RawDataType = JSON
 
 /// Compositions are persistent entities referenced by an `IdPath`.
-public protocol CompositionType: ModePersistable {
+public protocol CompositionType: ModePersistable, FindComponentType, ComponentDictionaryType {
     /// Creates an empty composition.
     init(idPath: IdPath)
-    /// Stores all components by name.
-    var components: [String: ComponentType] { get set }
 }
 /// Components will be added to a composition.
 public protocol ComponentType: ModePersistable {
