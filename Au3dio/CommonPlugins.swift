@@ -17,7 +17,8 @@ public extension Au3dioModule {
         SoundPlugin.self,
         ImagePlugin.self,
         SearchPlugin.self,
-        GameInteractor.self
+        GameInteractor.self,
+        TimelimitPlugin.self
     ]
     public private(set) static var debugPlugins: [Au3dioModulePlugin.Type] = {
         var plugins: [Au3dioModulePlugin.Type] = [GreetingPlugin.self]

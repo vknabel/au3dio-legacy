@@ -12,17 +12,6 @@ import ConclurerLog
 import XCPlayground
 import RxSwift
 
-extension Int {
-    var seconds: Int {
-        return self
-    }
-    var minutes: Int {
-        return self * 60
-    }
-}
-
-let levelTicks = 1.minutes
-
 let bag = DisposeBag()
 
 NSURL(string: "/Users/vknabel/Developer/university/au3dio/Au3dioPlayground.playground/Resources/")

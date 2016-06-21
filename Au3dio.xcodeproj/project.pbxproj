@@ -36,6 +36,7 @@
 		BA54A6A21D1824B300326A26 /* LevelListComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA54A6A11D1824B300326A26 /* LevelListComponent.swift */; };
 		BA54A6A51D18250400326A26 /* ImagePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA54A6A41D18250400326A26 /* ImagePlugin.swift */; };
 		BA54A6A81D18258B00326A26 /* SearchPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA54A6A71D18258B00326A26 /* SearchPlugin.swift */; };
+		BA54A6AA1D1958FC00326A26 /* TimelimitPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA54A6A91D1958FC00326A26 /* TimelimitPlugin.swift */; };
 		BA578DF11CFB84A8008B637D /* CommonModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA578DF01CFB84A8008B637D /* CommonModule.swift */; };
 		BA725E181C48DDB200C03A2D /* ArrayMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA725E0E1C48BF8300C03A2D /* ArrayMap.framework */; };
 		BA725E191C48DDB200C03A2D /* ConclurerHook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA725E0F1C48BF8300C03A2D /* ConclurerHook.framework */; };
@@ -87,6 +88,7 @@
 		BA54A6A11D1824B300326A26 /* LevelListComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelListComponent.swift; sourceTree = "<group>"; };
 		BA54A6A41D18250400326A26 /* ImagePlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePlugin.swift; sourceTree = "<group>"; };
 		BA54A6A71D18258B00326A26 /* SearchPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchPlugin.swift; sourceTree = "<group>"; };
+		BA54A6A91D1958FC00326A26 /* TimelimitPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelimitPlugin.swift; sourceTree = "<group>"; };
 		BA578DF01CFB84A8008B637D /* CommonModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonModule.swift; sourceTree = "<group>"; };
 		BA725E0E1C48BF8300C03A2D /* ArrayMap.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ArrayMap.framework; path = "../../../Library/Developer/Xcode/DerivedData/Au3dio-fzoobmuxboggsfcobbvnvisxustv/Build/Products/Debug-iphoneos/ArrayMap.framework"; sourceTree = "<group>"; };
 		BA725E0F1C48BF8300C03A2D /* ConclurerHook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ConclurerHook.framework; path = "../../../Library/Developer/Xcode/DerivedData/Au3dio-fzoobmuxboggsfcobbvnvisxustv/Build/Products/Debug-iphoneos/ConclurerHook.framework"; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 			isa = PBXGroup;
 			children = (
 				BA54A6A71D18258B00326A26 /* SearchPlugin.swift */,
+				BA54A6A91D1958FC00326A26 /* TimelimitPlugin.swift */,
 			);
 			name = Goals;
 			sourceTree = "<group>";
@@ -434,6 +437,7 @@
 				BA1A2A311C484D660005B550 /* LevelGameInteractor.swift in Sources */,
 				BAE922561D145B2B007E401D /* CommonPlugins.swift in Sources */,
 				BA8D14E81D15DBE9009C2FC2 /* GameEnvironment.swift in Sources */,
+				BA54A6AA1D1958FC00326A26 /* TimelimitPlugin.swift in Sources */,
 				BA2012441CF99EFE006E7330 /* Redux.swift in Sources */,
 				BAA42EDF1C48E085002F04C2 /* ScenarioListPlugin.swift in Sources */,
 				BA1A2A461C484D960005B550 /* GameInteractor.swift in Sources */,
