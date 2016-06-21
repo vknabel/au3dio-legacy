@@ -23,7 +23,7 @@ public final class SoundPlugin: CommonModulePlugin {
         module.componentMap.componentTypes["sound"] = Component.self
     }
 
-    public struct Component: ComponentType, EmptyDescendant {
+    public struct Component: ComponentType {
         public private(set) var source: String!
         public private(set) var position: Float?
         public private(set) var volume: Float?

@@ -39,7 +39,6 @@ public protocol ModePersistable {
     var idPath: IdPath { get }
     /// Returns the raw data for a given mode. If there is no data, returns `nil`.
     func export(mode: PersistenceMode) -> RawDataType?
-    func descendant(with path: IdPath) -> ModePersistable?
 }
 
 /// Instances that need to save own/external data.
@@ -47,24 +46,4 @@ public protocol ExtendedModePersistable: ModePersistable {
     /// Tries to save all data in the given modes. Modes without a associated path need to be ignored.
     /// :throws: FetchError
     func save(module: Au3dioModule, modes: Set<PersistenceMode>) throws
-}
-
-public protocol DefaultDescendant: ModePersistable {
-    func descendant(withComponent component: String) -> ModePersistable?
-}
-
-public extension DefaultDescendant {
-    public func descendant(with path: IdPath) -> ModePersistable? {
-        let relativeComponents = path.components(relativeTo: idPath)
-        guard let first = relativeComponents.first else { return self }
-        return descendant(withComponent: first)?.descendant(with: IdPath(components: relativeComponents))
-    }
-}
-
-public protocol EmptyDescendant: ModePersistable { }
-
-public extension EmptyDescendant {
-    public func descendant(with path: IdPath) -> ModePersistable? {
-        return nil
-    }
 }

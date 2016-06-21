@@ -16,7 +16,7 @@ public final class ScenarioListPlugin: Au3dioModulePlugin {
         }
     }
 
-    public struct Component: ComponentType, ListComponentType, DefaultDescendant {
+    public struct Component: ComponentType, ListComponentType {
         public private(set) var idPath: IdPath
         public var readModesExternal: [PersistenceMode: Bool] = [:]
         public var children: [CompositionType] = []

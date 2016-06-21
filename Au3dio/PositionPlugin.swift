@@ -15,7 +15,7 @@ public final class PositionPlugin: CommonModulePlugin {
         module.componentMap.componentTypes["position"] = Component.self
     }
 
-    public struct Component: ComponentType, DefaultDescendant {
+    public struct Component: ComponentType {
         public private(set) var x: Float!
         public private(set) var y: Float!
         public let idPath: IdPath

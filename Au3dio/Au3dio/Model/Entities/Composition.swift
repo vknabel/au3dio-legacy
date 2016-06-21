@@ -23,7 +23,7 @@ public protocol ComponentType: ModePersistable {
 }
 
 /// An empty and default implementation of a composition.
-public struct Composition: CompositionType, DefaultDescendant {
+public struct Composition: CompositionType {
     public let idPath: IdPath
     public var components: [String: ComponentType] = [:]
 
@@ -36,7 +36,7 @@ public struct Composition: CompositionType, DefaultDescendant {
     }
 }
 /// An empty implementation that is not meant to be stored in external files.
-public struct InlineComposition: CompositionType, DefaultDescendant {
+public struct InlineComposition: CompositionType {
     public let idPath: IdPath
     public var components: [String: ComponentType] = [:]
 

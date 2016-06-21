@@ -16,7 +16,7 @@ public final class LevelListPlugin: Au3dioModulePlugin {
         }
     }
 
-    public struct Component: ComponentType, ListComponentType, DefaultDescendant {
+    public struct Component: ComponentType, ListComponentType {
         public var readModesExternal: [PersistenceMode: Bool] = [:]
         public var children: [CompositionType] = []
         public let idPath: IdPath

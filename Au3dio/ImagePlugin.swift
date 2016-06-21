@@ -10,7 +10,7 @@ public final class ImagePlugin: Au3dioModulePlugin {
         module.componentMap.componentTypes["image"] = Component.self
     }
 
-    public struct Component: ComponentType, EmptyDescendant {
+    public struct Component: ComponentType {
         public var imageName: String = ""
         public let idPath: IdPath
 

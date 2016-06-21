@@ -10,7 +10,7 @@ public final class NamePlugin: Au3dioModulePlugin {
         module.componentMap.componentTypes["name"] = Component.self
     }
 
-    public struct Component: ComponentType, EmptyDescendant {
+    public struct Component: ComponentType {
         public var name: String = ""
         public let idPath: IdPath
 

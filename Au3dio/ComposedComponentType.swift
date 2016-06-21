@@ -1,10 +1,4 @@
 
-public protocol ComposedComponentType: ComponentType, DefaultDescendant {
+public protocol ComposedComponentType: ComponentType {
     var components: [String: ComponentType] { get }
-}
-
-public extension ComposedComponentType {
-    public func descendant(withComponent component: String) -> ModePersistable? {
-        return components[component]
-    }
 }

@@ -12,7 +12,7 @@ public final class GreetingPlugin: Au3dioModulePlugin {
         module.componentMap.componentTypes["greeting"] = Component.self
     }
 
-    public struct Component: ComponentType, EmptyDescendant {
+    public struct Component: ComponentType {
         public var greeting: String = ""
         public let idPath: IdPath
 

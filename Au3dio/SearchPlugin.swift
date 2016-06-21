@@ -11,7 +11,7 @@ public final class SearchPlugin: Au3dioModulePlugin {
         module.componentMap.componentTypes["search"] = Component.self
     }
 
-    public struct Component: ComponentType, GameStateReducer, EmptyDescendant {
+    public struct Component: ComponentType, GameStateReducer {
         public let idPath: IdPath
         // TODO: Implement
 

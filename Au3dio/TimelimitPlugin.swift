@@ -20,7 +20,7 @@ public final class TimelimitPlugin: Au3dioModulePlugin {
         module.componentMap.componentTypes["timelimit"] = Component.self
     }
 
-    public struct Component: ComponentType, GameStateReducer, EmptyDescendant {
+    public struct Component: ComponentType, GameStateReducer {
         private var timeout: NSTimeInterval = 60.0
         public let idPath: IdPath
 
