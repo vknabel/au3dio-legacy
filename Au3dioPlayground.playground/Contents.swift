@@ -26,18 +26,11 @@ let config = Configuration(persistenceModePaths: paths)
 let au3dio = Au3dioModule(configuration: config, debug: false)
 
 
-let levelStream = au3dio.rootCompositionStream.map { (root) -> CompositionType? in
-    let scenarios = root.findComponent(ScenarioListPlugin.Component.self)
-    let firstScenario = scenarios?.children.first
-    let levels = firstScenario?.findComponent(LevelListPlugin.Component.self)
-    let firstLevel = levels?.children.first
-    return firstLevel
-}
-
-let environmentStream = levelStream.map({ (level: CompositionType?) -> GameInteractor.Environment? in
-    guard let level = level else { return nil }
+let environmentStream = au3dio.rootCompositionStream.map { (root) -> GameInteractor.Environment? in
+    guard let level = root.findComponent(ScenarioListPlugin.Component.self)?[0]?.findComponent(LevelListPlugin.Component.self)?[0]
+        else { return nil }
     return try! au3dio.findPlugin(GameInteractor.self)?.environment(level)
-})
+}
 
 let nonOptionalStream = environmentStream.flatMap { (optEnv) -> Observable<GameInteractor.Environment> in
     if let env = optEnv {

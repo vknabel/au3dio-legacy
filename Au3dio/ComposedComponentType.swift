@@ -1,4 +1,4 @@
 
 public protocol ComposedComponentType: ComponentType {
-    var components: [String: ComponentType] { get }
+    var components: [String: ComponentType] { get set }
 }

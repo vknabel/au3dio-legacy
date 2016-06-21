@@ -29,6 +29,16 @@ extension SequenceType {
             return mutate
         })
     }
+
+    /// Returns all values of a specific type.
+    public func find<T>(_ type: T.Type? = nil) -> T? {
+        for val in self {
+            if let val = val as? T {
+                return val
+            }
+        }
+        return nil
+    }
 }
 
 extension Dictionary {

@@ -65,7 +65,7 @@ public extension CompositionType {
         }
     }
     /// Returns a component of a given type when found.
-    public func findComponent<T: ComponentType>(type: T.Type) -> T? {
+    public func findComponent<T: ComponentType>(type: T.Type? = nil) -> T? {
         for (_, c) in components {
             if let c = c as? T {
                 return c
@@ -86,9 +86,5 @@ public extension CompositionType {
                 return
             }
         }
-    }
-
-    public func descendant(withComponent component: String) -> ModePersistable? {
-        return components[component]
     }
 }
