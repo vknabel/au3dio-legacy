@@ -7,7 +7,7 @@ public protocol GameStateReducer: ComponentType {
     func connect<S: ObservableType, R: ObserverType
         where S.E == GameInteractor.Environment.State,
         R.E == GameInteractor.Environment.StateReducer>
-        (to path: IdPath, receiving state: S, reducing observer: R) -> Disposable
+        (to path: IdPath, receiving state: S, reducing observer: R) -> Disposable?
 }
 
 /// This VIPER Interactor represents the use-case of displaying a specific level.

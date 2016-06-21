@@ -39,7 +39,7 @@ public extension GameInteractor {
                         to: behavior.idPath,
                         receiving: stateSubject.asObservable(),
                         reducing: stateReducerSubject.asObserver()
-                        ).addDisposableTo(bag)
+                    )?.addDisposableTo(bag)
                 }
             }
 
