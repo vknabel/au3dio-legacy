@@ -11,13 +11,13 @@ public final class EntityListPlugin: Au3dioModulePlugin {
         module.componentMap.componentTypes["entities"] = Component.self
     }
 
-    public struct Component: ComponentType, ListComponentType {
+    public struct Component: ComponentType, ListComponentType, DefaultDescendant {
         public private(set) var idPath: IdPath
         public var readModesExternal: [PersistenceMode: Bool] = [:]
         public var children: [CompositionType] = []
 
-        public init(composition: CompositionType, key: String) {
-            idPath = IdPath(idPath: composition.idPath, suffix: key)
+        public init(composition: CompositionType, idPath: IdPath) {
+            self.idPath = idPath
         }
     }
 }

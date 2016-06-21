@@ -11,7 +11,7 @@ public final class BehaviorPlugin: Au3dioModulePlugin {
         module.componentMap.componentTypes["behavior"] = Component.self
     }
 
-    public struct Component: ComponentType {
+    public struct Component: ComponentType, ComposedComponentType, DefaultDescendant {
         public private(set) var idPath: IdPath
         private var composition: InlineComposition
         public var components: [String: ComponentType] {
@@ -23,8 +23,8 @@ public final class BehaviorPlugin: Au3dioModulePlugin {
             }
         }
 
-        public init(composition: CompositionType, key: String) {
-            idPath = IdPath(idPath: composition.idPath, suffix: key)
+        public init(composition: CompositionType, idPath: IdPath) {
+            self.idPath = idPath
             self.composition = InlineComposition(idPath: idPath)
         }
 

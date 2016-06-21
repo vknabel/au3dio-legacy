@@ -9,8 +9,6 @@ public typealias RawDataType = JSON
 public protocol CompositionType: ModePersistable {
     /// Creates an empty composition.
     init(idPath: IdPath)
-    /// The `IdPath` to be referenced.
-    var idPath: IdPath { get }
     /// Stores all components by name.
     var components: [String: ComponentType] { get set }
 }
@@ -18,14 +16,14 @@ public protocol CompositionType: ModePersistable {
 public protocol ComponentType: ModePersistable {
     /// Initializes a components with a composition. 
     /// The given composition is only used to initialze the composition.
-    init(composition: CompositionType, key: String)
+    init(composition: CompositionType, idPath: IdPath)
     /// Applys changes given as raw data in a given mode.
     /// :throws: FetchError
     mutating func readData(rawData: RawDataType, map: ComponentMap.MapType, mode: PersistenceMode, module: Au3dioModule) throws
 }
 
 /// An empty and default implementation of a composition.
-public struct Composition: CompositionType {
+public struct Composition: CompositionType, DefaultDescendant {
     public let idPath: IdPath
     public var components: [String: ComponentType] = [:]
 
@@ -38,7 +36,7 @@ public struct Composition: CompositionType {
     }
 }
 /// An empty implementation that is not meant to be stored in external files.
-public struct InlineComposition: CompositionType {
+public struct InlineComposition: CompositionType, DefaultDescendant {
     public let idPath: IdPath
     public var components: [String: ComponentType] = [:]
 
@@ -61,8 +59,8 @@ public extension CompositionType {
             return
         }
         for (k, sub) in rawData {
-            guard let type = map[k] else { throw FetchError.UnknownComponent(k, rawData, Log()) }
-            self.components[k] = self.components[k] ?? type.init(composition: self, key: k)
+            guard let type = map[k] else { throw FetchError.UnknownComponent(k, Array(map.keys), rawData, Log()) }
+            self.components[k] = self.components[k] ?? type.init(composition: self, idPath: IdPath(idPath: idPath, suffix: k))
             try self.components[k]?.readData(sub, map: map, mode: mode, module: module)
         }
     }
@@ -88,5 +86,9 @@ public extension CompositionType {
                 return
             }
         }
+    }
+
+    public func descendant(withComponent component: String) -> ModePersistable? {
+        return components[component]
     }
 }

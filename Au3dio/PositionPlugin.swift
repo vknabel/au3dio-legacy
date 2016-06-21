@@ -15,11 +15,14 @@ public final class PositionPlugin: CommonModulePlugin {
         module.componentMap.componentTypes["position"] = Component.self
     }
 
-    public struct Component: ComponentType {
+    public struct Component: ComponentType, DefaultDescendant {
         public private(set) var x: Float!
         public private(set) var y: Float!
+        public let idPath: IdPath
 
-        public init(composition: CompositionType, key: String) { }
+        public init(composition: CompositionType, idPath: IdPath) {
+            self.idPath = idPath
+        }
 
         public mutating func readData(rawData: RawDataType, map: ComponentMap.MapType, mode: PersistenceMode, module: Au3dioModule) throws {
             guard let coords = rawData.arrayObject as? [Float]
@@ -31,6 +34,10 @@ public final class PositionPlugin: CommonModulePlugin {
 
         public func export(mode: PersistenceMode) -> RawDataType? {
             return JSON([x, y])
+        }
+
+        public func descendant(withComponent component: String) -> ModePersistable? {
+            return nil
         }
     }
 }

@@ -37,6 +37,7 @@
 		BA54A6A51D18250400326A26 /* ImagePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA54A6A41D18250400326A26 /* ImagePlugin.swift */; };
 		BA54A6A81D18258B00326A26 /* SearchPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA54A6A71D18258B00326A26 /* SearchPlugin.swift */; };
 		BA54A6AA1D1958FC00326A26 /* TimelimitPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA54A6A91D1958FC00326A26 /* TimelimitPlugin.swift */; };
+		BA54A6AC1D1964F800326A26 /* ComposedComponentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA54A6AB1D1964F800326A26 /* ComposedComponentType.swift */; };
 		BA578DF11CFB84A8008B637D /* CommonModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA578DF01CFB84A8008B637D /* CommonModule.swift */; };
 		BA725E181C48DDB200C03A2D /* ArrayMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA725E0E1C48BF8300C03A2D /* ArrayMap.framework */; };
 		BA725E191C48DDB200C03A2D /* ConclurerHook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA725E0F1C48BF8300C03A2D /* ConclurerHook.framework */; };
@@ -89,6 +90,7 @@
 		BA54A6A41D18250400326A26 /* ImagePlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePlugin.swift; sourceTree = "<group>"; };
 		BA54A6A71D18258B00326A26 /* SearchPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchPlugin.swift; sourceTree = "<group>"; };
 		BA54A6A91D1958FC00326A26 /* TimelimitPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelimitPlugin.swift; sourceTree = "<group>"; };
+		BA54A6AB1D1964F800326A26 /* ComposedComponentType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposedComponentType.swift; sourceTree = "<group>"; };
 		BA578DF01CFB84A8008B637D /* CommonModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonModule.swift; sourceTree = "<group>"; };
 		BA725E0E1C48BF8300C03A2D /* ArrayMap.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ArrayMap.framework; path = "../../../Library/Developer/Xcode/DerivedData/Au3dio-fzoobmuxboggsfcobbvnvisxustv/Build/Products/Debug-iphoneos/ArrayMap.framework"; sourceTree = "<group>"; };
 		BA725E0F1C48BF8300C03A2D /* ConclurerHook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ConclurerHook.framework; path = "../../../Library/Developer/Xcode/DerivedData/Au3dio-fzoobmuxboggsfcobbvnvisxustv/Build/Products/Debug-iphoneos/ConclurerHook.framework"; sourceTree = "<group>"; };
@@ -299,13 +301,13 @@
 		BA8D14E91D15DC17009C2FC2 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
+				BA8D14EA1D15E137009C2FC2 /* templates */,
 				BA54A6A61D18257600326A26 /* Goals */,
 				BA54A6A31D1824EE00326A26 /* Resources */,
 				BA54A6A01D1824A300326A26 /* Level */,
 				BA8D14F51D15FCAB009C2FC2 /* Scenario */,
 				BA8D14F21D15FBFA009C2FC2 /* Entity */,
 				BA8D14EB1D15E782009C2FC2 /* Behavior */,
-				BA8D14EA1D15E137009C2FC2 /* templates */,
 				BA8D14E41D15DBC2009C2FC2 /* Game */,
 			);
 			name = Plugins;
@@ -315,6 +317,7 @@
 			isa = PBXGroup;
 			children = (
 				BA3A408D1C48F79100AB0B95 /* ListComponentType.swift */,
+				BA54A6AB1D1964F800326A26 /* ComposedComponentType.swift */,
 			);
 			name = templates;
 			sourceTree = "<group>";
@@ -465,6 +468,7 @@
 				BAA723D31C553CCD00D5D629 /* PersistenceMode.swift in Sources */,
 				BA1A2A361C484D720005B550 /* LevelListPresenter.swift in Sources */,
 				BA1A2A4D1C484DA90005B550 /* IdPath.swift in Sources */,
+				BA54A6AC1D1964F800326A26 /* ComposedComponentType.swift in Sources */,
 				BA1A2A2E1C484D5F0005B550 /* GameResultPresenter.swift in Sources */,
 				BA1A2A451C484D960005B550 /* ComponentMap.swift in Sources */,
 				BA1A2A351C484D720005B550 /* LevelListInteractor.swift in Sources */,

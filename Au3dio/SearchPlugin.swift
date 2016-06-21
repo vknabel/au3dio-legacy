@@ -11,10 +11,13 @@ public final class SearchPlugin: Au3dioModulePlugin {
         module.componentMap.componentTypes["search"] = Component.self
     }
 
-    public struct Component: ComponentType, GameStateReducer {
+    public struct Component: ComponentType, GameStateReducer, EmptyDescendant {
+        public let idPath: IdPath
         // TODO: Implement
 
-        public init(composition: CompositionType, key: String) { }
+        public init(composition: CompositionType, idPath: IdPath) {
+            self.idPath = idPath
+        }
 
         public mutating func readData(rawData: RawDataType, map: ComponentMap.MapType, mode: PersistenceMode, module: Au3dioModule) throws {
         }

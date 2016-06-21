@@ -3,7 +3,7 @@
 public struct IdPath: CustomStringConvertible {
     internal var pathComponents: [String]
 
-    private init(components: [String]) {
+    public init(components: [String]) {
         pathComponents = components
     }
 }
@@ -44,5 +44,14 @@ public extension IdPath {
         return pathComponents.reduce("", combine: {
             $0.appendingPath($1)
         }).appendingFileExtension("json")
+    }
+
+    public func components(relativeTo parentPath: IdPath) -> [String] {
+        var (descendants, parents) = (self.pathComponents, parentPath.pathComponents)
+        while let descTop = descendants.first, let parentTop = parents.first where parentTop == descTop {
+            descendants.removeFirst()
+            parents.removeFirst()
+        }
+        return descendants
     }
 }

@@ -20,10 +20,13 @@ public final class TimelimitPlugin: Au3dioModulePlugin {
         module.componentMap.componentTypes["timelimit"] = Component.self
     }
 
-    public struct Component: ComponentType, GameStateReducer {
+    public struct Component: ComponentType, GameStateReducer, EmptyDescendant {
         private var timeout: NSTimeInterval = 60.0
+        public let idPath: IdPath
 
-        public init(composition: CompositionType, key: String) { }
+        public init(composition: CompositionType, idPath: IdPath) {
+            self.idPath = idPath
+        }
 
         public mutating func readData(rawData: RawDataType, map: ComponentMap.MapType, mode: PersistenceMode, module: Au3dioModule) throws {
             timeout = rawData.doubleValue

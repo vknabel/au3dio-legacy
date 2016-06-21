@@ -16,13 +16,13 @@ public final class LevelListPlugin: Au3dioModulePlugin {
         }
     }
 
-    public struct Component: ComponentType, ListComponentType {
-        public private(set) var idPath: IdPath
+    public struct Component: ComponentType, ListComponentType, DefaultDescendant {
         public var readModesExternal: [PersistenceMode: Bool] = [:]
         public var children: [CompositionType] = []
+        public let idPath: IdPath
 
-        public init(composition: CompositionType, key: String) {
-            idPath = IdPath(idPath: composition.idPath, suffix: key)
+        public init(composition: CompositionType, idPath: IdPath) {
+            self.idPath = idPath
         }
     }
 }

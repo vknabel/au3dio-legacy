@@ -20,7 +20,7 @@
             }
         ],
         "behavior": {
-            "timeout": 60,
+            "timelimit": 60,
             "search": {
                 "targets": [
                     0

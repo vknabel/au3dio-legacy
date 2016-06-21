@@ -124,7 +124,7 @@ public extension DataManager {
 /// Describes all possible errors that may occur with persistence.
 public enum FetchError: ErrorType {
     case InvalidFormat(Any, Log)
-    case UnknownComponent(String, Any, Log)
+    case UnknownComponent(String, [String], Any, Log)
     case FileNotFound(String, Log)
     case UndefinedMode
     case NotImplemented

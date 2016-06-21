@@ -10,6 +10,12 @@ public protocol ListComponentType: ComponentType {
 }
 
 public extension ListComponentType {
+
+    public func descendant(withComponent component: String) -> ModePersistable? {
+        guard let index = Int(component) where index < children.count else { return nil }
+        return children[index]
+    }
+
     public mutating func readData(rawData: RawDataType, map: ComponentMap.MapType, mode: PersistenceMode, module: Au3dioModule) throws {
         assertOneOf(rawData.type, [.Bool, .Array])
         switch rawData.type {

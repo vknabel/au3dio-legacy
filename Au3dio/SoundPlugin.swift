@@ -23,14 +23,17 @@ public final class SoundPlugin: CommonModulePlugin {
         module.componentMap.componentTypes["sound"] = Component.self
     }
 
-    public struct Component: ComponentType {
+    public struct Component: ComponentType, EmptyDescendant {
         public private(set) var source: String!
         public private(set) var position: Float?
         public private(set) var volume: Float?
         public private(set) var loops: Int?
         public private(set) var delay: NSTimeInterval?
+        public let idPath: IdPath
 
-        public init(composition: CompositionType, key: String) { }
+        public init(composition: CompositionType, idPath: IdPath) {
+            self.idPath = idPath
+        }
 
         public mutating func readData(rawData: RawDataType, map: ComponentMap.MapType, mode: PersistenceMode, module: Au3dioModule) throws {
             guard let dict: [String : JSON] = rawData.dictionary,
