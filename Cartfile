@@ -1,5 +1,5 @@
 github "vknabel/ArrayMap" "0.1.1"
-github "vknabel/StateMachine" "1.1.0"
+github "vknabel/StateMachine" "1.0.1"
 github "vknabel/AccessOperator" "0.1"
 github "vknabel/SwiftHook" "1.0.5"
 github "SwiftyJSON/SwiftyJSON" "2.3.3"
