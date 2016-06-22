@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BA003C651D1A963C00C137CD /* AccessOperator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA003C641D1A963C00C137CD /* AccessOperator.framework */; };
+		BA003C691D1ABAE700C137CD /* AccessOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA003C681D1ABAE700C137CD /* AccessOperators.swift */; };
 		BA1A29B21C4846F20005B550 /* Au3dio.h in Headers */ = {isa = PBXBuildFile; fileRef = BA1A29B11C4846F20005B550 /* Au3dio.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BA1A2A201C484D250005B550 /* Architecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1A2A1C1C484D250005B550 /* Architecture.swift */; };
 		BA1A2A211C484D250005B550 /* FoundationAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1A2A1D1C484D250005B550 /* FoundationAdditions.swift */; };
@@ -61,6 +62,7 @@
 
 /* Begin PBXFileReference section */
 		BA003C641D1A963C00C137CD /* AccessOperator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AccessOperator.framework; path = Carthage/Checkouts/AccessOperator/build/Debug/AccessOperator.framework; sourceTree = "<group>"; };
+		BA003C681D1ABAE700C137CD /* AccessOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessOperators.swift; sourceTree = "<group>"; };
 		BA1A29AE1C4846F20005B550 /* Au3dio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Au3dio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA1A29B11C4846F20005B550 /* Au3dio.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Au3dio.h; sourceTree = "<group>"; };
 		BA1A29B31C4846F20005B550 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 			children = (
 				BA1A29B11C4846F20005B550 /* Au3dio.h */,
 				BA578DF01CFB84A8008B637D /* CommonModule.swift */,
+				BA003C681D1ABAE700C137CD /* AccessOperators.swift */,
 				BA8D14E91D15DC17009C2FC2 /* Plugins */,
 				BAA42ED71C48E03F002F04C2 /* Play */,
 				BA1A2A3B1C484D860005B550 /* Au3dio */,
@@ -450,6 +453,7 @@
 				BA54A6AA1D1958FC00326A26 /* TimelimitPlugin.swift in Sources */,
 				BA2012441CF99EFE006E7330 /* Redux.swift in Sources */,
 				BAA42EDF1C48E085002F04C2 /* ScenarioListPlugin.swift in Sources */,
+				BA003C691D1ABAE700C137CD /* AccessOperators.swift in Sources */,
 				BA1A2A461C484D960005B550 /* GameInteractor.swift in Sources */,
 				BAE922521D14599D007E401D /* PositionPlugin.swift in Sources */,
 				BA8D14F41D15FC17009C2FC2 /* EntityListPlugin.swift in Sources */,
@@ -601,6 +605,7 @@
 				);
 				INFOPLIST_FILE = Au3dio/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.valentinknabel.Au3dio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -630,6 +635,7 @@
 				);
 				INFOPLIST_FILE = Au3dio/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.valentinknabel.Au3dio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
