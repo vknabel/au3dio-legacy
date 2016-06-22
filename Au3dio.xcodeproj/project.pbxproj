@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA003C651D1A963C00C137CD /* AccessOperator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA003C641D1A963C00C137CD /* AccessOperator.framework */; };
 		BA1A29B21C4846F20005B550 /* Au3dio.h in Headers */ = {isa = PBXBuildFile; fileRef = BA1A29B11C4846F20005B550 /* Au3dio.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BA1A2A201C484D250005B550 /* Architecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1A2A1C1C484D250005B550 /* Architecture.swift */; };
 		BA1A2A211C484D250005B550 /* FoundationAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1A2A1D1C484D250005B550 /* FoundationAdditions.swift */; };
@@ -59,6 +60,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BA003C641D1A963C00C137CD /* AccessOperator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AccessOperator.framework; path = Carthage/Checkouts/AccessOperator/build/Debug/AccessOperator.framework; sourceTree = "<group>"; };
 		BA1A29AE1C4846F20005B550 /* Au3dio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Au3dio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA1A29B11C4846F20005B550 /* Au3dio.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Au3dio.h; sourceTree = "<group>"; };
 		BA1A29B31C4846F20005B550 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA003C651D1A963C00C137CD /* AccessOperator.framework in Frameworks */,
 				BA2012461CF99F8E006E7330 /* RxSwift.framework in Frameworks */,
 				BACA90401C55234700516175 /* ConclurerLog.framework in Frameworks */,
 				BA725E1D1C48DDB200C03A2D /* SwiftyJSON.framework in Frameworks */,
@@ -168,6 +171,7 @@
 		BA1A29F41C4849950005B550 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
+				BA003C641D1A963C00C137CD /* AccessOperator.framework */,
 				BABF325C1CF9C78F00C88251 /* libObjectAL.a */,
 				BABF32581CF9C6D300C88251 /* ObjectAL.framework */,
 				BA2012451CF99F8E006E7330 /* RxSwift.framework */,
@@ -593,6 +597,7 @@
 					"$(PROJECT_DIR)/ConclurerLog/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/RxSwift/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/ObjectAL-for-iPhone/ObjectAL/build/Debug",
+					"$(PROJECT_DIR)/Carthage/Checkouts/AccessOperator/build/Debug",
 				);
 				INFOPLIST_FILE = Au3dio/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -621,6 +626,7 @@
 					"$(PROJECT_DIR)/ConclurerLog/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/RxSwift/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/ObjectAL-for-iPhone/ObjectAL/build/Debug",
+					"$(PROJECT_DIR)/Carthage/Checkouts/AccessOperator/build/Debug",
 				);
 				INFOPLIST_FILE = Au3dio/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";

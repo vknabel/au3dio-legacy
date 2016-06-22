@@ -8,6 +8,9 @@
       location = "container:Au3dioPlayground.playground">
    </FileRef>
    <FileRef
+      location = "group:Carthage/Checkouts/AccessOperator/AccessOperator.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Carthage/Checkouts/SwiftyJSON/SwiftyJSON.xcodeproj">
    </FileRef>
    <FileRef
