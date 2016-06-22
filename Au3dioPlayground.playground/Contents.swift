@@ -13,7 +13,7 @@ import XCPlayground
 import RxSwift
 import AccessOperator
 
-struct AccessComponent<T : ComponentType>: AccessOperator {
+struct AccessComponent<T: ComponentType>: AccessOperator {
     typealias Target = ComponentDictionaryType
     typealias Argument = T
     typealias Result = T
