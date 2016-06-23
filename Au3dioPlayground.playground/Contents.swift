@@ -45,7 +45,7 @@ nonOptionalStream.subscribeNext({ (environment: GameInteractor.Environment) -> V
     environment.stateObservable.subscribe(onNext: { game in
         Log.print(game, type: .Step)
         }, onCompleted: { 
-            Log.print("Finished Game", type: .Success)
+            // Log.print("Finished Game", type: .Success)
     }).addDisposableTo(environment.bag)
 }).addDisposableTo(bag)
 
