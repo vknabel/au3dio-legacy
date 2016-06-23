@@ -26,7 +26,6 @@ let paths: [PersistenceMode: String] = [
 let config = Configuration(persistenceModePaths: paths)
 let au3dio = Au3dioModule(configuration: config, debug: false)
 
-
 let environmentStream = au3dio.rootCompositionStream.map { (root) -> GameInteractor.Environment? in
     guard let level = root.findComponent(ScenarioListPlugin.Component.self)?[0]?.findComponent(LevelListPlugin.Component.self)?[0]
         else { return nil }
@@ -43,6 +42,9 @@ let nonOptionalStream = environmentStream.flatMap { (optEnv) -> Observable<GameI
 
 nonOptionalStream.subscribeNext({ (environment: GameInteractor.Environment) -> Void in
     Log.print("Game Environment created", type: .Step)
+    environment.stateObservable.subscribeNext({ game in
+        Log.print(game, type: .Step)
+    }).addDisposableTo(environment.bag)
 }).addDisposableTo(bag)
 
 XCPlaygroundPage.currentPage.needsIndefiniteExecution = true

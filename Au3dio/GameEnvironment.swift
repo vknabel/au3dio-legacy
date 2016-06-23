@@ -17,16 +17,24 @@ public extension GameInteractor {
         // TODO: Revalidate typealiases
         public typealias LevelComposition = CompositionType
         public typealias State = CompositionType
-        public typealias StateReducer = (State) -> State
+        public typealias StateReducer = (State) -> State?
 
         private let stateReducerSubject: PublishSubject<StateReducer> = PublishSubject()
-        private let stateSubject: PublishSubject<State> = PublishSubject()
-        private let bag: DisposeBag = DisposeBag()
+        private let stateSubject: BehaviorSubject<State>
+        public let bag: DisposeBag = DisposeBag()
+
+        public var stateObservable: Observable<State> {
+            return self.stateSubject.asObservable()
+        }
+        public var stateObserver: AnyObserver<State> {
+            return self.stateSubject.asObserver()
+        }
 
         internal init(level: LevelComposition) throws {
             guard let entities = level.findComponent(EntityListPlugin.Component.self),
                 let levelBehavior = level.findComponent(BehaviorPlugin.Component.self)
                 else { throw Error.MissingLevelComponent }
+            stateSubject = BehaviorSubject(value: level)
 
             var behaviors = entities.children.map { entity in
                 entity.findComponent(BehaviorPlugin.Component.self)
@@ -43,8 +51,10 @@ public extension GameInteractor {
                 }
             }
 
-            stateReducerSubject.flatMap({ reducer in
-                return self.stateSubject.map(reducer)
+            stateReducerSubject.flatMap({ (reducer: StateReducer) -> Observable<State> in
+                guard let result = reducer(try self.stateSubject.value())
+                    else { return Observable.empty() }
+                return Observable.just(result)
             }).subscribe(stateSubject).addDisposableTo(bag)
             stateSubject.takeLast(1).subscribeNext(complete).addDisposableTo(bag)
         }

@@ -1,31 +1,36 @@
 
 import AccessOperator
 
-struct AccessComponent<T: ComponentType>: AccessOperator {
-    typealias Target = ComponentDictionaryType
-    typealias Argument = T
-    typealias Result = T
+public struct AccessComponent<T: ComponentType>: AccessOperator {
+    public typealias Target = ComponentDictionaryType
+    public typealias Argument = T
+    public typealias Result = T
 
-    let argument: Argument
-    init(argument: Argument) {
-        self.argument = argument
+    public init(type: Argument.Type? = nil) {
     }
 
-    func update(inout target: Target?, withAccess: (inout result: Result?) -> Void) -> Void {
+    public func update(inout target: Target?, withAccess: (inout result: Result?) -> Void) -> Void {
 
     }
 }
-struct AccessIndex: AccessOperator {
-    typealias Target = ListComponentType
-    typealias Argument = Int
-    typealias Result = CompositionType
 
-    let argument: Argument
-    init(argument: Argument) {
+public extension AccessOperator where Self.Result == ComponentDictionaryType {
+    public func component<C: ComponentType>(type: C.Type? = nil) -> AnyAccessOperator<Target, C> {
+        return self.chaining(AccessComponent<C>())
+    }
+}
+
+public struct AccessIndex: AccessOperator {
+    public typealias Target = ListComponentType
+    public typealias Argument = Int
+    public typealias Result = CompositionType
+
+    public let argument: Argument
+    public init(argument: Argument) {
         self.argument = argument
     }
 
-    func update(inout target: Target?, withAccess: (inout result: Result?) -> Void) -> Void {
+    public func update(inout target: Target?, withAccess: (inout result: Result?) -> Void) -> Void {
         var result: Result? = target?.children[argument]
         withAccess(result: &result)
         if let result: Result = result {
@@ -35,17 +40,24 @@ struct AccessIndex: AccessOperator {
         }
     }
 }
-struct AccessKey: AccessOperator {
-    typealias Target = ComponentDictionaryType
-    typealias Argument = String
-    typealias Result = ComponentType
 
-    let argument: Argument
-    init(argument: Argument) {
+public extension AccessOperator where Self.Result == ListComponentType {
+    public func composition(index: Int) -> AnyAccessOperator<Target, CompositionType> {
+        return self.chaining(AccessIndex(argument: index))
+    }
+}
+
+public struct AccessKey: AccessOperator {
+    public typealias Target = ComponentDictionaryType
+    public typealias Argument = String
+    public typealias Result = ComponentType
+
+    public let argument: Argument
+    public init(argument: Argument) {
         self.argument = argument
     }
 
-    func update(inout target: Target?, withAccess: (inout result: Result?) -> Void) -> Void {
+    public func update(inout target: Target?, withAccess: (inout result: Result?) -> Void) -> Void {
         var result = target?.components[argument]
         withAccess(result: &result)
         if let result = result {
@@ -53,5 +65,11 @@ struct AccessKey: AccessOperator {
         } else {
             target?.components.removeValueForKey(argument)
         }
+    }
+}
+
+public extension AccessOperator where Self.Result == ComponentDictionaryType {
+    public func component(key: String) -> AnyAccessOperator<Target, ComponentType> {
+        return self.chaining(AccessKey(argument: key))
     }
 }
