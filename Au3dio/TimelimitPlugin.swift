@@ -49,6 +49,7 @@ public final class TimelimitPlugin: Au3dioModulePlugin {
                                 timelimitComponent.timelimit = max(timelimitComponent.timelimit - 1, 0)
                                 if old == timelimitComponent.timelimit {
                                     state = nil
+                                    observer.onCompleted()
                                 }
                             })
                         })

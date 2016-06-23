@@ -42,8 +42,10 @@ let nonOptionalStream = environmentStream.flatMap { (optEnv) -> Observable<GameI
 
 nonOptionalStream.subscribeNext({ (environment: GameInteractor.Environment) -> Void in
     Log.print("Game Environment created", type: .Step)
-    environment.stateObservable.subscribeNext({ game in
+    environment.stateObservable.subscribe(onNext: { game in
         Log.print(game, type: .Step)
+        }, onCompleted: { 
+            Log.print("Finished Game", type: .Success)
     }).addDisposableTo(environment.bag)
 }).addDisposableTo(bag)
 

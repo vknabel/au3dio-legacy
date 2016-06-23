@@ -20,7 +20,7 @@
             }
         ],
         "behavior": {
-            "timelimit": 60,
+            "timelimit": 3,
             "search": {
                 "targets": [
                     0

@@ -7,6 +7,7 @@
 //
 
 import RxSwift
+import ConclurerLog
 
 public extension GameInteractor {
     public final class Environment {
@@ -61,6 +62,7 @@ public extension GameInteractor {
 
         internal func complete(final state: State) {
             // TODO: Discuss wether this function is really needed.
+            Log.print("Completed with \(state)", type: .Success)
         }
     }
 }
